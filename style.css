@@ -190,7 +190,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Skill Badges rows */
+/* Creative Skill Badges rows */
 .skills-row {
     display: flex;
     flex-wrap: wrap;
@@ -207,9 +207,8 @@ body {
     color: #1a0813;
     box-shadow: 0 4px 0px rgba(0,0,0,0.15);
 }
-.badge-java { background: #f8a488; }
-.badge-sql { background: #5bc0be; }
-.badge-html { background: #a8dadc; }
+.badge-video { background: #f8a488; }
+.badge-design { background: #a8dadc; }
 .badge-canva { background: #e9c46a; }
 .badge-capcut { background: #f4a261; }
 
