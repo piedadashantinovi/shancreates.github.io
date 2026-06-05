@@ -237,7 +237,7 @@ body {
     line-height: 1.5;
 }
 
-/* --- EXPERIENCE BLOCKS --- */
+/* --- PROJECTS BLOCKS --- */
 .section-title-center {
     font-family: 'Fredoka', sans-serif;
     font-size: 2rem;
@@ -260,7 +260,7 @@ body {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
@@ -277,14 +277,14 @@ body {
 
 .panel-item h5 {
     font-family: 'Fredoka', sans-serif;
-    font-size: 1.15rem;
-    margin-bottom: 2px;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
 }
 
 .panel-date {
     font-size: 0.8rem;
     opacity: 0.8;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
@@ -292,7 +292,7 @@ body {
 
 .panel-item p {
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.5;
     opacity: 0.9;
 }
 
