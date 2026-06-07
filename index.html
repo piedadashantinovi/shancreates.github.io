@@ -91,32 +91,46 @@
         </main>
 
         <!-- PROJECTS SECTION -->
+<!-- MODERNIZED 3D PROJECTS CAROUSEL SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
-            <div class="dual-panels">
-                <!-- Left Pastel Pink Box: Core Development Projects -->
-                <div class="panel pink-panel">
-                    <div class="panel-item">
-                        <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
-                        <p class="panel-date">2026</p>
-                        <p>Served as primary programmer, managing the visual design implementations, core system architecture, and complete MySQL database integration. Engineered an interactive, visual <strong>cashier's product showcase</strong> interface as a signature capability.</p>
+            <div class="carousel-container">
+                <!-- Navigation Arrows -->
+                <button class="carousel-nav prev-btn" id="prevBtn">✦</button>
+                
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <!-- Card 1: POS & Sales System -->
+                    <div class="project-card pink-card active" data-index="0">
+                        <div class="card-inner">
+                            <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
+                            <p class="panel-date">2026</p>
+                            <p>Served as primary programmer, managing the visual design implementations, core system architecture, and complete MySQL database integration. Engineered an interactive, visual <strong>cashier's product showcase</strong> interface as a signature capability.</p>
+                        </div>
                     </div>
-                    <div class="panel-item">
-                        <h5>Digital Voting System</h5>
-                        <p class="panel-date">2025</p>
-                        <p>A focused academic software project built using clean, fundamental Java execution structures to simulate localized electoral processes, accommodating voting ladders up to the executive executive scale of Governor.</p>
+
+                    <!-- Card 2: Technical Information System Plan -->
+                    <div class="project-card window-card" data-index="1">
+                        <div class="card-inner">
+                            <h5>Information System Technological Plan (1998 Cafe)</h5>
+                            <p class="panel-date">2026</p>
+                            <p>Formulated a strategic technical proposal designed to upgrade a legacy workflow hampered by manual inventory calculations. Developed the architectural strategy to deploy a modern, centralized <strong>Cloud-Based ERP POS Inventory Management System</strong> to automate tracking operations.</p>
+                        </div>
                     </div>
+
+                    <!-- Card 3: Digital Voting System -->
+                    <div class="project-card pink-card" data-index="2">
+                        <div class="card-inner">
+                            <h5>Digital Voting System</h5>
+                            <p class="panel-date">2025</p>
+                            <p>A focused academic software project built using clean, fundamental Java execution structures to simulate localized electoral processes, accommodating voting ladders up to the executive scale of Governor.</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Right Dark Window Panel: Structural Architecture Project -->
-                <div class="panel window-panel">
-                    <div class="panel-item">
-                        <h5>Information System Technological Plan (1998 Cafe)</h5>
-                        <p class="panel-date">2026</p>
-                        <p>Formulated a strategic technical proposal designed to upgrade a legacy workflow hampered by manual inventory calculations. Developed the architectural strategy to deploy a modern, centralized <strong>Cloud-Based ERP POS Inventory Management System</strong> to automate tracking operations.</p>
-                    </div>
-                </div>
+                <button class="carousel-nav next-btn" id="nextBtn">✦</button>
             </div>
         </section>
 
