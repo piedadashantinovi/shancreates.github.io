@@ -307,6 +307,7 @@
             color: #fff;
         }
 
+        /* Changed background slightly to match your premium screenshot */
         .window-card {
             background: #2b1424;
             border: 2px solid rgba(255,255,255,0.08);
@@ -539,7 +540,7 @@
                 
                 <div class="carousel-track" id="carouselTrack">
                     
-                    <div class="project-card pink-card active" data-index="0">
+                    <div class="project-card pink-card" data-index="0">
                         <div class="card-inner">
                             <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
                             <p class="panel-date">2026</p>
@@ -591,7 +592,9 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const track = document.getElementById('carouselTrack');
-        let currentIndex = 0;
+        
+        // CHANGED: Initial index set to 1 so the gray/burgundy card loads in the center by default!
+        let currentIndex = 1;
 
         let touchStartX = 0;
         let touchEndX = 0;
@@ -653,6 +656,7 @@
             }
         }
 
+        // Initialize display configuration on load
         updateCarousel();
     </script>
 
