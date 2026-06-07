@@ -5,21 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="portfolio-wrapper">
         
-        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
                 <h1 class="main-title">PORT<br><span class="highlight-title">FOLIO</span></h1>
                 <p class="tagline">Welcome to my humble home!</p>
             </div>
-            <!-- Decorative house graphic placeholder -->
             <div class="house-graphic">
                 <div class="roof"></div>
                 <div class="house-body">
@@ -29,13 +26,10 @@
             </div>
         </header>
 
-        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             
-            <!-- Left Profile Card -->
             <div class="profile-sidebar">
                 <div class="photo-frame">
-                    <!-- Automatically loads your uploaded picture -->
                     <img src="profile.jpeg" alt="Piedad Ashanti Novi" class="profile-image">
                     <span class="sticker tag-blue">Video Editor</span>
                     <span class="sticker tag-pink">Designer</span>
@@ -51,7 +45,6 @@
                 </div>
             </div>
 
-            <!-- Right Bio & Skills Card -->
             <div class="bio-content">
                 <h2 class="greet-title">Hello!</h2>
                 <p class="bio-text">
@@ -90,18 +83,14 @@
             </div>
         </main>
 
-        <!-- PROJECTS SECTION -->
-<!-- MODERNIZED 3D PROJECTS CAROUSEL SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
             <div class="carousel-container">
-                <!-- Navigation Arrows -->
                 <button class="carousel-nav prev-btn" id="prevBtn">✦</button>
                 
                 <div class="carousel-track" id="carouselTrack">
                     
-                    <!-- Card 1: POS & Sales System -->
                     <div class="project-card pink-card active" data-index="0">
                         <div class="card-inner">
                             <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
@@ -110,7 +99,6 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: Technical Information System Plan -->
                     <div class="project-card window-card" data-index="1">
                         <div class="card-inner">
                             <h5>Information System Technological Plan (1998 Cafe)</h5>
@@ -119,7 +107,6 @@
                         </div>
                     </div>
 
-                    <!-- Card 3: Digital Voting System -->
                     <div class="project-card pink-card" data-index="2">
                         <div class="card-inner">
                             <h5>Digital Voting System</h5>
@@ -134,7 +121,6 @@
             </div>
         </section>
 
-        <!-- TABLE OF CONTENTS (Navigation / Project Showcase) -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             
@@ -151,6 +137,86 @@
         </footer>
 
     </div>
+
+    <script>
+        const cards = Array.from(document.querySelectorAll('.project-card'));
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const track = document.getElementById('carouselTrack');
+        let currentIndex = 0;
+
+        // Variables to keep track of touch coordinates
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function updateCarousel() {
+            cards.forEach((card, i) => {
+                // Clear previous state classes
+                card.classList.remove('active', 'left-aside', 'right-aside', 'hidden');
+                
+                if (i === currentIndex) {
+                    card.classList.add('active');
+                } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
+                    card.classList.add('left-aside');
+                } else if (i === (currentIndex + 1) % cards.length) {
+                    card.classList.add('right-aside');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Functions to shift indexes safely
+        function moveNext() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCarousel();
+        }
+
+        function movePrev() {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        }
+
+        // Button Click Listeners
+        nextBtn.addEventListener('click', moveNext);
+        prevBtn.addEventListener('click', movePrev);
+
+        // Click a background card directly to bring it to center focus
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (currentIndex !== index) {
+                    currentIndex = index;
+                    updateCarousel();
+                }
+            });
+        });
+
+        /* --- MOBILE TOUCH / SWIPE GESTURES --- */
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, { passive: true });
+
+        function handleSwipeGesture() {
+            const swipeThreshold = 50; // Minimum swipe distance in pixels
+            
+            // Swiped Left -> View Next Project
+            if (touchStartX - touchEndX > swipeThreshold) {
+                moveNext();
+            }
+            // Swiped Right -> View Previous Project
+            if (touchEndX - touchStartX > swipeThreshold) {
+                movePrev();
+            }
+        }
+
+        // Initialize display configuration on load
+        updateCarousel();
+    </script>
 
 </body>
 </html>
