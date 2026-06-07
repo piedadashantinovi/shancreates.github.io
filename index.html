@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
+    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -246,7 +247,7 @@
             line-height: 1.5;
         }
 
-        /* --- MODERNIZED 3D PROJECTS CAROUSEL --- */
+        /* --- 3D PROJECTS CAROUSEL --- */
         .experience-section {
             width: 100%;
             position: relative;
@@ -262,7 +263,6 @@
             text-align: center;
         }
 
-        /* Container defining the perspective sandbox */
         .carousel-container {
             display: flex;
             align-items: center;
@@ -271,11 +271,10 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            height: 390px;
-            perspective: 1000px; /* Gives the 3D depth field */
+            height: 410px;
+            perspective: 1000px;
         }
 
-        /* The track holding our cards layered */
         .carousel-track {
             position: relative;
             width: 100%;
@@ -285,41 +284,52 @@
             align-items: center;
         }
 
-        /* Base style for every project card */
+        /* Base panel style */
         .project-card {
             position: absolute;
-            width: 330px;
-            height: 360px;
+            width: 340px;
+            height: 385px;
             border-radius: 24px;
-            padding: 24px;
+            padding: 26px;
             box-shadow: 0 12px 24px rgba(0,0,0,0.3);
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s ease;
             cursor: pointer;
             user-select: none;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: space-between;
+            overflow: hidden; /* Encapsulates the unique background motifs */
         }
 
-        /* Coloring matched to original layout */
+        /* Card color variants with modern edge styling */
         .pink-card {
             background: #ec527b;
             color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .window-card {
             background: #2b1424;
-            border: 2px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 3px solid #ec527b; /* Premium accent line */
             color: #e6dfd3;
         }
 
-        /* --- UPGRADED INTERIOR PANEL UI --- */
+        /* --- EXTRA DESIGN ELEMENTS INSIDE THE PANELS --- */
+        .card-inner {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
         .card-header-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 12px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .card-inner h5 {
@@ -329,7 +339,6 @@
             font-weight: 600;
         }
 
-        /* Translucent year pills */
         .card-year-badge {
             font-family: 'Fredoka', sans-serif;
             font-size: 0.75rem;
@@ -339,7 +348,7 @@
             white-space: nowrap;
         }
         .pink-card .card-year-badge {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             color: #fff;
         }
         .window-card .card-year-badge {
@@ -347,45 +356,104 @@
             color: #fff;
         }
 
-        /* Creative Role Strip */
+        /* Role Line with modern status layout */
         .card-role-line {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             margin-bottom: 14px;
-            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .card-role-line::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
         }
         .pink-card .card-role-line { color: #f7d070; }
+        .pink-card .card-role-line::before { background: #f7d070; }
+        
         .window-card .card-role-line { color: #ec527b; }
+        .window-card .card-role-line::before { background: #ec527b; }
 
-        /* Description Paragraphs */
+        /* Description Styling */
         .card-inner p.card-desc {
-            font-size: 0.88rem;
-            line-height: 1.5;
+            font-size: 0.86rem;
+            line-height: 1.55;
             opacity: 0.95;
             text-align: justify;
+            margin-bottom: auto; /* Pushes the tags neatly to the baseline */
         }
 
-        /* --- THE 3D STATES --- */
+        /* Modern Tech Stack Micro-Pills inside panels */
+        .card-tech-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pink-card .card-tech-wrapper {
+            border-top-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tech-pill {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            letter-spacing: 0.3px;
+        }
+        .pink-card .tech-pill {
+            background: rgba(0, 0, 0, 0.15);
+            color: #fff;
+        }
+        .window-card .tech-pill {
+            background: rgba(236, 82, 123, 0.1);
+            color: #ec527b;
+        }
+
+        /* Premium Interface Code Motif watermark */
+        .card-motif {
+            position: absolute;
+            bottom: -10px;
+            right: -5px;
+            font-family: monospace;
+            font-size: 5.5rem;
+            font-weight: 900;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            line-height: 1;
+        }
+        .pink-card .card-motif { color: rgba(255, 255, 255, 0.05); }
+        .window-card .card-motif { color: rgba(255, 255, 255, 0.02); }
+
+        /* --- THE 3D CAROUSEL STATES --- */
         .project-card.active {
             transform: translateX(0) scale(1.05) translateZ(50px);
             opacity: 1;
             z-index: 5;
             pointer-events: auto;
-            box-shadow: 0 15px 35px rgba(236, 82, 123, 0.3);
+            box-shadow: 0 15px 35px rgba(236, 82, 123, 0.25);
         }
 
         .project-card.left-aside {
             transform: translateX(-180px) scale(0.85) rotateY(15deg) translateZ(-50px);
-            opacity: 0.4;
+            opacity: 0.35;
             z-index: 2;
             pointer-events: none;
         }
 
         .project-card.right-aside {
             transform: translateX(180px) scale(0.85) rotateY(-15deg) translateZ(-50px);
-            opacity: 0.4;
+            opacity: 0.35;
             z-index: 2;
             pointer-events: none;
         }
@@ -398,7 +466,7 @@
         }
 
         .project-card.active:hover {
-            transform: translateX(0) scale(1.08) translateZ(70px);
+            transform: translateX(0) scale(1.07) translateZ(60px);
         }
 
         /* Navigation Buttons Styling */
@@ -424,10 +492,11 @@
         }
 
         @media(max-width: 600px) {
+            .carousel-container { height: 430px; }
             .project-card {
-                width: 270px;
-                height: 340px;
-                padding: 18px;
+                width: 280px;
+                height: 405px;
+                padding: 20px;
             }
             .project-card.left-aside {
                 transform: translateX(-110px) scale(0.8) translateZ(-50px);
@@ -500,12 +569,14 @@
 
     <div class="portfolio-wrapper">
         
+        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
                 <h1 class="main-title">PORT<br><span class="highlight-title">FOLIO</span></h1>
                 <p class="tagline">Welcome to my humble home!</p>
             </div>
+            <!-- Decorative house graphic placeholder -->
             <div class="house-graphic">
                 <div class="roof"></div>
                 <div class="house-body">
@@ -515,8 +586,10 @@
             </div>
         </header>
 
+        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             
+            <!-- Left Profile Card -->
             <div class="profile-sidebar">
                 <div class="photo-frame">
                     <img src="profile.jpeg" alt="Piedad Ashanti Novi" class="profile-image">
@@ -534,6 +607,7 @@
                 </div>
             </div>
 
+            <!-- Right Bio & Skills Card -->
             <div class="bio-content">
                 <h2 class="greet-title">Hello!</h2>
                 <p class="bio-text">
@@ -572,6 +646,7 @@
             </div>
         </main>
 
+        <!-- MODERNIZED 3D PROJECTS CAROUSEL SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
@@ -580,36 +655,57 @@
                 
                 <div class="carousel-track" id="carouselTrack">
                     
+                    <!-- Card 1: POS & Sales System -->
                     <div class="project-card pink-card" data-index="0">
+                        <div class="card-motif">&lt;/&gt;</div>
                         <div class="card-inner">
                             <div class="card-header-row">
                                 <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
                                 <span class="card-year-badge">2026</span>
                             </div>
-                            <div class="card-role-line">Role: Primary Programmer</div>
+                            <div class="card-role-line">Primary Programmer</div>
                             <p class="card-desc">Managed the comprehensive visual design implementations, core system architecture, and custom MySQL database integration. Engineered an interactive, visual <strong>cashier's product showcase</strong> interface as a signature capability.</p>
+                            <div class="card-tech-wrapper">
+                                <span class="tech-pill">Java Desktop</span>
+                                <span class="tech-pill">MySQL</span>
+                                <span class="tech-pill">UI Design</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Card 2: Technical Information System Plan -->
                     <div class="project-card window-card" data-index="1">
+                        <div class="card-motif">💡</div>
                         <div class="card-inner">
                             <div class="card-header-row">
                                 <h5>Information System Technological Plan</h5>
                                 <span class="card-year-badge">2026</span>
                             </div>
-                            <div class="card-role-line">(1998 Cafe) • Strategy</div>
+                            <div class="card-role-line">1998 Cafe • Strategy</div>
                             <p class="card-desc">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized <strong>Cloud-Based ERP POS Inventory Management System</strong> to automate tracking operations.</p>
+                            <div class="card-tech-wrapper">
+                                <span class="tech-pill">ERP Systems</span>
+                                <span class="tech-pill">Cloud Strategy</span>
+                                <span class="tech-pill">Docs</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Card 3: Digital Voting System -->
                     <div class="project-card pink-card" data-index="2">
+                        <div class="card-motif">&amp;</div>
                         <div class="card-inner">
                             <div class="card-header-row">
                                 <h5>Digital Voting System Simulation</h5>
                                 <span class="card-year-badge">2025</span>
                             </div>
-                            <div class="card-role-line">Role: Developer</div>
+                            <div class="card-role-line">System Developer</div>
                             <p class="card-desc">A focused software project built using clean, fundamental Java execution structures to accurately simulate localized electoral processes, accommodating complex voting ladders up to the executive scale of Governor.</p>
+                            <div class="card-tech-wrapper">
+                                <span class="tech-pill">Java CLI</span>
+                                <span class="tech-pill">Algorithms</span>
+                                <span class="tech-pill">Simulation</span>
+                            </div>
                         </div>
                     </div>
 
@@ -619,6 +715,7 @@
             </div>
         </section>
 
+        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             
@@ -636,15 +733,14 @@
 
     </div>
 
+    <!-- CAROUSEL CONTROLLER SCRIPT -->
     <script>
         const cards = Array.from(document.querySelectorAll('.project-card'));
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const track = document.getElementById('carouselTrack');
         
-        // Initial index set to 1 so the gray/burgundy card loads in the center by default!
         let currentIndex = 1;
-
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -705,7 +801,6 @@
             }
         }
 
-        // Initialize display configuration on load
         updateCarousel();
     </script>
 
