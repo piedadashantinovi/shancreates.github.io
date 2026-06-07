@@ -271,7 +271,7 @@
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            height: 380px;
+            height: 390px;
             perspective: 1000px; /* Gives the 3D depth field */
         }
 
@@ -288,17 +288,17 @@
         /* Base style for every project card */
         .project-card {
             position: absolute;
-            width: 320px;
-            height: 340px;
+            width: 330px;
+            height: 360px;
             border-radius: 24px;
-            padding: 25px;
+            padding: 24px;
             box-shadow: 0 12px 24px rgba(0,0,0,0.3);
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s ease;
             cursor: pointer;
             user-select: none;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         /* Coloring matched to original layout */
@@ -307,25 +307,64 @@
             color: #fff;
         }
 
-        /* Changed background slightly to match your premium screenshot */
         .window-card {
             background: #2b1424;
             border: 2px solid rgba(255,255,255,0.08);
             color: #e6dfd3;
         }
 
-        /* Inner Text Layouts */
-        .card-inner h5 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-            line-height: 1.3;
+        /* --- UPGRADED INTERIOR PANEL UI --- */
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
-        .card-inner p {
-            font-size: 0.9rem;
+        .card-inner h5 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        /* Translucent year pills */
+        .card-year-badge {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .pink-card .card-year-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .window-card .card-year-badge {
+            background: #ec527b;
+            color: #fff;
+        }
+
+        /* Creative Role Strip */
+        .card-role-line {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            opacity: 0.9;
+        }
+        .pink-card .card-role-line { color: #f7d070; }
+        .window-card .card-role-line { color: #ec527b; }
+
+        /* Description Paragraphs */
+        .card-inner p.card-desc {
+            font-size: 0.88rem;
             line-height: 1.5;
             opacity: 0.95;
+            text-align: justify;
         }
 
         /* --- THE 3D STATES --- */
@@ -386,14 +425,15 @@
 
         @media(max-width: 600px) {
             .project-card {
-                width: 260px;
-                height: 320px;
+                width: 270px;
+                height: 340px;
+                padding: 18px;
             }
             .project-card.left-aside {
-                transform: translateX(-100px) scale(0.8) translateZ(-50px);
+                transform: translateX(-110px) scale(0.8) translateZ(-50px);
             }
             .project-card.right-aside {
-                transform: translateX(100px) scale(0.8) translateZ(-50px);
+                transform: translateX(110px) scale(0.8) translateZ(-50px);
             }
         }
 
@@ -542,25 +582,34 @@
                     
                     <div class="project-card pink-card" data-index="0">
                         <div class="card-inner">
-                            <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
-                            <p class="panel-date">2026</p>
-                            <p>Served as primary programmer, managing the visual design implementations, core system architecture, and complete MySQL database integration. Engineered an interactive, visual <strong>cashier's product showcase</strong> interface as a signature capability.</p>
+                            <div class="card-header-row">
+                                <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
+                                <span class="card-year-badge">2026</span>
+                            </div>
+                            <div class="card-role-line">Role: Primary Programmer</div>
+                            <p class="card-desc">Managed the comprehensive visual design implementations, core system architecture, and custom MySQL database integration. Engineered an interactive, visual <strong>cashier's product showcase</strong> interface as a signature capability.</p>
                         </div>
                     </div>
 
                     <div class="project-card window-card" data-index="1">
                         <div class="card-inner">
-                            <h5>Information System Technological Plan (1998 Cafe)</h5>
-                            <p class="panel-date">2026</p>
-                            <p>Formulated a strategic technical proposal designed to upgrade a legacy workflow hampered by manual inventory calculations. Developed the architectural strategy to deploy a modern, centralized <strong>Cloud-Based ERP POS Inventory Management System</strong> to automate tracking operations.</p>
+                            <div class="card-header-row">
+                                <h5>Information System Technological Plan</h5>
+                                <span class="card-year-badge">2026</span>
+                            </div>
+                            <div class="card-role-line">(1998 Cafe) • Strategy</div>
+                            <p class="card-desc">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized <strong>Cloud-Based ERP POS Inventory Management System</strong> to automate tracking operations.</p>
                         </div>
                     </div>
 
                     <div class="project-card pink-card" data-index="2">
                         <div class="card-inner">
-                            <h5>Digital Voting System</h5>
-                            <p class="panel-date">2025</p>
-                            <p>A focused academic software project built using clean, fundamental Java execution structures to simulate localized electoral processes, accommodating voting ladders up to the executive scale of Governor.</p>
+                            <div class="card-header-row">
+                                <h5>Digital Voting System Simulation</h5>
+                                <span class="card-year-badge">2025</span>
+                            </div>
+                            <div class="card-role-line">Role: Developer</div>
+                            <p class="card-desc">A focused software project built using clean, fundamental Java execution structures to accurately simulate localized electoral processes, accommodating complex voting ladders up to the executive scale of Governor.</p>
                         </div>
                     </div>
 
@@ -593,7 +642,7 @@
         const nextBtn = document.getElementById('nextBtn');
         const track = document.getElementById('carouselTrack');
         
-        // CHANGED: Initial index set to 1 so the gray/burgundy card loads in the center by default!
+        // Initial index set to 1 so the gray/burgundy card loads in the center by default!
         let currentIndex = 1;
 
         let touchStartX = 0;
