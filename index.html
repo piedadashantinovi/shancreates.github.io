@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
+    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -237,7 +238,7 @@
             color: #f7d070;
             margin-bottom: 8px;
             font-size: 1.15rem;
-        }
+            }
 
         .skill-col ul {
             list-style-position: inside;
@@ -283,7 +284,6 @@
             align-items: center;
         }
 
-        /* Base panel style */
         .project-card {
             position: absolute;
             width: 340px;
@@ -300,22 +300,20 @@
             overflow: hidden;
         }
 
-        /* Card variants with matching boundary lines */
         .pink-card {
             background: #ec527b;
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-top: 3px solid rgba(255, 255, 255, 0.6); /* Sleek translucent white top boundary */
+            border-top: 3px solid rgba(255, 255, 255, 0.6);
         }
 
         .window-card {
             background: #2b1424;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-top: 3px solid #ec527b; /* Pink accent top boundary */
+            border-top: 3px solid #ec527b;
             color: #e6dfd3;
         }
 
-        /* --- INTERIOR PANEL UI --- */
         .card-inner {
             position: relative;
             z-index: 2;
@@ -356,7 +354,6 @@
             color: #fff;
         }
 
-        /* Role Line with status dot layout */
         .card-role-line {
             font-size: 0.78rem;
             font-weight: 700;
@@ -380,7 +377,6 @@
         .window-card .card-role-line { color: #ec527b; }
         .window-card .card-role-line::before { background: #ec527b; }
 
-        /* Description Styling */
         .card-inner p.card-desc {
             font-size: 0.86rem;
             line-height: 1.55;
@@ -389,7 +385,6 @@
             margin-bottom: auto;
         }
 
-        /* Tech Stack Micro-Pills inside panels */
         .card-tech-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -398,9 +393,7 @@
             padding-top: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .pink-card .card-tech-wrapper {
-            border-top-color: rgba(255, 255, 255, 0.2);
-        }
+        .pink-card .card-tech-wrapper { border-top-color: rgba(255, 255, 255, 0.2); }
 
         .tech-pill {
             font-size: 0.72rem;
@@ -409,16 +402,9 @@
             border-radius: 6px;
             letter-spacing: 0.3px;
         }
-        .pink-card .tech-pill {
-            background: rgba(0, 0, 0, 0.15);
-            color: #fff;
-        }
-        .window-card .tech-pill {
-            background: rgba(236, 82, 123, 0.1);
-            color: #ec527b;
-        }
+        .pink-card .tech-pill { background: rgba(0, 0, 0, 0.15); color: #fff; }
+        .window-card .tech-pill { background: rgba(236, 82, 123, 0.1); color: #ec527b; }
 
-        /* Interface background motifs */
         .card-motif {
             position: absolute;
             bottom: -10px;
@@ -434,7 +420,6 @@
         .pink-card .card-motif { color: rgba(255, 255, 255, 0.05); }
         .window-card .card-motif { color: rgba(255, 255, 255, 0.02); }
 
-        /* --- THE 3D CAROUSEL STATES --- */
         .project-card.active {
             transform: translateX(0) scale(1.05) translateZ(50px);
             opacity: 1;
@@ -443,32 +428,11 @@
             box-shadow: 0 15px 35px rgba(236, 82, 123, 0.25);
         }
 
-        .project-card.left-aside {
-            transform: translateX(-180px) scale(0.85) rotateY(15deg) translateZ(-50px);
-            opacity: 0.35;
-            z-index: 2;
-            pointer-events: none;
-        }
+        .project-card.left-aside { transform: translateX(-180px) scale(0.85) rotateY(15deg) translateZ(-50px); opacity: 0.35; z-index: 2; pointer-events: none; }
+        .project-card.right-aside { transform: translateX(180px) scale(0.85) rotateY(-15deg) translateZ(-50px); opacity: 0.35; z-index: 2; pointer-events: none; }
+        .project-card.hidden { transform: scale(0.5) translateZ(-200px); opacity: 0; z-index: 0; pointer-events: none; }
+        .project-card.active:hover { transform: translateX(0) scale(1.07) translateZ(60px); }
 
-        .project-card.right-aside {
-            transform: translateX(180px) scale(0.85) rotateY(-15deg) translateZ(-50px);
-            opacity: 0.35;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .project-card.hidden {
-            transform: scale(0.5) translateZ(-200px);
-            opacity: 0;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .project-card.active:hover {
-            transform: translateX(0) scale(1.07) translateZ(60px);
-        }
-
-        /* Navigation Buttons Styling */
         .carousel-nav {
             background: #ec527b;
             color: #fff;
@@ -485,24 +449,217 @@
             box-shadow: 0 4px 0px rgba(0,0,0,0.2);
             transition: background 0.2s;
         }
-
-        .carousel-nav:hover {
-            background: #ba3559;
-        }
+        .carousel-nav:hover { background: #ba3559; }
 
         @media(max-width: 600px) {
             .carousel-container { height: 430px; }
-            .project-card {
-                width: 280px;
-                height: 405px;
-                padding: 20px;
+            .project-card { width: 280px; height: 405px; padding: 20px; }
+            .project-card.left-aside { transform: translateX(-110px) scale(0.8) translateZ(-50px); }
+            .project-card.right-aside { transform: translateX(110px) scale(0.8) translateZ(-50px); }
+        }
+
+        /* --- CREATIVE CERTIFICATES BENTO GALLERY --- */
+        .awards-section {
+            padding: 20px 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        @media(min-width: 650px) {
+            .bento-grid {
+                grid-template-columns: 1.2fr 1fr;
+                grid-template-rows: auto auto;
             }
-            .project-card.left-aside {
-                transform: translateX(-110px) scale(0.8) translateZ(-50px);
+            .trophy-card {
+                grid-row: span 2;
             }
-            .project-card.right-aside {
-                transform: translateX(110px) scale(0.8) translateZ(-50px);
-            }
+        }
+
+        /* Bento Panel Styles with cover styles ready for backgrounds */
+        .bento-card {
+            border-radius: 24px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(236, 82, 123, 0.25);
+            border-color: rgba(236, 82, 123, 0.6) !important;
+        }
+
+        /* Card-specific overlay borders */
+        .trophy-card { border: 2px solid #f7d070; }
+        .standard-bento { border: 2px solid rgba(255, 255, 255, 0.08); }
+        
+        /* Animated aura for the trophy card */
+        .trophy-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(247, 208, 112, 0.1), transparent, rgba(236, 82, 123, 0.15), transparent);
+            animation: rotateAura 12s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes rotateAura {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .bento-content-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bento-tag {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.72rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .tag-gold { background: #f7d070; color: #1a0813; }
+        .tag-purple { background: #8e44ad; color: #fff; }
+        .tag-red { background: #e74c3c; color: #fff; }
+
+        .bento-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .bento-card p {
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .bento-footer-row {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bento-institution {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ec527b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(26, 8, 19, 0.7);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .view-badge-btn {
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.15);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s, color 0.2s;
+            backdrop-filter: blur(4px);
+        }
+        .bento-card:hover .view-badge-btn {
+            background: #ec527b;
+            color: #fff;
+        }
+
+        /* --- LIGHTBOX MODAL OVERLAY --- */
+        .credential-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(26, 8, 19, 0.95);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-container {
+            max-width: 700px;
+            width: 100%;
+            background: #2b1424;
+            border-radius: 28px;
+            border: 2px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .credential-modal.modal-open { display: flex; }
+        .credential-modal.modal-open .modal-container { transform: scale(1); }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: #ec527b;
+            color: white;
+            border: none;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-image-view {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain;
+            background: #15050f;
+            display: block;
+        }
+
+        .modal-caption {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .modal-caption h4 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.25rem;
+            color: #f7d070;
+            margin-bottom: 4px;
+        }
+
+        .modal-caption p {
+            font-size: 0.88rem;
+            color: #cbd5e1;
         }
 
         /* --- TABLE OF CONTENT COMPONENT --- */
@@ -519,9 +676,7 @@
             margin-bottom: 30px;
         }
 
-        .toc-title span {
-            color: #f7d070;
-        }
+        .toc-title span { color: #f7d070; }
 
         .toc-buttons {
             display: grid;
@@ -568,6 +723,7 @@
 
     <div class="portfolio-wrapper">
         
+        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
@@ -583,11 +739,12 @@
             </div>
         </header>
 
+        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
-            
             <div class="profile-sidebar">
                 <div class="photo-frame">
-                    <img src="profile.jpeg" alt="Piedad Ashanti Novi" class="profile-image">
+                    <!-- Route to images folder -->
+                    <img src="images/profile.jpeg" alt="Piedad Ashanti Novi" class="profile-image">
                     <span class="sticker tag-blue">Video Editor</span>
                     <span class="sticker tag-pink">Designer</span>
                 </div>
@@ -640,6 +797,7 @@
             </div>
         </main>
 
+        <!-- PROJECTS CAROUSEL SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
@@ -647,7 +805,6 @@
                 <button class="carousel-nav prev-btn" id="prevBtn">✦</button>
                 
                 <div class="carousel-track" id="carouselTrack">
-                    
                     <div class="project-card pink-card" data-index="0">
                         <div class="card-motif">&lt;/&gt;</div>
                         <div class="card-inner">
@@ -698,16 +855,81 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <button class="carousel-nav next-btn" id="nextBtn">✦</button>
             </div>
         </section>
 
+        <!-- CREATIVE CERTIFICATES & AWARDS BENTO GALLERY -->
+        <section class="awards-section">
+            <h2 class="section-title-center">Awards & Recognition</h2>
+            
+            <div class="bento-grid">
+                
+                <!-- Bento Block 1: Main Plaque Trophy (Verbatim Reference: received_1511483030435458.jpeg) -->
+                <div class="bento-card trophy-card" 
+                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('images/received_1511483030435458.jpeg');"
+                     onclick="openCredential('images/received_1511483030435458.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
+                    <div class="bento-content-inner">
+                        <span class="bento-tag tag-gold">🏆 Champion Trophy</span>
+                        <h3>Bytesize Quiz Bee Plaque</h3>
+                        <p>Awarded for emerging as the absolute Grand Champion in the intensive technical Quiz Bee arena at the ByteFest 3.0 event.</p>
+                    </div>
+                    <div class="bento-footer-row">
+                        <span class="bento-institution">DNSC Local Student Government</span>
+                        <div class="view-badge-btn">✨</div>
+                    </div>
+                </div>
+
+                <!-- Bento Block 2: Quiz Certificate (Verbatim Reference: received_1486822776514477.jpeg) -->
+                <div class="bento-card standard-bento" 
+                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('images/received_1486822776514477.jpeg');"
+                     onclick="openCredential('images/received_1486822776514477.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
+                    <div class="bento-content-inner">
+                        <span class="bento-tag tag-purple">🎓 Certificate</span>
+                        <h3>Bytesize Quiz Bee Winner</h3>
+                        <p>Official Institutional recognition for securing the top honors during the flagship academic computation rally.</p>
+                    </div>
+                    <div class="bento-footer-row">
+                        <span class="bento-institution">Institute of Computing</span>
+                        <div class="view-badge-btn">✦</div>
+                    </div>
+                </div>
+
+                <!-- Bento Block 3: MTV Parody Certificate (Verbatim Reference: received_850019591495421.webp) -->
+                <div class="bento-card standard-bento" 
+                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('images/received_850019591495421.webp');"
+                     onclick="openCredential('images/received_850019591495421.webp', 'Best MTV Spoof Award', 'Recognized for high structural execution and humorous parody direction.')">
+                    <div class="bento-content-inner">
+                        <span class="bento-tag tag-red">🎬 Media Production</span>
+                        <h3>Best MTV Spoof: "What is Love"</h3>
+                        <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
+                    </div>
+                    <div class="bento-footer-row">
+                        <span class="bento-institution">Multimedia Festival</span>
+                        <div class="view-badge-btn">✦</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LIGHTBOX MODAL CONTAINER -->
+        <div class="credential-modal" id="credModal" onclick="closeCredential()">
+            <div class="modal-container" onclick="event.stopPropagation()">
+                <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
+                <img src="" id="modalImg" alt="Credential View" class="modal-image-view">
+                <div class="modal-caption">
+                    <h4 id="modalTitle">Credential Title</h4>
+                    <p id="modalDesc">Detailed description string text.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
-            
             <div class="toc-buttons">
                 <a href="#" class="capsule-btn">1. BRAND IDENTITY</a>
                 <a href="#" class="capsule-btn">2. VIDEO REELS</a>
@@ -722,7 +944,9 @@
 
     </div>
 
+    <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
+        // --- 3D PROJECT CAROUSEL SYSTEM ---
         const cards = Array.from(document.querySelectorAll('.project-card'));
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
@@ -735,7 +959,6 @@
         function updateCarousel() {
             cards.forEach((card, i) => {
                 card.classList.remove('active', 'left-aside', 'right-aside', 'hidden');
-                
                 if (i === currentIndex) {
                     card.classList.add('active');
                 } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
@@ -748,15 +971,8 @@
             });
         }
 
-        function moveNext() {
-            currentIndex = (currentIndex + 1) % cards.length;
-            updateCarousel();
-        }
-
-        function movePrev() {
-            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-            updateCarousel();
-        }
+        function moveNext() { currentIndex = (currentIndex + 1) % cards.length; updateCarousel(); }
+        function movePrev() { currentIndex = (currentIndex - 1 + cards.length) % cards.length; updateCarousel(); }
 
         nextBtn.addEventListener('click', moveNext);
         prevBtn.addEventListener('click', movePrev);
@@ -770,26 +986,33 @@
             });
         });
 
-        track.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        track.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipeGesture();
-        }, { passive: true });
+        track.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        track.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipeGesture(); }, { passive: true });
 
         function handleSwipeGesture() {
             const swipeThreshold = 50;
-            if (touchStartX - touchEndX > swipeThreshold) {
-                moveNext();
-            }
-            if (touchEndX - touchStartX > swipeThreshold) {
-                movePrev();
-            }
+            if (touchStartX - touchEndX > swipeThreshold) moveNext();
+            if (touchEndX - touchStartX > swipeThreshold) movePrev();
         }
 
         updateCarousel();
+
+        // --- INTERACTIVE CREDENTIAL MODAL LIGHTBOX SYSTEM ---
+        const modal = document.getElementById('credModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openCredential(imgSrc, title, description) {
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDesc.textContent = description;
+            modal.classList.add('modal-open');
+        }
+
+        function closeCredential() {
+            modal.classList.remove('modal-open');
+        }
     </script>
 
 </body>
