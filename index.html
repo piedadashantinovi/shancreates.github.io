@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAN | Creative Portfolio</title>
+    <!-- Clean geometric fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -604,14 +605,13 @@
             border: 1px solid rgba(168, 218, 220, 0.3);
         }
 
-        /* --- RESTORED AWARDS RESPONSIVE MATRIX GRID --- */
+        /* --- RESTORED AWARDS LAYOUT WITH BACKGROUND WATERMARKS --- */
         .awards-responsive-matrix {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
         }
 
-        /* Return to original asymmetrical split layouts */
         @media(min-width: 750px) {
             .awards-responsive-matrix {
                 grid-template-columns: repeat(2, 1fr);
@@ -647,7 +647,35 @@
             min-height: 260px;
             position: relative;
             cursor: pointer;
+            overflow: hidden; /* Clips the background images */
             transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1;
+        }
+
+        /* Fixed: Re-integrated the high fidelity prism and graphic visual elements */
+        .premium-award-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.18; /* Blends artwork smoothly into panels */
+            mix-blend-mode: lighten;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Assigning individual custom graphics assets to each panel slot */
+        .award-slot-trophy::before {
+            background-image: url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');
+        }
+        
+        .award-slot-cert-1::before {
+            background-image: url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');
+        }
+
+        .award-slot-cert-2::before {
+            background-image: url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');
         }
 
         /* Restored prominent gold highlight border mechanics */
@@ -678,6 +706,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             width: fit-content;
+            position: relative;
+            z-index: 2;
         }
         .ribbon-gold { background: #f7d070; color: #1a0813; }
         .ribbon-purple { background: rgba(142, 68, 173, 0.2); color: #c39bd3; border: 1px solid #8e44ad; }
@@ -689,6 +719,8 @@
             color: #fff;
             margin-bottom: 12px;
             line-height: 1.3;
+            position: relative;
+            z-index: 2;
         }
 
         .premium-award-box p {
@@ -696,6 +728,8 @@
             color: #cbd5e1;
             line-height: 1.6;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .award-card-footer {
@@ -705,6 +739,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.06);
             padding-top: 16px;
             margin-top: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .award-issuing-body {
@@ -715,14 +751,18 @@
             letter-spacing: 1px;
         }
 
+        /* Fixed: Restored sparkly star ✦ badge action interface indicator */
         .award-action-indicator {
-            font-size: 0.8rem;
+            width: 32px;
+            height: 32px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            color: #e6dfd3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f7d070;
+            font-size: 1rem;
             transition: all 0.2s ease;
         }
 
@@ -730,6 +770,7 @@
             background: #ec527b;
             color: #fff;
             border-color: #fff;
+            transform: scale(1.1);
         }
 
         /* --- CREDENTIAL LIGHTBOX MODAL --- */
@@ -854,6 +895,7 @@
 </head>
 <body>
 
+    <!-- NAV BAR -->
     <nav class="modern-nav-bar">
         <a href="#home-top" class="nav-brand-logo">SHAN (AY IS 1A)</a>
         <div class="nav-links-cluster">
@@ -867,6 +909,7 @@
 
     <div class="portfolio-wrapper" id="home-top">
         
+        <!-- HERO LAYER -->
         <header class="hero-section">
             <div class="hero-bg-watermark">SHAN</div>
             
@@ -891,6 +934,7 @@
             </div>
         </header>
 
+        <!-- MAIN BIO LAYER -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -935,10 +979,12 @@
             </div>
         </main>
 
+        <!-- PROJECTS -->
         <section class="experience-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
             <div class="cards-slider-container" id="sliderContainer">
                 
+                <!-- Project 1 -->
                 <div class="project-card-3d card-pos-left" onclick="stepSliderToCard(0)">
                     <div class="card-top-identity">
                         <h4>POS & Sales Monitoring System (1998 Cafe)</h4>
@@ -951,6 +997,7 @@
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
                     <div class="card-top-identity">
                         <h4>Information System Technological Plan</h4>
@@ -963,6 +1010,7 @@
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
                     <div class="card-top-identity">
                         <h4>Digital Voting System Simulation</h4>
@@ -978,6 +1026,7 @@
             </div>
         </section>
 
+        <!-- HOBBIES & INTERESTS -->
         <section class="interests-section" id="interests">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             <div class="interests-canvas-grid">
@@ -1013,11 +1062,13 @@
             </div>
         </section>
 
+        <!-- RESTORED ASYMMETRICAL AWARDS LAYOUT WITH INTERNAL MOCKUP VISUALS -->
         <section class="awards-section" id="awards">
             <h2 class="section-title-center">Awards & Recognition</h2>
             <div class="awards-responsive-matrix">
                 
-                <div class="premium-award-box featured-award-hero" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
+                <!-- Award 1: Full-Height Featured Highlight Hero (Big Yellow Border + Trophy Graphics Backdrop) -->
+                <div class="premium-award-box featured-award-hero award-slot-trophy" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
                     <div>
                         <span class="award-badge-ribbon ribbon-gold">Champion Trophy</span>
                         <h3>Bytesize Quiz Bee Plaque</h3>
@@ -1025,13 +1076,15 @@
                     </div>
                     <div class="award-card-footer">
                         <span class="award-issuing-body">DNSC Local Student Government</span>
-                        <div class="award-action-indicator">View</div>
+                        <div class="award-action-indicator">✦</div>
                     </div>
                 </div>
 
+                <!-- Secondary stacked cluster container for other achievements -->
                 <div class="awards-secondary-stack">
                     
-                    <div class="premium-award-box" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
+                    <!-- Award 2: Cert 1 Backdrop Graphic -->
+                    <div class="premium-award-box award-slot-cert-1" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
                         <div>
                             <span class="award-badge-ribbon ribbon-purple">Certificate</span>
                             <h3>Bytesize Quiz Bee Winner</h3>
@@ -1039,11 +1092,12 @@
                         </div>
                         <div class="award-card-footer">
                             <span class="award-issuing-body">Institute of Computing</span>
-                            <div class="award-action-indicator">View</div>
+                            <div class="award-action-indicator">✦</div>
                         </div>
                     </div>
 
-                    <div class="premium-award-box" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
+                    <!-- Award 3: Cert 2 Backdrop Graphic -->
+                    <div class="premium-award-box award-slot-cert-2" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
                         <div>
                             <span class="award-badge-ribbon ribbon-red">Media Production</span>
                             <h3>Best MTV Spoof: "What is Love"</h3>
@@ -1051,7 +1105,7 @@
                         </div>
                         <div class="award-card-footer">
                             <span class="award-issuing-body">Multimedia Festival</span>
-                            <div class="award-action-indicator">View</div>
+                            <div class="award-action-indicator">✦</div>
                         </div>
                     </div>
 
@@ -1060,6 +1114,7 @@
             </div>
         </section>
 
+        <!-- LIGHTBOX MODAL -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -1071,6 +1126,7 @@
             </div>
         </div>
 
+        <!-- TABLE OF CONTENT -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
