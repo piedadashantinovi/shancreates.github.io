@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
-    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -723,7 +722,6 @@
 
     <div class="portfolio-wrapper">
         
-        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
@@ -739,11 +737,9 @@
             </div>
         </header>
 
-        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
-                    <!-- Absolute direct URL to the profile picture -->
                     <img src="https://piedadashantinovi.github.io/shancreates.github.io/profile.jpeg" alt="Piedad Ashanti Novi" class="profile-image">
                     <span class="sticker tag-blue">Video Editor</span>
                     <span class="sticker tag-pink">Designer</span>
@@ -797,7 +793,6 @@
             </div>
         </main>
 
-        <!-- PROJECTS CAROUSEL SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
@@ -861,16 +856,14 @@
             </div>
         </section>
 
-        <!-- CREATIVE CERTIFICATES & AWARDS BENTO GALLERY -->
         <section class="awards-section">
             <h2 class="section-title-center">Awards & Recognition</h2>
             
             <div class="bento-grid">
                 
-                <!-- Bento Block 1: Main Plaque Trophy -->
                 <div class="bento-card trophy-card" 
-                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg');"
-                     onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
+                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');"
+                     onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
                     <div class="bento-content-inner">
                         <span class="bento-tag tag-gold">🏆 Champion Trophy</span>
                         <h3>Bytesize Quiz Bee Plaque</h3>
@@ -882,10 +875,9 @@
                     </div>
                 </div>
 
-                <!-- Bento Block 2: Quiz Certificate -->
                 <div class="bento-card standard-bento" 
-                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');"
-                     onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
+                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg');"
+                     onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
                     <div class="bento-content-inner">
                         <span class="bento-tag tag-purple">🎓 Certificate</span>
                         <h3>Bytesize Quiz Bee Winner</h3>
@@ -897,10 +889,9 @@
                     </div>
                 </div>
 
-                <!-- Bento Block 3: MTV Parody Certificate -->
                 <div class="bento-card standard-bento" 
-                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_850019591495421.webp');"
-                     onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_850019591495421.webp', 'Best MTV Spoof Award', 'Parody version of Twice\'s What is Love—awarded at the DNSC Audio Visual Room.')">
+                     style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg');"
+                     onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg', 'Best MTV Spoof Award', 'Parody version of Twice\'s What is Love—awarded at the DNSC Audio Visual Room.')">
                     <div class="bento-content-inner">
                         <span class="bento-tag tag-red">🎬 Media Production</span>
                         <h3>Best MTV Spoof: "What is Love"</h3>
@@ -915,7 +906,6 @@
             </div>
         </section>
 
-        <!-- LIGHTBOX MODAL CONTAINER -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -927,7 +917,6 @@
             </div>
         </div>
 
-        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
@@ -944,7 +933,6 @@
 
     </div>
 
-    <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
         // --- 3D PROJECT CAROUSEL SYSTEM ---
         const cards = Array.from(document.querySelectorAll('.project-card'));
