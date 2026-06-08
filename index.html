@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
-    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -13,6 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -21,7 +21,7 @@
             background-size: 24px 24px;
             color: #e6dfd3;
             font-family: 'Quicksand', sans-serif;
-            padding: 10px;
+            padding: 90px 10px 20px 10px; /* Top padding accommodates fixed navigation bar */
             display: flex;
             justify-content: center;
         }
@@ -35,21 +35,78 @@
             padding: 20px 10px;
         }
 
-        /* --- HERO HEADER DESIGN --- */
+        /* --- SUPER MODERN NAVIGATION FIXED BAR --- */
+        .modern-nav-bar {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 650px;
+            background: rgba(43, 20, 36, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-brand-logo {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #f7d070;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            padding-left: 8px;
+        }
+
+        .nav-links-cluster {
+            display: flex;
+            gap: 6px;
+        }
+
+        .nav-tab-link {
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            padding: 8px 14px;
+            border-radius: 30px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-tab-link:hover, .nav-tab-link.active-tab {
+            color: #fff;
+            background: #ec527b;
+        }
+
+        /* --- HERO HEADER DESIGN & TECH VISUAL --- */
         .hero-section {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px 0;
+            gap: 30px;
+            padding: 20px 0 10px 0;
+        }
+
+        .logo-area {
+            flex: 1;
+            min-width: 250px;
         }
 
         .main-title {
             font-family: 'Fredoka', sans-serif;
             font-size: 4.5rem;
             line-height: 0.85;
-            color: #ec527b; /* Playful pink */
+            color: #ec527b; 
             font-weight: 700;
             text-shadow: 3px 3px 0px #fff;
         }
@@ -62,41 +119,48 @@
         .tagline {
             font-size: 1.2rem;
             font-style: italic;
-            color: #f7d070; /* Pastel gold text */
-            margin-top: 10px;
+            color: #f7d070; 
+            margin-top: 12px;
         }
 
-        /* Sticker House Artwork Placeholder */
-        .house-graphic {
-            width: 140px;
+        /* Modern Tech/Information System Intro Visual */
+        .tech-matrix-visual {
+            width: 160px;
+            height: 110px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
             position: relative;
         }
-        .roof {
-            width: 0; height: 0;
-            border-left: 70px solid transparent;
-            border-right: 70px solid transparent;
-            border-bottom: 50px solid #ec527b;
+
+        .matrix-node {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            transition: background 0.3s, border-color 0.3s;
         }
-        .house-body {
-            width: 120px; height: 90px;
-            background: #fffdf9;
-            margin: 0 auto;
-            border-radius: 0 0 8px 8px;
-            padding: 15px;
-            position: relative;
-        }
-        .door {
-            width: 25px; height: 45px;
+
+        .matrix-node.node-glow-pink {
             background: #ec527b;
-            position: absolute;
-            bottom: 0; right: 20px;
-            border-radius: 4px 4px 0 0;
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(236, 82, 123, 0.6);
         }
-        .window {
-            width: 35px; height: 30px;
-            border: 3px solid #ec527b;
+
+        .matrix-node.node-glow-gold {
+            background: #f7d070;
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(247, 208, 112, 0.6);
+        }
+
+        .matrix-vector-line {
             position: absolute;
-            top: 20px; left: 15px;
+            width: 2px;
+            background: linear-gradient(to bottom, #ec527b, #f7d070);
+            top: 15%;
+            bottom: 15%;
+            left: 37%;
+            z-index: -1;
+            opacity: 0.3;
         }
 
         /* --- INTRODUCTION SECTION GRID --- */
@@ -229,10 +293,14 @@
         }
 
         .bio-text {
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 1.02rem;
+            line-height: 1.65;
             color: #f1f5f9;
             text-align: justify;
+        }
+        
+        .bio-text p {
+            margin-bottom: 12px;
         }
 
         .divider {
@@ -829,25 +897,44 @@
 </head>
 <body>
 
-    <div class="portfolio-wrapper">
+    <nav class="modern-nav-bar">
+        <a href="#home-top" class="nav-brand-logo">Novi.Piedad</a>
+        <div class="nav-links-cluster">
+            <a href="#home-top" class="nav-tab-link active-tab" id="tab-home">Home</a>
+            <a href="#projects" class="nav-tab-link" id="tab-projects">Projects</a>
+            <a href="#interests" class="nav-tab-link" id="tab-interests">Interests</a>
+            <a href="#awards" class="nav-tab-link" id="tab-awards">Awards</a>
+            <a href="#contact" class="nav-tab-link" id="tab-contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="portfolio-wrapper" id="home-top">
         
-        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
-                <span class="sparkle-icon">✨</span>
                 <h1 class="main-title">PORT<br><span class="highlight-title">FOLIO</span></h1>
-                <p class="tagline">Welcome to my humble home!</p>
+                <p class="tagline">Welcome to my portfolio!</p>
             </div>
-            <div class="house-graphic">
-                <div class="roof"></div>
-                <div class="house-body">
-                    <div class="window"></div>
-                    <div class="door"></div>
-                </div>
+            
+            <div class="tech-matrix-visual">
+                <div class="matrix-vector-line"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-pink"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-gold"></div>
+                <div class="matrix-node"></div>
+                
+                <div class="matrix-node node-glow-pink"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-gold"></div>
             </div>
         </header>
 
-        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -856,8 +943,7 @@
                     <span class="sticker tag-pink">Designer</span>
                 </div>
                 
-                <!-- UPGRADED MODERN SOCIALS MODULE -->
-                <div class="connect-panel">
+                <div class="connect-panel" id="contact">
                     <h3 class="connect-headline">Let's Connect</h3>
                     <p class="connect-subtext">Interested in collaborating, discussing technology, or connecting professionally? Feel free to reach out.</p>
                     
@@ -878,9 +964,12 @@
 
             <div class="bio-content">
                 <h2 class="greet-title">Hello!</h2>
-                <p class="bio-text">
-                    I'm <strong>Piedad Ashanti Novi</strong>, a digital creator specializing in visual storytelling, video editing, and graphic design. Passionate about creating charming, engaging multimedia content for digital platforms. Merhaba gaess. Salam kenal nama ku Hanuun dobel U lebih akrab dipanggil Anun or Kaneon. Asal kota nya, Malang kabupaten bagian gunung Kawi. Born 21.12.2003. My work combines sharp editing pacing with thoughtful, playful aesthetics. So enjoy and Adieuu.
-                </p>
+                <div class="bio-text">
+                    <p>I'm <strong>Ashanti Novi C. Piedad</strong>, an Information Systems student who is passionate about technology, innovation, and continuous learning.</p>
+                    <p>This portfolio highlights my academic projects, technology-related certifications, technical skills, and personal interests. It reflects my journey as a student, showcasing the knowledge and experiences I have gained in software development, information systems, database management, and other areas of technology.</p>
+                    <p>I enjoy exploring emerging technologies, working on creative and technical projects, and developing skills that prepare me for future opportunities in the IT industry.</p>
+                    <p>Welcome to my portfolio, and thank you for taking the time to explore my work.</p>
+                </div>
 
                 <div class="divider"></div>
 
@@ -914,13 +1003,11 @@
             </div>
         </main>
 
-        <!-- 3D SLIDER PROJECTS SECTION (SWIPE ENABLED) -->
-        <section class="experience-section">
+        <section class="experience-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
             
             <div class="cards-slider-container" id="sliderContainer">
                 
-                <!-- Card 1 -->
                 <div class="project-card-3d card-pos-left" onclick="stepSliderToCard(0)">
                     <div class="card-top-identity">
                         <h4>POS & Sales Monitoring System (1998 Cafe)</h4>
@@ -933,7 +1020,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
                     <div class="card-top-identity">
                         <h4>Information System Technological Plan</h4>
@@ -946,7 +1032,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
                     <div class="card-top-identity">
                         <h4>Digital Voting System Simulation</h4>
@@ -962,12 +1047,10 @@
             </div>
         </section>
 
-        <!-- UPGRADED INTERESTS CANVAS -->
-        <section class="interests-section">
+        <section class="interests-section" id="interests">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             
             <div class="interests-canvas-grid">
-                <!-- Tech Bento Layout Matrix -->
                 <div class="tech-bento-subgrid">
                     <div class="interest-scrap-card profile-design tilt-left">
                         <h4>Digital Content & Graphics</h4>
@@ -990,7 +1073,6 @@
                     </div>
                 </div>
 
-                <!-- Strategy Gaming Showcase Card -->
                 <div class="gaming-deluxe-panel">
                     <div class="gaming-deluxe-header">
                         <h3>Strategy & Gaming</h3>
@@ -1005,13 +1087,11 @@
             </div>
         </section>
 
-        <!-- CREATIVE CERTIFICATES & AWARDS BENTO GALLERY -->
-        <section class="awards-section">
+        <section class="awards-section" id="awards">
             <h2 class="section-title-center">Awards & Recognition</h2>
             
             <div class="bento-grid">
                 
-                <!-- Bento Block 1: Main Plaque Trophy -->
                 <div class="bento-card trophy-card" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
@@ -1023,10 +1103,9 @@
                     <div class="bento-footer-row">
                         <span class="bento-institution">DNSC Local Student Government</span>
                         <div class="view-badge-btn">View</div>
-                </div>
+                    </div>
                 </div>
 
-                <!-- Bento Block 2: Quiz Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
@@ -1041,14 +1120,13 @@
                     </div>
                 </div>
 
-                <!-- Bento Block 3: MTV Parody Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg', 'Best MTV Spoof Award', 'Parody version of Twice\'s What is Love—awarded at the DNSC Audio Visual Room.')">
                     <div class="bento-content-inner">
                         <span class="bento-tag tag-red">Media Production</span>
                         <h3>Best MTV Spoof: "What is Love"</h3>
-                        <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
+                        <p>Awarded in the K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
                     </div>
                     <div class="bento-footer-row">
                         <span class="bento-institution">Multimedia Festival</span>
@@ -1059,7 +1137,6 @@
             </div>
         </section>
 
-        <!-- LIGHTBOX MODAL CONTAINER -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -1071,7 +1148,6 @@
             </div>
         </div>
 
-        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
@@ -1088,8 +1164,42 @@
 
     </div>
 
-    <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
+        // --- FIXED HEADER NAVIGATION INTERACTION ENGINE ---
+        window.addEventListener('scroll', () => {
+            const sections = ['home-top', 'projects', 'interests', 'awards', 'contact'];
+            let currentActiveId = 'home-top';
+
+            sections.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    // Detect if the section takes up the primary view profile space
+                    if (rect.top <= 160) {
+                        currentActiveId = id;
+                    }
+                }
+            });
+
+            // Map content ids directly to specified navigation tabs
+            const tabMap = {
+                'home-top': 'tab-home',
+                'projects': 'tab-projects',
+                'interests': 'tab-interests',
+                'awards': 'tab-awards',
+                'contact': 'tab-contact'
+            };
+
+            document.querySelectorAll('.nav-tab-link').forEach(tab => {
+                tab.classList.remove('active-tab');
+            });
+
+            const activeTabElement = document.getElementById(tabMap[currentActiveId]);
+            if (activeTabElement) {
+                activeTabElement.classList.add('active-tab');
+            }
+        });
+
         // --- 3D SLIDER ENGINE WITH TOUCH SWIPE CAPABILITIES ---
         let sliderStateIndex = 1; 
         const totalCardsCount = 3;
