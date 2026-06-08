@@ -251,7 +251,7 @@
         .experience-section {
             width: 100%;
             padding: 20px 0;
-            perspective: 1000px; /* Essential for 3D depth */
+            perspective: 1000px;
         }
 
         .section-title-center {
@@ -366,91 +366,156 @@
             color: #cbd5e1;
         }
 
-        /* --- NEW HOBBIES AND INTERESTS SECTION --- */
+        /* --- UPGRADED HOBBIES & INTERESTS DESIGN --- */
         .interests-section {
             padding: 20px 0;
         }
 
-        .interests-container {
+        .interests-canvas-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 25px;
             margin-top: 10px;
         }
 
-        @media(min-width: 650px) {
-            .interests-container {
-                grid-template-columns: 1fr 1.2fr;
+        @media(min-width: 680px) {
+            .interests-canvas-grid {
+                grid-template-columns: 1.2fr 1fr;
             }
         }
 
-        .interests-list-panel {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        /* Left Column Subgrid */
+        .tech-bento-subgrid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
 
-        .interest-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+        @media(min-width: 500px) {
+            .tech-bento-subgrid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .bento-wide-card {
+                grid-column: span 2;
+            }
         }
 
-        .interest-title {
+        /* Individualized Sticker/Scrapbook Cards */
+        .interest-scrap-card {
+            background: #23111e;
+            border: 2px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .interest-scrap-card:hover {
+            transform: scale(1.02) !important;
+            border-color: rgba(236, 82, 123, 0.3);
+        }
+
+        /* Custom Asymmetric Scrapbook Tilts */
+        .tilt-left { transform: rotate(-1.5deg); }
+        .tilt-right { transform: rotate(1.2deg); }
+
+        /* Color profiles for premium visual depth */
+        .profile-design { background: linear-gradient(135deg, #2b1424, #1f0b19); border-bottom: 4px solid #f8a488; }
+        .profile-ai { background: linear-gradient(135deg, #1e192b, #120e1c); border-bottom: 4px solid #a8dadc; }
+        .profile-web { background: linear-gradient(135deg, #2b2614, #1c180c); border-bottom: 4px solid #e9c46a; }
+        .profile-systems { background: linear-gradient(135deg, #14242b, #0c171c); border-bottom: 4px solid #5bc0be; }
+
+        .interest-scrap-card h4 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.15rem;
-            color: #f7d070;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 6px;
         }
 
-        .interest-desc {
-            font-size: 0.9rem;
+        .interest-scrap-card p {
+            font-size: 0.85rem;
             color: #cbd5e1;
-            line-height: 1.4;
+            line-height: 1.45;
+            text-align: justify;
         }
 
-        .gaming-showcase-panel {
-            background: #2b1424;
-            border: 2px solid rgba(236, 82, 123, 0.2);
+        /* Deluxe Gaming Card styling */
+        .gaming-deluxe-panel {
+            background: #1e0916;
+            border: 3px dashed rgba(247, 208, 112, 0.2);
             border-radius: 24px;
             padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            position: relative;
         }
 
-        .gaming-header h3 {
+        .gaming-deluxe-panel::before {
+            content: 'TOP CHOICES';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #f7d070;
+            color: #1a0813;
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.4rem;
-            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+
+        .gaming-deluxe-header h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            color: #f7d070;
             margin-bottom: 6px;
         }
 
-        .gaming-header p {
-            font-size: 0.9rem;
+        .gaming-deluxe-header p {
+            font-size: 0.88rem;
             color: #cbd5e1;
+            line-height: 1.5;
             margin-bottom: 20px;
         }
 
-        .games-row-layout {
+        .gamer-tags-stack {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .game-badge-card {
-            background: rgba(26, 8, 19, 0.5);
-            border-left: 4px solid #ec527b;
-            padding: 12px 16px;
-            border-radius: 0 12px 12px 0;
+        .gamer-tag-strip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 14px 18px;
+            border-radius: 14px;
             font-family: 'Fredoka', sans-serif;
             font-weight: 600;
-            color: #e6dfd3;
-            font-size: 1rem;
+            color: #fff;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .gamer-tag-strip::after {
+            content: 'TACTICAL';
+            font-size: 0.65rem;
+            color: #ec527b;
+            font-weight: 700;
+            border: 1px solid rgba(236, 82, 123, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .gamer-tag-strip:hover {
+            background: rgba(236, 82, 123, 0.05);
+            border-color: rgba(236, 82, 123, 0.3);
         }
 
         /* --- CREATIVE CERTIFICATES BENTO GALLERY --- */
@@ -839,41 +904,44 @@
             </div>
         </section>
 
-        <!-- HOBBIES AND INTERESTS SECTION -->
+        <!-- UPGRADED INTERESTS CANVAS -->
         <section class="interests-section">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             
-            <div class="interests-container">
-                <!-- Tech & Systems Column -->
-                <div class="interests-list-panel">
-                    <div class="interest-item">
-                        <h4 class="interest-title">Digital Content & Graphics</h4>
-                        <p class="interest-desc">Designing assets, interfaces, and clean digital aesthetics across various design tools.</p>
+            <div class="interests-canvas-grid">
+                <!-- Tech Bento Layout Matrix -->
+                <div class="tech-bento-subgrid">
+                    <div class="interest-scrap-card profile-design tilt-left">
+                        <h4>Digital Content & Graphics</h4>
+                        <p>Designing assets, interfaces, and clean digital aesthetics across various design tools.</p>
                     </div>
-                    <div class="interest-item">
-                        <h4 class="interest-title">Emerging Tech & AI Tools</h4>
-                        <p class="interest-desc">Exploring new systems, capabilities, and integrating artificial intelligence frameworks into modern asset workflows.</p>
+                    
+                    <div class="interest-scrap-card profile-ai tilt-right">
+                        <h4>Emerging Tech & AI Tools</h4>
+                        <p>Exploring new systems and integrating artificial intelligence frameworks into modern workflows.</p>
                     </div>
-                    <div class="interest-item">
-                        <h4 class="interest-title">Software & Web Architecture</h4>
-                        <p class="interest-desc">Building software structures, responsive layout designs, and modern frontend web layers.</p>
+                    
+                    <div class="interest-scrap-card profile-web tilt-right">
+                        <h4>Software & Web Projects</h4>
+                        <p>Building software structures, responsive layout designs, and modern frontend web layers.</p>
                     </div>
-                    <div class="interest-item">
-                        <h4 class="interest-title">Information Systems</h4>
-                        <p class="interest-desc">Analyzing business technology intersections, optimizing manual computational steps, and learning enterprise architectures.</p>
+                    
+                    <div class="interest-scrap-card profile-systems tilt-left">
+                        <h4>Information Systems</h4>
+                        <p>Analyzing business technology intersections, optimizing manual steps, and learning enterprise architectures.</p>
                     </div>
                 </div>
 
-                <!-- Strategy Gaming Column -->
-                <div class="gaming-showcase-panel">
-                    <div class="gaming-header">
-                        <h3>Strategy & Gaming Focus</h3>
+                <!-- Strategy Gaming Showcase Card -->
+                <div class="gaming-deluxe-panel">
+                    <div class="gaming-deluxe-header">
+                        <h3>Strategy & Gaming</h3>
                         <p>Engaging with competitive, tactical match systems that rely heavily on pacing, micro-positioning, and fast problem solving.</p>
                     </div>
-                    <div class="games-row-layout">
-                        <div class="game-badge-card">Clash of Clans</div>
-                        <div class="game-badge-card">Call of Duty: Mobile</div>
-                        <div class="game-badge-card">Valorant</div>
+                    <div class="gamer-tags-stack">
+                        <div class="gamer-tag-strip">Clash of Clans</div>
+                        <div class="gamer-tag-strip">Call of Duty: Mobile</div>
+                        <div class="gamer-tag-strip">Valorant</div>
                     </div>
                 </div>
             </div>
@@ -965,7 +1033,7 @@
     <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
         // --- 3D SLIDER ENGINE WITH TOUCH SWIPE CAPABILITIES ---
-        let sliderStateIndex = 1; // Center card active initially
+        let sliderStateIndex = 1; 
         const totalCardsCount = 3;
         
         let touchStartPosPointX = 0;
@@ -979,7 +1047,7 @@
         function updateSliderPositionsLayout() {
             const cards = document.querySelectorAll('.project-card-3d');
             cards.forEach((card, index) => {
-                card.className = 'project-card-3d'; // Reset classes
+                card.className = 'project-card-3d'; 
                 
                 if (index === sliderStateIndex) {
                     card.classList.add('card-pos-active');
