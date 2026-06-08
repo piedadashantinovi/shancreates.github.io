@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAN | Creative Portfolio</title>
-    <!-- Clean geometric fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -38,7 +37,7 @@
             padding: 0 24px;
         }
 
-        /* --- EXPANDED PORSCHE-STYLE TOP NAVIGATION BAR --- */
+        /* --- EXPANDED NAVIGATION BAR --- */
         .modern-nav-bar {
             position: fixed;
             top: 20px;
@@ -90,7 +89,7 @@
             background: #ec527b;
         }
 
-        /* --- PORSCHE-INSPIRED SPLIT LANDING HERO --- */
+        /* --- SPLIT LANDING HERO --- */
         .hero-section {
             position: relative;
             background: linear-gradient(to right, #240d1e 50%, #1a0813 50%); 
@@ -454,7 +453,7 @@
             color: #cbd5e1;
         }
 
-        /* --- RESTORED ORIGINAL TILTED HOBBIES STYLE --- */
+        /* --- TILTED HOBBIES STYLE --- */
         .interests-canvas-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -475,7 +474,6 @@
             .tech-bento-subgrid { grid-template-columns: 1fr 1fr; }
         }
 
-        /* Original structural card rules with tilt angles */
         .interest-scrap-card {
             background: #23111e;
             border: 1px solid rgba(255, 255, 255, 0.04);
@@ -488,7 +486,6 @@
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
         }
 
-        /* Alternating original micro-tilts */
         .tech-bento-subgrid .interest-scrap-card:nth-child(odd) {
             transform: rotate(-2deg);
         }
@@ -496,7 +493,6 @@
             transform: rotate(1.5deg);
         }
 
-        /* Hover response brings them straight and forward */
         .interest-scrap-card:hover {
             transform: rotate(0deg) scale(1.03) !important;
             border-color: #ec527b;
@@ -520,7 +516,6 @@
             line-height: 1.6;
         }
 
-        /* Tilted Gaming Panel layout */
         .gaming-deluxe-panel {
             background: linear-gradient(145deg, #1e0916, #280d1e);
             border: 1px solid rgba(247, 208, 112, 0.15);
@@ -586,7 +581,6 @@
             align-items: center;
         }
 
-        /* Cleaned, meaningful context statuses instead of 'LIVE' */
         .gamer-tag-strip::after {
             font-size: 0.65rem;
             font-weight: 700;
@@ -610,13 +604,14 @@
             border: 1px solid rgba(168, 218, 220, 0.3);
         }
 
-        /* --- CERTIFICATES / AWARDS GRID --- */
+        /* --- RESTORED AWARDS RESPONSIVE MATRIX GRID --- */
         .awards-responsive-matrix {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
         }
 
+        /* Return to original asymmetrical split layouts */
         @media(min-width: 750px) {
             .awards-responsive-matrix {
                 grid-template-columns: repeat(2, 1fr);
@@ -628,11 +623,16 @@
 
         @media(min-width: 1000px) {
             .awards-responsive-matrix {
-                grid-template-columns: 1.3fr 1fr 1fr;
+                grid-template-columns: 1.3fr 1fr;
             }
             .featured-award-hero {
                 grid-column: span 1;
                 grid-row: span 2;
+            }
+            .awards-secondary-stack {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
             }
         }
 
@@ -647,13 +647,10 @@
             min-height: 260px;
             position: relative;
             cursor: pointer;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .premium-award-box:hover {
-            transform: translateY(-4px);
-        }
-
+        /* Restored prominent gold highlight border mechanics */
         .featured-award-hero {
             border: 2px solid #f7d070;
             box-shadow: 0 20px 40px rgba(247, 208, 112, 0.08);
@@ -661,7 +658,13 @@
         }
 
         .premium-award-box:hover {
+            transform: translateY(-4px);
             border-color: #ec527b;
+        }
+
+        .featured-award-hero:hover {
+            border-color: #f7d070;
+            box-shadow: 0 25px 50px rgba(247, 208, 112, 0.15);
         }
 
         .award-badge-ribbon {
@@ -729,7 +732,7 @@
             border-color: #fff;
         }
 
-        /* --- MODAL --- */
+        /* --- CREDENTIAL LIGHTBOX MODAL --- */
         .credential-modal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -851,7 +854,6 @@
 </head>
 <body>
 
-    <!-- NAV BAR -->
     <nav class="modern-nav-bar">
         <a href="#home-top" class="nav-brand-logo">SHAN (AY IS 1A)</a>
         <div class="nav-links-cluster">
@@ -865,7 +867,6 @@
 
     <div class="portfolio-wrapper" id="home-top">
         
-        <!-- PORSCHE SPLIT HERO LAYER -->
         <header class="hero-section">
             <div class="hero-bg-watermark">SHAN</div>
             
@@ -890,7 +891,6 @@
             </div>
         </header>
 
-        <!-- MAIN BIO LAYER -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -935,12 +935,10 @@
             </div>
         </main>
 
-        <!-- PROJECTS -->
         <section class="experience-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
             <div class="cards-slider-container" id="sliderContainer">
                 
-                <!-- Project 1 -->
                 <div class="project-card-3d card-pos-left" onclick="stepSliderToCard(0)">
                     <div class="card-top-identity">
                         <h4>POS & Sales Monitoring System (1998 Cafe)</h4>
@@ -953,7 +951,6 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
                     <div class="card-top-identity">
                         <h4>Information System Technological Plan</h4>
@@ -966,7 +963,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
                     <div class="card-top-identity">
                         <h4>Digital Voting System Simulation</h4>
@@ -982,7 +978,6 @@
             </div>
         </section>
 
-        <!-- RESTORED TILTED HOBBIES & INTERESTS -->
         <section class="interests-section" id="interests">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             <div class="interests-canvas-grid">
@@ -1018,12 +1013,10 @@
             </div>
         </section>
 
-        <!-- AWARDS -->
         <section class="awards-section" id="awards">
             <h2 class="section-title-center">Awards & Recognition</h2>
             <div class="awards-responsive-matrix">
                 
-                <!-- Award 1 -->
                 <div class="premium-award-box featured-award-hero" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
                     <div>
                         <span class="award-badge-ribbon ribbon-gold">Champion Trophy</span>
@@ -1036,36 +1029,37 @@
                     </div>
                 </div>
 
-                <!-- Award 2 -->
-                <div class="premium-award-box" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
-                    <div>
-                        <span class="award-badge-ribbon ribbon-purple">Certificate</span>
-                        <h3>Bytesize Quiz Bee Winner</h3>
-                        <p>Official Institutional recognition for securing the top honors during the flagship academic computation rally.</p>
+                <div class="awards-secondary-stack">
+                    
+                    <div class="premium-award-box" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
+                        <div>
+                            <span class="award-badge-ribbon ribbon-purple">Certificate</span>
+                            <h3>Bytesize Quiz Bee Winner</h3>
+                            <p>Official Institutional recognition for securing the top honors during the flagship academic computation rally.</p>
+                        </div>
+                        <div class="award-card-footer">
+                            <span class="award-issuing-body">Institute of Computing</span>
+                            <div class="award-action-indicator">View</div>
+                        </div>
                     </div>
-                    <div class="award-card-footer">
-                        <span class="award-issuing-body">Institute of Computing</span>
-                        <div class="award-action-indicator">View</div>
-                    </div>
-                </div>
 
-                <!-- Award 3 -->
-                <div class="premium-award-box" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
-                    <div>
-                        <span class="award-badge-ribbon ribbon-red">Media Production</span>
-                        <h3>Best MTV Spoof: "What is Love"</h3>
-                        <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
+                    <div class="premium-award-box" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
+                        <div>
+                            <span class="award-badge-ribbon ribbon-red">Media Production</span>
+                            <h3>Best MTV Spoof: "What is Love"</h3>
+                            <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
+                        </div>
+                        <div class="award-card-footer">
+                            <span class="award-issuing-body">Multimedia Festival</span>
+                            <div class="award-action-indicator">View</div>
+                        </div>
                     </div>
-                    <div class="award-card-footer">
-                        <span class="award-issuing-body">Multimedia Festival</span>
-                        <div class="award-action-indicator">View</div>
-                    </div>
+
                 </div>
 
             </div>
         </section>
 
-        <!-- LIGHTBOX MODAL -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -1077,7 +1071,6 @@
             </div>
         </div>
 
-        <!-- TABLE OF CONTENT -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
