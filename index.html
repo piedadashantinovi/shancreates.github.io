@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
+    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -246,7 +247,7 @@
             line-height: 1.5;
         }
 
-        /* --- PREVENT OVERFLOW & ADD SWIPE CAPABILITIES --- */
+        /* --- 3D SLIDER PROJECTS SECTION --- */
         .experience-section {
             width: 100%;
             padding: 20px 0;
@@ -269,16 +270,16 @@
             position: relative;
             height: 380px;
             overflow: hidden;
-            touch-action: pan-y; /* Allows scroll layout vertically while hijacking swiping horizontally */
+            touch-action: pan-y;
         }
 
         .project-card-3d {
             position: absolute;
             width: 290px;
-            height: 350px; /* Increased height container strictly to avoid spacing breaks */
+            height: 350px;
             background: #2b1424;
             border-radius: 24px;
-            padding: 20px; /* Snugger padding prevents element spillover */
+            padding: 20px;
             border: 2px solid rgba(255, 255, 255, 0.08);
             display: flex;
             flex-direction: column;
@@ -289,7 +290,6 @@
             user-select: none;
         }
 
-        /* Focus Active 3D State styling rules */
         .project-card-3d.card-pos-active {
             transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
             z-index: 5;
@@ -317,7 +317,6 @@
             pointer-events: none;
         }
 
-        /* Interior details formatting elements */
         .card-top-identity h4 {
             font-family: 'Fredoka', sans-serif;
             font-size: 1.25rem;
@@ -335,7 +334,7 @@
         }
 
         .card-desc-body {
-            font-size: 0.85rem; /* Slight size shift down for immaculate alignment layout */
+            font-size: 0.85rem;
             line-height: 1.45;
             color: #cbd5e1;
             text-align: justify;
@@ -367,6 +366,93 @@
             color: #cbd5e1;
         }
 
+        /* --- NEW HOBBIES AND INTERESTS SECTION --- */
+        .interests-section {
+            padding: 20px 0;
+        }
+
+        .interests-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        @media(min-width: 650px) {
+            .interests-container {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+
+        .interests-list-panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .interest-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .interest-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.15rem;
+            color: #f7d070;
+        }
+
+        .interest-desc {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        .gaming-showcase-panel {
+            background: #2b1424;
+            border: 2px solid rgba(236, 82, 123, 0.2);
+            border-radius: 24px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gaming-header h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .gaming-header p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .games-row-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .game-badge-card {
+            background: rgba(26, 8, 19, 0.5);
+            border-left: 4px solid #ec527b;
+            padding: 12px 16px;
+            border-radius: 0 12px 12px 0;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            color: #e6dfd3;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
         /* --- CREATIVE CERTIFICATES BENTO GALLERY --- */
         .awards-section {
             padding: 20px 0;
@@ -389,7 +475,6 @@
             }
         }
 
-        /* Bento Panel Styles with cover styles ready for backgrounds */
         .bento-card {
             border-radius: 24px;
             padding: 24px;
@@ -410,11 +495,9 @@
             border-color: rgba(236, 82, 123, 0.6) !important;
         }
 
-        /* Card-specific overlay borders */
         .trophy-card { border: 2px solid #f7d070; }
         .standard-bento { border: 2px solid rgba(255, 255, 255, 0.08); }
         
-        /* Animated aura for the trophy card */
         .trophy-card::after {
             content: '';
             position: absolute;
@@ -635,6 +718,7 @@
 
     <div class="portfolio-wrapper">
         
+        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
@@ -650,6 +734,7 @@
             </div>
         </header>
 
+        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -706,11 +791,13 @@
             </div>
         </main>
 
+        <!-- 3D SLIDER PROJECTS SECTION (SWIPE ENABLED) -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
             <div class="cards-slider-container" id="sliderContainer">
                 
+                <!-- Card 1 -->
                 <div class="project-card-3d card-pos-left" onclick="stepSliderToCard(0)">
                     <div class="card-top-identity">
                         <h4>POS & Sales Monitoring System (1998 Cafe)</h4>
@@ -723,6 +810,7 @@
                     </div>
                 </div>
 
+                <!-- Card 2 -->
                 <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
                     <div class="card-top-identity">
                         <h4>Information System Technological Plan</h4>
@@ -735,6 +823,7 @@
                     </div>
                 </div>
 
+                <!-- Card 3 -->
                 <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
                     <div class="card-top-identity">
                         <h4>Digital Voting System Simulation</h4>
@@ -750,11 +839,53 @@
             </div>
         </section>
 
+        <!-- HOBBIES AND INTERESTS SECTION -->
+        <section class="interests-section">
+            <h2 class="section-title-center">Hobbies & Interests</h2>
+            
+            <div class="interests-container">
+                <!-- Tech & Systems Column -->
+                <div class="interests-list-panel">
+                    <div class="interest-item">
+                        <h4 class="interest-title">Digital Content & Graphics</h4>
+                        <p class="interest-desc">Designing assets, interfaces, and clean digital aesthetics across various design tools.</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4 class="interest-title">Emerging Tech & AI Tools</h4>
+                        <p class="interest-desc">Exploring new systems, capabilities, and integrating artificial intelligence frameworks into modern asset workflows.</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4 class="interest-title">Software & Web Architecture</h4>
+                        <p class="interest-desc">Building software structures, responsive layout designs, and modern frontend web layers.</p>
+                    </div>
+                    <div class="interest-item">
+                        <h4 class="interest-title">Information Systems</h4>
+                        <p class="interest-desc">Analyzing business technology intersections, optimizing manual computational steps, and learning enterprise architectures.</p>
+                    </div>
+                </div>
+
+                <!-- Strategy Gaming Column -->
+                <div class="gaming-showcase-panel">
+                    <div class="gaming-header">
+                        <h3>Strategy & Gaming Focus</h3>
+                        <p>Engaging with competitive, tactical match systems that rely heavily on pacing, micro-positioning, and fast problem solving.</p>
+                    </div>
+                    <div class="games-row-layout">
+                        <div class="game-badge-card">Clash of Clans</div>
+                        <div class="game-badge-card">Call of Duty: Mobile</div>
+                        <div class="game-badge-card">Valorant</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CREATIVE CERTIFICATES & AWARDS BENTO GALLERY -->
         <section class="awards-section">
             <h2 class="section-title-center">Awards & Recognition</h2>
             
             <div class="bento-grid">
                 
+                <!-- Bento Block 1: Main Plaque Trophy -->
                 <div class="bento-card trophy-card" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
@@ -769,6 +900,7 @@
                     </div>
                 </div>
 
+                <!-- Bento Block 2: Quiz Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
@@ -783,6 +915,7 @@
                     </div>
                 </div>
 
+                <!-- Bento Block 3: MTV Parody Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg', 'Best MTV Spoof Award', 'Parody version of Twice\'s What is Love—awarded at the DNSC Audio Visual Room.')">
@@ -800,6 +933,7 @@
             </div>
         </section>
 
+        <!-- LIGHTBOX MODAL CONTAINER -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -811,6 +945,7 @@
             </div>
         </div>
 
+        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
@@ -827,12 +962,12 @@
 
     </div>
 
+    <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
         // --- 3D SLIDER ENGINE WITH TOUCH SWIPE CAPABILITIES ---
         let sliderStateIndex = 1; // Center card active initially
         const totalCardsCount = 3;
         
-        // Touch gesture tracking coordinates variables
         let touchStartPosPointX = 0;
         let touchEndPosPointX = 0;
 
@@ -871,14 +1006,12 @@
         }, { passive: true });
 
         function handleSwipeGestureDetection() {
-            const swipeThresholdDistance = 40; // minimum pixels moved to trigger slide switch
+            const swipeThresholdDistance = 40;
             
             if (touchStartPosPointX - touchEndPosPointX > swipeThresholdDistance) {
-                // Swiped Left -> Move to Next card on Right
                 sliderStateIndex = (sliderStateIndex + 1) % totalCardsCount;
                 updateSliderPositionsLayout();
             } else if (touchEndPosPointX - touchStartPosPointX > swipeThresholdDistance) {
-                // Swiped Right -> Move to Previous card on Left
                 sliderStateIndex = (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount;
                 updateSliderPositionsLayout();
             }
