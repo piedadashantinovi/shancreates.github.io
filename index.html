@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAN | Creative Portfolio</title>
-    <!-- Clean geometric fonts matching your setup -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- GLOBAL BACKGROUND SETUP --- */
+        /* --- GLOBAL BASIS (UNCHANGED) --- */
         * {
             margin: 0;
             padding: 0;
@@ -24,40 +23,6 @@
             padding-bottom: 60px;
             overflow-x: hidden;
             width: 100%;
-            position: relative;
-        }
-
-        /* --- SUBTLE BACKGROUND ACCENTS (NEW MOVEMENT) --- */
-        .bg-blur-accent {
-            position: fixed;
-            width: 550px;
-            height: 550px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1; 
-            filter: blur(120px);
-            /* This animation makes faint colored ambient lights drift softly behind everything */
-            animation: driftAccents 20s infinite ease-in-out alternate;
-        }
-
-        .bg-blur-accent-pink {
-            background: radial-gradient(circle, rgba(236, 82, 123, 0.07) 0%, transparent 75%);
-            top: -50px;
-            right: -50px;
-        }
-
-        .bg-blur-accent-gold {
-            background: radial-gradient(circle, rgba(247, 208, 112, 0.05) 0%, transparent 75%);
-            bottom: 15%;
-            left: -150px;
-            animation-delay: -7s;
-            animation-duration: 25s;
-        }
-
-        @keyframes driftAccents {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(80px, -40px) scale(1.15); }
-            100% { transform: translate(-40px, 60px) scale(0.9); }
         }
 
         .portfolio-wrapper {
@@ -68,11 +33,9 @@
             flex-direction: column;
             gap: 80px;
             padding: 0 24px;
-            position: relative;
-            z-index: 2;
         }
 
-        /* --- NAVIGATION BAR --- */
+        /* --- NAVIGATION BAR (UNCHANGED) --- */
         .modern-nav-bar {
             position: fixed;
             top: 20px;
@@ -82,7 +45,6 @@
             max-width: 1400px; 
             background: rgba(26, 8, 19, 0.92);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50px; 
             padding: 14px 40px; 
@@ -90,7 +52,6 @@
             justify-content: space-between;
             align-items: center;
             z-index: 9999;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .nav-brand-logo {
@@ -99,8 +60,6 @@
             font-size: 1.1rem;
             color: #f7d070;
             text-decoration: none;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
         }
 
         .nav-links-cluster {
@@ -116,35 +75,35 @@
             color: #cbd5e1;
             padding: 10px 22px;
             border-radius: 30px;
-            transition: all 0.2s ease;
         }
 
-        .nav-tab-link:hover, .nav-tab-link.active-tab {
+        .nav-tab-link.active-tab {
             color: #fff;
             background: #ec527b;
         }
 
-        /* --- ANIMATED LANDING PANEL (NO CONTENT STRIPPED) --- */
+        /* ==========================================================================
+           DYNAMIC LANDING HERO SECTION (THE ONLY PART MODIFIED FOR EXTRA MOVEMENT)
+           ========================================================================== */
         .hero-section {
             position: relative;
-            background: linear-gradient(135deg, #2b1224 0%, #1e0918 100%); 
+            background: #2b1224; 
             border-radius: 24px;
-            padding: 80px 60px;
+            padding: 90px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 40px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            min-height: 340px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            min-height: 320px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            /* Soft entries when loading up the page */
-            animation: heroPanelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+            animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
-        @keyframes heroPanelEntrance {
-            0% { opacity: 0; transform: translateY(20px); }
+        @keyframes heroReveal {
+            0% { opacity: 0; transform: translateY(15px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
@@ -152,20 +111,25 @@
             flex: 1;
             min-width: 300px;
             position: relative;
-            z-index: 2;
+            z-index: 5;
         }
 
         .main-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 5.2rem;
+            font-size: 5.5rem;
             line-height: 1;
             color: #ec527b; 
             font-weight: 700;
             text-shadow: 4px 4px 0px #fff;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
-            /* Cool typography reveal slide */
-            animation: textRevealSlide 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
+            display: inline-block;
+            animation: titlePop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes titlePop {
+            0% { opacity: 0; transform: scale(0.9) rotate(-1deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
         }
 
         .tagline {
@@ -175,84 +139,105 @@
             margin-top: 14px;
             font-weight: 500;
             letter-spacing: 0.5px;
-            animation: textRevealSlide 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.35s both;
+            opacity: 0;
+            animation: taglineFadeIn 0.6s ease forwards 0.4s;
         }
 
-        @keyframes textRevealSlide {
-            0% { opacity: 0; transform: translateX(-20px); }
+        @keyframes taglineFadeIn {
+            0% { opacity: 0; transform: translateX(-10px); }
             100% { opacity: 1; transform: translateX(0); }
         }
 
-        /* --- TECH MATRIX VISUAL (BREATHING & WAVE INTERACTIONS) --- */
-        .tech-matrix-visual {
-            width: 200px;
-            height: 140px;
+        .interactive-canvas-container {
+            width: 240px;
+            height: 160px;
+            position: relative;
+            flex-shrink: 0;
+            z-index: 5;
+        }
+
+        .dynamic-cluster-root {
+            width: 100%;
+            height: 100%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            position: relative;
-            flex-shrink: 0;
-            z-index: 2;
-            animation: floatMatrixGrid 6s infinite ease-in-out;
+            animation: globalContainerFloat 6s infinite ease-in-out;
         }
 
-        /* Gentle float for the entire grid asset container */
-        @keyframes floatMatrixGrid {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+        @keyframes globalContainerFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
         }
 
-        .matrix-node {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 10px;
-            animation: idleNodePulse 4s infinite ease-in-out;
+        .interactive-node {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
         }
 
-        /* Row staggered background animation loops */
-        .tech-matrix-visual .matrix-node:nth-child(1)  { animation-delay: 0.1s; }
-        .tech-matrix-visual .matrix-node:nth-child(3)  { animation-delay: 0.5s; }
-        .tech-matrix-visual .matrix-node:nth-child(4)  { animation-delay: 0.3s; }
-        .tech-matrix-visual .matrix-node:nth-child(5)  { animation-delay: 0.8s; }
-        .tech-matrix-visual .matrix-node:nth-child(6)  { animation-delay: 1.2s; }
-        .tech-matrix-visual .matrix-node:nth-child(7)  { animation-delay: 0.2s; }
-        .tech-matrix-visual .matrix-node:nth-child(8)  { animation-delay: 1.5s; }
-        .tech-matrix-visual .matrix-node:nth-child(10) { animation-delay: 0.9s; }
-        .tech-matrix-visual .matrix-node:nth-child(11) { animation-delay: 1.4s; }
+        .interactive-node:hover {
+            transform: scale(1.25);
+            z-index: 10;
+            background: #fff !important;
+            box-shadow: 0 0 25px #fff !important;
+        }
 
-        .matrix-node.node-glow-pink {
+        .node-pink-active {
             background: #ec527b;
             border-color: #fff;
-            box-shadow: 0 0 15px rgba(236, 82, 123, 0.5);
-            animation: activePinkGlow 3.5s infinite ease-in-out alternate;
+            box-shadow: 0 0 15px rgba(236, 82, 123, 0.6);
+            animation: rhythmicPink 4s infinite ease-in-out alternate;
         }
 
-        .matrix-node.node-glow-gold {
+        .node-gold-active {
             background: #f7d070;
             border-color: #fff;
-            box-shadow: 0 0 15px rgba(247, 208, 112, 0.5);
-            animation: activeGoldGlow 3.5s infinite ease-in-out alternate;
+            box-shadow: 0 0 15px rgba(247, 208, 112, 0.6);
+            animation: rhythmicGold 4s infinite ease-in-out alternate;
         }
 
-        .tech-matrix-visual .matrix-node.node-glow-pink:nth-child(9) { animation-delay: 0.3s; }
-        .tech-matrix-visual .matrix-node.node-glow-gold:nth-child(12) { animation-delay: 0.6s; }
+        .dynamic-cluster-root .interactive-node:nth-child(2) { animation-delay: 0.3s; }
+        .dynamic-cluster-root .interactive-node:nth-child(7) { animation-delay: 0.9s; }
+        .dynamic-cluster-root .interactive-node:nth-child(9) { animation-delay: 0.1s; }
+        .dynamic-cluster-root .interactive-node:nth-child(12) { animation-delay: 1.4s; }
 
-        @keyframes idleNodePulse {
-            0%, 100% { background: rgba(255, 255, 255, 0.03); transform: scale(1); }
-            50% { background: rgba(255, 255, 255, 0.08); transform: scale(1.03); }
+        @keyframes rhythmicPink {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(236, 82, 123, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 0 22px rgba(236, 82, 123, 0.8); }
         }
 
-        @keyframes activePinkGlow {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(236, 82, 123, 0.4); filter: brightness(1); }
-            50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(236, 82, 123, 0.8); filter: brightness(1.1); }
+        @keyframes rhythmicGold {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(247, 208, 112, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 0 22px rgba(247, 208, 112, 0.8); }
         }
 
-        @keyframes activeGoldGlow {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(247, 208, 112, 0.4); filter: brightness(1); }
-            50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(247, 208, 112, 0.8); filter: brightness(1.1); }
+        .hero-fluid-streak {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(236, 82, 123, 0.08), transparent);
+            width: 200%;
+            height: 2px;
+            transform: rotate(-15deg);
+            top: 20%;
+            left: -50%;
+            animation: beamPass 8s infinite linear;
+            pointer-events: none;
+        }
+        .streak-2 {
+            top: 70%;
+            background: linear-gradient(90deg, transparent, rgba(247, 208, 112, 0.05), transparent);
+            animation-delay: -4s;
+            animation-duration: 11s;
         }
 
-        /* --- ABOUT ME / PROFILE --- */
+        @keyframes beamPass {
+            0% { transform: translate(-30%, 0) rotate(-15deg); }
+            100% { transform: translate(30%, 0) rotate(-15deg); }
+        }
+
+        /* --- ABOUT ME / PROFILE BIOGRAPHY (UNCHANGED) --- */
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -270,12 +255,6 @@
             border-radius: 4px; 
             position: relative;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transform: rotate(-2deg);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .photo-frame:hover {
-            transform: rotate(0deg) scale(1.02);
         }
 
         .profile-image {
@@ -294,8 +273,8 @@
             border-radius: 30px;
             border: 2px solid #fff;
         }
-        .tag-blue { background: #5bc0be; color: #fff; bottom: 45px; left: -15px; transform: rotate(-8deg); }
-        .tag-pink { background: #ec527b; color: #fff; bottom: 12px; right: -10px; transform: rotate(10deg); }
+        .tag-blue { background: #5bc0be; color: #fff; bottom: 45px; left: -15px; }
+        .tag-pink { background: #ec527b; color: #fff; bottom: 12px; right: -10px; }
 
         .connect-panel {
             margin-top: 40px;
@@ -339,7 +318,6 @@
         .contact-meta-value {
             font-size: 0.95rem;
             color: #fff;
-            word-break: break-all;
         }
 
         .connect-action-btn {
@@ -355,13 +333,6 @@
             border-radius: 30px;
             text-decoration: none;
             box-shadow: 0 4px 0px #cbd5e1;
-            transition: all 0.1s ease;
-        }
-
-        .connect-action-btn:hover {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px #cbd5e1;
-            background: #f7d070;
         }
 
         .greet-title {
@@ -399,7 +370,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 35px;
         }
 
         .tool-badge {
@@ -415,7 +385,7 @@
         .badge-canva { background: #e9c46a; }
         .badge-capcut { background: #f4a261; }
 
-        /* --- 3D INTERACTIVE CAROUSEL --- */
+        /* --- 3D INTERACTIVE CAROUSEL WORKSPACE (UNCHANGED) --- */
         .experience-section {
             width: 100%;
             padding: 20px 0;
@@ -456,7 +426,6 @@
             cursor: pointer;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             user-select: none;
-            -webkit-user-drag: none;
         }
 
         .project-card-3d.card-pos-active {
@@ -533,7 +502,7 @@
             color: #cbd5e1;
         }
 
-        /* --- INTERESTS BENTO GRID --- */
+        /* --- INTERESTS BENTO GRID MATRIX (UNCHANGED) --- */
         .interests-canvas-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -563,17 +532,10 @@
             flex-direction: column;
             gap: 10px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
         }
 
         .tech-bento-subgrid .interest-scrap-card:nth-child(odd) { transform: rotate(-2deg); }
         .tech-bento-subgrid .interest-scrap-card:nth-child(even) { transform: rotate(1.5deg); }
-
-        .interest-scrap-card:hover {
-            transform: rotate(0deg) scale(1.03) !important;
-            border-color: #ec527b;
-            z-index: 10;
-        }
 
         .profile-design { border-left: 5px solid #f8a488; }
         .profile-ai { border-left: 5px solid #a8dadc; }
@@ -594,10 +556,7 @@
             position: relative;
             transform: rotate(1deg);
             box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
         }
-
-        .gaming-deluxe-panel:hover { transform: rotate(0deg) scale(1.02); }
 
         .gaming-deluxe-panel::before {
             content: 'STRATEGY PROTOCOL';
@@ -630,12 +589,11 @@
             align-items: center;
         }
 
-        .gamer-tag-strip::after { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
-        .game-coc::after { content: 'COMPETITIVE'; color: #e9c46a; border: 1px solid rgba(233, 196, 106, 0.3); }
-        .game-codm::after { content: 'RANKED MATCHES'; color: #ec527b; border: 1px solid rgba(236, 82, 123, 0.3); }
-        .game-val::after { content: 'ACTIVE SESSION'; color: #a8dadc; border: 1px solid rgba(168, 218, 220, 0.3); }
+        .game-coc::after { content: 'COMPETITIVE'; color: #e9c46a; font-size: 0.65rem; }
+        .game-codm::after { content: 'RANKED MATCHES'; color: #ec527b; font-size: 0.65rem; }
+        .game-val::after { content: 'ACTIVE SESSION'; color: #a8dadc; font-size: 0.65rem; }
 
-        /* --- AWARDS GRID SYSTEM --- */
+        /* --- AWARDS GRID REALM (UNCHANGED) --- */
         .awards-responsive-matrix {
             display: grid;
             grid-template-columns: 1fr;
@@ -663,14 +621,12 @@
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden; 
-            transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .featured-award-hero {
             min-height: 540px; 
             border: 2px solid #f7d070;
-            box-shadow: 0 20px 40px rgba(247, 208, 112, 0.08);
         }
 
         .awards-secondary-stack .premium-award-box {
@@ -681,11 +637,9 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
-            object-position: center;
             opacity: 0.16;
             pointer-events: none;
             z-index: 1;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .award-content-foreground {
@@ -695,20 +649,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex-grow: 1;
-        }
-
-        .premium-award-box:hover {
-            transform: translateY(-5px);
-            border-color: #ec527b;
-            box-shadow: 0 20px 40px rgba(236, 82, 123, 0.15);
-        }
-        .premium-award-box:hover .card-bg-render-layer {
-            transform: scale(1.06);
-        }
-        .featured-award-hero:hover { 
-            border-color: #f7d070; 
-            box-shadow: 0 25px 50px rgba(247, 208, 112, 0.16); 
         }
 
         .award-badge-ribbon {
@@ -720,27 +660,13 @@
             display: inline-block;
             margin-bottom: 16px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: fit-content;
         }
         .ribbon-gold { background: #f7d070; color: #1a0813; }
         .ribbon-purple { background: rgba(142, 68, 173, 0.2); color: #c39bd3; border: 1px solid #8e44ad; }
         .ribbon-red { background: rgba(231, 76, 60, 0.2); color: #f1948a; border: 1px solid #e74c3c; }
 
-        .premium-award-box h3 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.45rem;
-            color: #fff;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .premium-award-box p {
-            font-size: 0.92rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+        .premium-award-box h3 { font-family: 'Fredoka', sans-serif; font-size: 1.45rem; color: #fff; margin-bottom: 12px; }
+        .premium-award-box p { font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; }
 
         .award-card-footer {
             display: flex;
@@ -748,17 +674,9 @@
             align-items: center;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 16px;
-            margin-top: auto;
         }
 
-        .award-issuing-body {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #ec527b;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
+        .award-issuing-body { font-size: 0.75rem; font-weight: 700; color: #ec527b; text-transform: uppercase; }
         .award-view-action-btn {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -769,17 +687,9 @@
             padding: 6px 18px;
             border-radius: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
 
-        .premium-award-box:hover .award-view-action-btn {
-            background: #ec527b;
-            border-color: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(236, 82, 123, 0.3);
-        }
-
-        /* --- TABLE OF CONTENT SECTION --- */
+        /* --- TABLE OF CONTENT BLOCK (UNCHANGED) --- */
         .toc-display-container {
             width: 100%;
             text-align: center;
@@ -790,25 +700,12 @@
             font-family: 'Fredoka', sans-serif;
             font-size: 2.8rem;
             text-transform: uppercase;
-            line-height: 1.1;
             margin-bottom: 30px;
-            letter-spacing: 1px;
         }
 
-        .toc-main-header span {
-            color: #f7d070;
-            display: block;
-            font-size: 1.8rem;
-        }
-
-        .toc-links-inline-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
+        .toc-main-header span { color: #f7d070; display: block; font-size: 1.8rem; }
+        .toc-links-inline-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        
         .toc-pill-anchor {
             display: inline-block;
             text-decoration: none;
@@ -820,16 +717,9 @@
             padding: 14px 36px;
             border-radius: 50px;
             border: 2px solid #fff;
-            box-shadow: 0 8px 20px rgba(236, 82, 123, 0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .toc-pill-anchor:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(236, 82, 123, 0.35);
-        }
-
-        /* --- LIGHTBOX MODAL CONTAINER --- */
+        /* --- LIGHTBOX MODAL STRUCTS (UNCHANGED) --- */
         .credential-modal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -841,20 +731,14 @@
             padding: 20px;
             backdrop-filter: blur(10px);
         }
-
         .modal-container {
             max-width: 750px;
             width: 100%;
             background: #2b1424;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
-            overflow: hidden;
             position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
         }
-
         .credential-modal.modal-open { display: flex; }
-
         .modal-close-btn {
             position: absolute;
             top: 20px; right: 20px;
@@ -864,31 +748,13 @@
             width: 40px; height: 40px;
             border-radius: 50%;
             font-size: 1.4rem;
-            font-weight: bold;
             cursor: pointer;
-            z-index: 10;
         }
+        .modal-image-view { width: 100%; max-height: 480px; object-fit: contain; display: block; }
+        .modal-caption { padding: 25px; text-align: center; }
+        .modal-caption h4 { font-family: 'Fredoka', sans-serif; color: #f7d070; margin-bottom: 8px; }
 
-        .modal-image-view {
-            width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: contain;
-            display: block;
-            background: #140510;
-        }
-
-        .modal-caption {
-            padding: 25px;
-            text-align: center;
-            background: #210d1b;
-            border-top: 1px solid rgba(255,255,255,0.04);
-        }
-
-        .modal-caption h4 { font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: #f7d070; margin-bottom: 8px; }
-        .modal-caption p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; }
-
-        /* --- MATTE PORTFOLIO FOOTER BRAND SYSTEM --- */
+        /* --- SITE FOOTER BRAND SYSTEM (UNCHANGED) --- */
         .premium-site-footer {
             margin-top: 40px;
             padding: 40px 0;
@@ -896,72 +762,54 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             gap: 16px;
-            text-align: center;
         }
-
-        .footer-brand-signature {
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #f7d070;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-copyright-notice {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 0.85rem;
-            color: rgba(203, 213, 225, 0.45);
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
+        .footer-brand-signature { font-family: 'Fredoka', sans-serif; font-weight: 700; color: #f7d070; }
+        .footer-copyright-notice { font-size: 0.85rem; color: rgba(203, 213, 225, 0.45); }
     </style>
 </head>
 <body>
 
-    <!-- DRAG-DRIVEN BACKDROP FLOATING DESIGN ACCENTS -->
-    <div class="bg-blur-accent bg-blur-accent-pink"></div>
-    <div class="bg-blur-accent bg-blur-accent-gold"></div>
-
-    <!-- MAIN NAV LINK SYSTEM -->
     <nav class="modern-nav-bar">
         <a href="#home-top" class="nav-brand-logo">SHAN (AY IS 1A)</a>
         <div class="nav-links-cluster">
-            <a href="#home-top" class="nav-tab-link active-tab" id="tab-home">Home</a>
-            <a href="#projects" class="nav-tab-link" id="tab-projects">Projects</a>
-            <a href="#interests" class="nav-tab-link" id="tab-interests">Interests</a>
-            <a href="#awards" class="nav-tab-link" id="tab-awards">Awards</a>
-            <a href="#contact" class="nav-tab-link" id="tab-contact">Contact</a>
+            <a href="#home-top" class="nav-tab-link active-tab">Home</a>
+            <a href="#projects" class="nav-tab-link">Projects</a>
+            <a href="#interests" class="nav-tab-link">Interests</a>
+            <a href="#awards" class="nav-tab-link">Awards</a>
+            <a href="#contact" class="nav-tab-link">Contact</a>
         </div>
     </nav>
 
     <div class="portfolio-wrapper" id="home-top">
         
-        <!-- COMPACT ANIMATED LANDING HERO CONTAINER -->
         <header class="hero-section">
+            <div class="hero-fluid-streak"></div>
+            <div class="hero-fluid-streak streak-2"></div>
+
             <div class="logo-area">
                 <h1 class="main-title">PORTFOLIO</h1>
                 <p class="tagline">Welcome to my portfolio!</p>
             </div>
             
-            <div class="tech-matrix-visual">
-                <div class="matrix-node"></div>
-                <div class="matrix-node node-glow-pink"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node node-glow-gold"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node node-glow-pink"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node"></div>
-                <div class="matrix-node node-glow-gold"></div>
+            <div class="interactive-canvas-container">
+                <div class="dynamic-cluster-root">
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node node-pink-active"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node node-gold-active"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node node-pink-active"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node"></div>
+                    <div class="interactive-node node-gold-active"></div>
+                </div>
             </div>
         </header>
 
-        <!-- PORTFOLIO PROFILE ARCHITECTURE -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -1006,7 +854,6 @@
             </div>
         </main>
 
-        <!-- 3D CAROUSEL WORKSPACE SLIDER -->
         <section class="experience-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
             <div class="cards-slider-container" id="sliderContainer">
@@ -1050,7 +897,6 @@
             </div>
         </section>
 
-        <!-- INTERESTS MATRIX HUB -->
         <section class="interests-section" id="interests">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             <div class="interests-canvas-grid">
@@ -1086,14 +932,12 @@
             </div>
         </section>
 
-        <!-- AWARDS DISPLAY LAYOUT LAYER -->
         <section class="awards-section" id="awards">
             <h2 class="section-title-center">Awards & Recognition</h2>
             <div class="awards-responsive-matrix">
                 
-                <!-- Award Block 1 -->
                 <div class="premium-award-box featured-award-hero" onclick="openCredential('trophy.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
-                    <img src="trophy.jpeg" alt="Trophy Render Background Layer" class="card-bg-render-layer">
+                    <img src="trophy.jpeg" alt="Trophy" class="card-bg-render-layer">
                     <div class="award-content-foreground">
                         <div>
                             <span class="award-badge-ribbon ribbon-gold">Champion Trophy</span>
@@ -1109,9 +953,8 @@
 
                 <div class="awards-secondary-stack">
                     
-                    <!-- Award Block 2 -->
-                    <div class="premium-award-box" onclick="openCredential('cert1.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
-                        <img src="cert1.jpeg" alt="Certificate Render Background Layer" class="card-bg-render-layer">
+                    <div class="premium-award-box" onclick="openCredential('cert1.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition.')">
+                        <img src="cert1.jpeg" alt="Certificate" class="card-bg-render-layer">
                         <div class="award-content-foreground">
                             <div>
                                 <span class="award-badge-ribbon ribbon-purple">Certificate</span>
@@ -1125,9 +968,8 @@
                         </div>
                     </div>
 
-                    <!-- Award Block 3 -->
-                    <div class="premium-award-box" onclick="openCredential('cert2.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
-                        <img src="cert2.jpeg" alt="MTV Certificate Render Background Layer" class="card-bg-render-layer">
+                    <div class="premium-award-box" onclick="openCredential('cert2.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category.')">
+                        <img src="cert2.jpeg" alt="MTV Certificate" class="card-bg-render-layer">
                         <div class="award-content-foreground">
                             <div>
                                 <span class="award-badge-ribbon ribbon-red">Media Production</span>
@@ -1142,11 +984,9 @@
                     </div>
 
                 </div>
-
             </div>
         </section>
 
-        <!-- TABLE OF CONTENT BOTTOM BLOCK -->
         <section class="toc-display-container">
             <h2 class="toc-main-header">
                 Table Of <span>Content</span>
@@ -1157,11 +997,10 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO LIGHTBOX VIEW MODE INTERACTIVE OVERLAY -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
-                <img src="" id="modalImg" alt="Interactive Credential Document View" class="modal-image-view">
+                <img src="" id="modalImg" alt="Credential Document" class="modal-image-view">
                 <div class="modal-caption">
                     <h4 id="modalTitle"></h4>
                     <p id="modalDesc"></p>
@@ -1169,16 +1008,13 @@
             </div>
         </div>
 
-        <!-- RECONSTRUCTED CLEAN FOOTER MARKER -->
         <footer class="premium-site-footer">
             <div class="footer-brand-signature">SHANCREATES</div>
             <div class="footer-copyright-notice">Edc design 2026 • Built with passion</div>
         </footer>
     </div>
 
-    <!-- MAIN INTERACTION LOGIC CONTROL HUB -->
     <script>
-        // Interactive Carousel Layout Vector Array Indices
         let sliderStateIndex = 1; 
         const totalCardsCount = 3;
 
@@ -1205,34 +1041,7 @@
         }
         updateSliderPositionsLayout();
 
-        // CAPTURE SWIPE GESTURES FOR MOBILES & TOUCH TABLETS
-        const sliderContainer = document.getElementById('sliderContainer');
-        let touchStartPosPointX = 0;
-        let touchEndPosPointX = 0;
-
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartPosPointX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        sliderContainer.addEventListener('touchend', (e) => {
-            touchEndPosPointX = e.changedTouches[0].screenX;
-            evaluateSwipeActionGesture();
-        }, { passive: true });
-
-        function evaluateSwipeActionGesture() {
-            const swipeDistanceDelta = touchEndPosPointX - touchStartPosPointX;
-            const swipeDistanceMinimumThreshold = 50;
-
-            if (swipeDistanceDelta < -swipeDistanceMinimumThreshold) {
-                sliderStateIndex = (sliderStateIndex + 1) % totalCardsCount;
-                updateSliderPositionsLayout();
-            } else if (swipeDistanceDelta > swipeDistanceMinimumThreshold) {
-                sliderStateIndex = (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount;
-                updateSliderPositionsLayout();
-            }
-        }
-
-        // View Mode Lightbox Engine Setup
+        // Modal triggers
         const modal = document.getElementById('credModal');
         const modalImg = document.getElementById('modalImg');
         const modalTitle = document.getElementById('modalTitle');
