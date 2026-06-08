@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAN | Creative Portfolio</title>
+    <!-- Clean geometric fonts matching your setup -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -26,35 +27,37 @@
             position: relative;
         }
 
-        /* --- SUBTLE BACKGROUND ACCENTS --- */
+        /* --- SUBTLE BACKGROUND ACCENTS (NEW MOVEMENT) --- */
         .bg-blur-accent {
             position: fixed;
             width: 550px;
             height: 550px;
             border-radius: 50%;
             pointer-events: none;
-            z-index: -1; /* Placed completely behind everything */
-            filter: blur(100px);
-            animation: driftAccents 16s infinite ease-in-out alternate;
+            z-index: -1; 
+            filter: blur(120px);
+            /* This animation makes faint colored ambient lights drift softly behind everything */
+            animation: driftAccents 20s infinite ease-in-out alternate;
         }
 
         .bg-blur-accent-pink {
-            background: radial-gradient(circle, rgba(236, 82, 123, 0.05) 0%, transparent 75%);
+            background: radial-gradient(circle, rgba(236, 82, 123, 0.07) 0%, transparent 75%);
             top: -50px;
             right: -50px;
         }
 
         .bg-blur-accent-gold {
-            background: radial-gradient(circle, rgba(247, 208, 112, 0.03) 0%, transparent 75%);
+            background: radial-gradient(circle, rgba(247, 208, 112, 0.05) 0%, transparent 75%);
             bottom: 15%;
             left: -150px;
-            animation-delay: -6s;
-            animation-duration: 22s;
+            animation-delay: -7s;
+            animation-duration: 25s;
         }
 
         @keyframes driftAccents {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(60px, 40px) scale(1.1); }
+            50% { transform: translate(80px, -40px) scale(1.15); }
+            100% { transform: translate(-40px, 60px) scale(0.9); }
         }
 
         .portfolio-wrapper {
@@ -121,7 +124,7 @@
             background: #ec527b;
         }
 
-        /* --- IMPROVED LANDING PANEL (NO SHAN WORD) --- */
+        /* --- ANIMATED LANDING PANEL (NO CONTENT STRIPPED) --- */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, #2b1224 0%, #1e0918 100%); 
@@ -136,6 +139,13 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
             min-height: 340px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            /* Soft entries when loading up the page */
+            animation: heroPanelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes heroPanelEntrance {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .logo-area {
@@ -154,6 +164,8 @@
             text-shadow: 4px 4px 0px #fff;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
+            /* Cool typography reveal slide */
+            animation: textRevealSlide 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
         }
 
         .tagline {
@@ -163,9 +175,15 @@
             margin-top: 14px;
             font-weight: 500;
             letter-spacing: 0.5px;
+            animation: textRevealSlide 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.35s both;
         }
 
-        /* --- CORE ANIMATION GRID (MICRO INTERACTIONS) --- */
+        @keyframes textRevealSlide {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* --- TECH MATRIX VISUAL (BREATHING & WAVE INTERACTIONS) --- */
         .tech-matrix-visual {
             width: 200px;
             height: 140px;
@@ -175,51 +193,63 @@
             position: relative;
             flex-shrink: 0;
             z-index: 2;
+            animation: floatMatrixGrid 6s infinite ease-in-out;
+        }
+
+        /* Gentle float for the entire grid asset container */
+        @keyframes floatMatrixGrid {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .matrix-node {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 10px;
             animation: idleNodePulse 4s infinite ease-in-out;
         }
 
-        /* Staggering the micro pulses across rows */
-        .tech-matrix-visual .matrix-node:nth-child(3) { animation-delay: 0.7s; }
-        .tech-matrix-visual .matrix-node:nth-child(6) { animation-delay: 1.4s; }
-        .tech-matrix-visual .matrix-node:nth-child(7) { animation-delay: 0.2s; }
-        .tech-matrix-visual .matrix-node:nth-child(10) { animation-delay: 1.9s; }
+        /* Row staggered background animation loops */
+        .tech-matrix-visual .matrix-node:nth-child(1)  { animation-delay: 0.1s; }
+        .tech-matrix-visual .matrix-node:nth-child(3)  { animation-delay: 0.5s; }
+        .tech-matrix-visual .matrix-node:nth-child(4)  { animation-delay: 0.3s; }
+        .tech-matrix-visual .matrix-node:nth-child(5)  { animation-delay: 0.8s; }
+        .tech-matrix-visual .matrix-node:nth-child(6)  { animation-delay: 1.2s; }
+        .tech-matrix-visual .matrix-node:nth-child(7)  { animation-delay: 0.2s; }
+        .tech-matrix-visual .matrix-node:nth-child(8)  { animation-delay: 1.5s; }
+        .tech-matrix-visual .matrix-node:nth-child(10) { animation-delay: 0.9s; }
+        .tech-matrix-visual .matrix-node:nth-child(11) { animation-delay: 1.4s; }
 
         .matrix-node.node-glow-pink {
             background: #ec527b;
             border-color: #fff;
-            box-shadow: 0 0 20px rgba(236, 82, 123, 0.6);
-            animation: activePinkGlow 3s infinite ease-in-out alternate;
+            box-shadow: 0 0 15px rgba(236, 82, 123, 0.5);
+            animation: activePinkGlow 3.5s infinite ease-in-out alternate;
         }
 
         .matrix-node.node-glow-gold {
             background: #f7d070;
             border-color: #fff;
-            box-shadow: 0 0 20px rgba(247, 208, 112, 0.6);
-            animation: activeGoldGlow 3s infinite ease-in-out alternate;
+            box-shadow: 0 0 15px rgba(247, 208, 112, 0.5);
+            animation: activeGoldGlow 3.5s infinite ease-in-out alternate;
         }
 
-        .tech-matrix-visual .matrix-node.node-glow-pink:nth-child(9) { animation-delay: 0.4s; }
-        .tech-matrix-visual .matrix-node.node-glow-gold:nth-child(12) { animation-delay: 0.8s; }
+        .tech-matrix-visual .matrix-node.node-glow-pink:nth-child(9) { animation-delay: 0.3s; }
+        .tech-matrix-visual .matrix-node.node-glow-gold:nth-child(12) { animation-delay: 0.6s; }
 
         @keyframes idleNodePulse {
-            0%, 100% { background: rgba(255, 255, 255, 0.02); }
-            50% { background: rgba(255, 255, 255, 0.06); }
+            0%, 100% { background: rgba(255, 255, 255, 0.03); transform: scale(1); }
+            50% { background: rgba(255, 255, 255, 0.08); transform: scale(1.03); }
         }
 
         @keyframes activePinkGlow {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(236, 82, 123, 0.4); }
-            50% { transform: scale(1.06); box-shadow: 0 0 26px rgba(236, 82, 123, 0.85); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(236, 82, 123, 0.4); filter: brightness(1); }
+            50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(236, 82, 123, 0.8); filter: brightness(1.1); }
         }
 
         @keyframes activeGoldGlow {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(247, 208, 112, 0.4); }
-            50% { transform: scale(1.06); box-shadow: 0 0 26px rgba(247, 208, 112, 0.85); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(247, 208, 112, 0.4); filter: brightness(1); }
+            50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(247, 208, 112, 0.8); filter: brightness(1.1); }
         }
 
         /* --- ABOUT ME / PROFILE --- */
@@ -890,9 +920,11 @@
 </head>
 <body>
 
+    <!-- DRAG-DRIVEN BACKDROP FLOATING DESIGN ACCENTS -->
     <div class="bg-blur-accent bg-blur-accent-pink"></div>
     <div class="bg-blur-accent bg-blur-accent-gold"></div>
 
+    <!-- MAIN NAV LINK SYSTEM -->
     <nav class="modern-nav-bar">
         <a href="#home-top" class="nav-brand-logo">SHAN (AY IS 1A)</a>
         <div class="nav-links-cluster">
@@ -906,11 +938,13 @@
 
     <div class="portfolio-wrapper" id="home-top">
         
+        <!-- COMPACT ANIMATED LANDING HERO CONTAINER -->
         <header class="hero-section">
             <div class="logo-area">
                 <h1 class="main-title">PORTFOLIO</h1>
                 <p class="tagline">Welcome to my portfolio!</p>
             </div>
+            
             <div class="tech-matrix-visual">
                 <div class="matrix-node"></div>
                 <div class="matrix-node node-glow-pink"></div>
@@ -927,6 +961,7 @@
             </div>
         </header>
 
+        <!-- PORTFOLIO PROFILE ARCHITECTURE -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -971,6 +1006,7 @@
             </div>
         </main>
 
+        <!-- 3D CAROUSEL WORKSPACE SLIDER -->
         <section class="experience-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
             <div class="cards-slider-container" id="sliderContainer">
@@ -1014,6 +1050,7 @@
             </div>
         </section>
 
+        <!-- INTERESTS MATRIX HUB -->
         <section class="interests-section" id="interests">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             <div class="interests-canvas-grid">
@@ -1049,10 +1086,12 @@
             </div>
         </section>
 
+        <!-- AWARDS DISPLAY LAYOUT LAYER -->
         <section class="awards-section" id="awards">
             <h2 class="section-title-center">Awards & Recognition</h2>
             <div class="awards-responsive-matrix">
                 
+                <!-- Award Block 1 -->
                 <div class="premium-award-box featured-award-hero" onclick="openCredential('trophy.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
                     <img src="trophy.jpeg" alt="Trophy Render Background Layer" class="card-bg-render-layer">
                     <div class="award-content-foreground">
@@ -1070,6 +1109,7 @@
 
                 <div class="awards-secondary-stack">
                     
+                    <!-- Award Block 2 -->
                     <div class="premium-award-box" onclick="openCredential('cert1.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
                         <img src="cert1.jpeg" alt="Certificate Render Background Layer" class="card-bg-render-layer">
                         <div class="award-content-foreground">
@@ -1085,6 +1125,7 @@
                         </div>
                     </div>
 
+                    <!-- Award Block 3 -->
                     <div class="premium-award-box" onclick="openCredential('cert2.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
                         <img src="cert2.jpeg" alt="MTV Certificate Render Background Layer" class="card-bg-render-layer">
                         <div class="award-content-foreground">
@@ -1105,6 +1146,7 @@
             </div>
         </section>
 
+        <!-- TABLE OF CONTENT BOTTOM BLOCK -->
         <section class="toc-display-container">
             <h2 class="toc-main-header">
                 Table Of <span>Content</span>
@@ -1115,6 +1157,7 @@
             </div>
         </section>
 
+        <!-- PORTFOLIO LIGHTBOX VIEW MODE INTERACTIVE OVERLAY -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -1126,12 +1169,14 @@
             </div>
         </div>
 
+        <!-- RECONSTRUCTED CLEAN FOOTER MARKER -->
         <footer class="premium-site-footer">
             <div class="footer-brand-signature">SHANCREATES</div>
             <div class="footer-copyright-notice">Edc design 2026 • Built with passion</div>
         </footer>
     </div>
 
+    <!-- MAIN INTERACTION LOGIC CONTROL HUB -->
     <script>
         // Interactive Carousel Layout Vector Array Indices
         let sliderStateIndex = 1; 
