@@ -37,7 +37,7 @@
             padding: 0 24px;
         }
 
-        /* --- EXPANDED NAVIGATION BAR --- */
+        /* --- NAVIGATION BAR --- */
         .modern-nav-bar {
             position: fixed;
             top: 20px;
@@ -89,7 +89,7 @@
             background: #ec527b;
         }
 
-        /* --- SPLIT LANDING HERO --- */
+        /* --- HERO --- */
         .hero-section {
             position: relative;
             background: linear-gradient(to right, #240d1e 50%, #1a0813 50%); 
@@ -174,7 +174,7 @@
             box-shadow: 0 0 20px rgba(247, 208, 112, 0.7);
         }
 
-        /* --- INTRODUCTION SECTION GRID --- */
+        /* --- ABOUT ME / INTRO --- */
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -286,7 +286,6 @@
             background: #f7d070;
         }
 
-        /* --- BIO TYPOGRAPHY --- */
         .greet-title {
             font-family: 'Fredoka', sans-serif;
             font-size: 5.5rem;
@@ -338,7 +337,7 @@
         .badge-canva { background: #e9c46a; }
         .badge-capcut { background: #f4a261; }
 
-        /* --- 3D INTERACTIVE SLIDER --- */
+        /* --- 3D SLIDER --- */
         .experience-section {
             width: 100%;
             padding: 20px 0;
@@ -453,7 +452,7 @@
             color: #cbd5e1;
         }
 
-        /* --- TILTED HOBBIES STYLE --- */
+        /* --- INTERESTS --- */
         .interests-canvas-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -486,12 +485,8 @@
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
         }
 
-        .tech-bento-subgrid .interest-scrap-card:nth-child(odd) {
-            transform: rotate(-2deg);
-        }
-        .tech-bento-subgrid .interest-scrap-card:nth-child(even) {
-            transform: rotate(1.5deg);
-        }
+        .tech-bento-subgrid .interest-scrap-card:nth-child(odd) { transform: rotate(-2deg); }
+        .tech-bento-subgrid .interest-scrap-card:nth-child(even) { transform: rotate(1.5deg); }
 
         .interest-scrap-card:hover {
             transform: rotate(0deg) scale(1.03) !important;
@@ -504,17 +499,8 @@
         .profile-web { border-left: 5px solid #e9c46a; }
         .profile-systems { border-left: 5px solid #5bc0be; }
 
-        .interest-scrap-card h4 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.2rem;
-            color: #f7d070;
-        }
-
-        .interest-scrap-card p {
-            font-size: 0.92rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
+        .interest-scrap-card h4 { font-family: 'Fredoka', sans-serif; font-size: 1.2rem; color: #f7d070; }
+        .interest-scrap-card p { font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; }
 
         .gaming-deluxe-panel {
             background: linear-gradient(145deg, #1e0916, #280d1e);
@@ -530,9 +516,7 @@
             transition: transform 0.3s ease;
         }
 
-        .gaming-deluxe-panel:hover {
-            transform: rotate(0deg) scale(1.02);
-        }
+        .gaming-deluxe-panel:hover { transform: rotate(0deg) scale(1.02); }
 
         .gaming-deluxe-panel::before {
             content: 'STRATEGY PROTOCOL';
@@ -548,26 +532,10 @@
             border-radius: 4px;
         }
 
-        .gaming-deluxe-header h3 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 8px;
-        }
+        .gaming-deluxe-header h3 { font-family: 'Fredoka', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 8px; }
+        .gaming-deluxe-header p { font-size: 0.92rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 25px; }
 
-        .gaming-deluxe-header p {
-            font-size: 0.92rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .gamer-tags-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-                        }
-
+        .gamer-tags-stack { display: flex; flex-direction: column; gap: 12px; }
         .gamer-tag-strip {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -581,30 +549,12 @@
             align-items: center;
         }
 
-        .gamer-tag-strip::after {
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-        .game-coc::after {
-            content: 'COMPETITIVE';
-            color: #e9c46a;
-            border: 1px solid rgba(233, 196, 106, 0.3);
-        }
-        .game-codm::after {
-            content: 'RANKED MATCHES';
-            color: #ec527b;
-            border: 1px solid rgba(236, 82, 123, 0.3);
-        }
-        .game-val::after {
-            content: 'ACTIVE SESSION';
-            color: #a8dadc;
-            border: 1px solid rgba(168, 218, 220, 0.3);
-        }
+        .gamer-tag-strip::after { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
+        .game-coc::after { content: 'COMPETITIVE'; color: #e9c46a; border: 1px solid rgba(233, 196, 106, 0.3); }
+        .game-codm::after { content: 'RANKED MATCHES'; color: #ec527b; border: 1px solid rgba(236, 82, 123, 0.3); }
+        .game-val::after { content: 'ACTIVE SESSION'; color: #a8dadc; border: 1px solid rgba(168, 218, 220, 0.3); }
 
-        /* --- FIXED AWARDS MATRIX WITH DISTINCT LAYOUTS --- */
+        /* --- RE-SIMPLIFIED AWARDS PANEL MATRIX --- */
         .awards-responsive-matrix {
             display: grid;
             grid-template-columns: 1fr;
@@ -612,27 +562,14 @@
         }
 
         @media(min-width: 750px) {
-            .awards-responsive-matrix {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .featured-award-hero {
-                grid-column: span 2;
-            }
+            .awards-responsive-matrix { grid-template-columns: repeat(2, 1fr); }
+            .featured-award-hero { grid-column: span 2; }
         }
 
         @media(min-width: 1000px) {
-            .awards-responsive-matrix {
-                grid-template-columns: 1.3fr 1fr;
-            }
-            .featured-award-hero {
-                grid-column: span 1;
-                grid-row: span 2;
-            }
-            .awards-secondary-stack {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-            }
+            .awards-responsive-matrix { grid-template-columns: 1.3fr 1fr; }
+            .featured-award-hero { grid-column: span 1; grid-row: span 2; }
+            .awards-secondary-stack { display: flex; flex-direction: column; gap: 24px; }
         }
 
         .premium-award-box {
@@ -647,58 +584,48 @@
             position: relative;
             cursor: pointer;
             overflow: hidden; 
-            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             z-index: 1;
         }
 
-        /* Base rule for background asset layers */
+        /* Simplified: One rule using precise distinct image assets */
         .premium-award-box::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0.18; 
+            opacity: 0.15; 
             pointer-events: none;
             z-index: -1;
+            transition: transform 0.3s ease;
         }
 
-        /* --- FIXED: Distinct Certificate styling vs Trophy framing --- */
-        
-        /* Slot 1: Showcases the raw Trophy asset cleanly */
-        .award-slot-trophy::before {
-            background-image: url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');
-        }
-        
-        /* Slot 2 & Slot 3: Uses custom blend geometry and orientation to make the same graphic represent a Certificate layout */
-        .award-slot-cert-1::before {
-            background-image: linear-gradient(rgba(43, 20, 36, 0.4), rgba(43, 20, 36, 0.4)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');
-            background-size: 140% 100%; /* Stretch horizontally to change trophy aspect into a certificate framing */
-            background-position: top center;
-        }
+        /* Clean individual background assignments matching your file structure */
+        .award-slot-trophy::before { background-image: url('trophy.jpg'); }
+        .award-slot-cert-1::before { background-image: url('cert1.jpg'); }
+        .award-slot-cert-2::before { background-image: url('cert2.jpg'); }
 
-        .award-slot-cert-2::before {
-            background-image: linear-gradient(rgba(43, 20, 36, 0.5), rgba(43, 20, 36, 0.5)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');
-            background-size: 150% 110%; /* Alternated crop scaling to symbolize a secondary separate parchment */
-            background-position: center right;
-        }
-
-        /* Restored golden highlighting borders */
+        /* Gold highlight layout framing */
         .featured-award-hero {
             border: 2px solid #f7d070;
             box-shadow: 0 20px 40px rgba(247, 208, 112, 0.08);
             background-image: linear-gradient(180deg, #33152a 0%, #2b1424 100%);
         }
 
+        /* Hover and slightly emphasized click-ready states */
         .premium-award-box:hover {
             transform: translateY(-4px);
             border-color: #ec527b;
         }
-
-        .featured-award-hero:hover {
-            border-color: #f7d070;
-            box-shadow: 0 25px 50px rgba(247, 208, 112, 0.15);
+        .premium-award-box:hover::before {
+            transform: scale(1.05);
         }
+        .premium-award-box:active {
+            transform: scale(0.98) translateY(-2px);
+        }
+
+        .featured-award-hero:hover { border-color: #f7d070; box-shadow: 0 25px 50px rgba(247, 208, 112, 0.15); }
 
         .award-badge-ribbon {
             font-family: 'Fredoka', sans-serif;
@@ -756,6 +683,7 @@
             letter-spacing: 1px;
         }
 
+        /* Sparkling Indicator Badge Action */
         .award-action-indicator {
             width: 32px;
             height: 32px;
@@ -777,7 +705,7 @@
             transform: scale(1.1);
         }
 
-        /* --- CREDENTIAL LIGHTBOX MODAL --- */
+        /* --- INTERACTIVE VIEW MODE / LIGHTBOX MODAL --- */
         .credential-modal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -833,46 +761,16 @@
             border-top: 1px solid rgba(255,255,255,0.04);
         }
 
-        .modal-caption h4 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.3rem;
-            color: #f7d070;
-            margin-bottom: 8px;
-        }
-
-        .modal-caption p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
+        .modal-caption h4 { font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: #f7d070; margin-bottom: 8px; }
+        .modal-caption p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; }
 
         /* --- TABLE OF CONTENT --- */
-        .toc-section {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255,255,255,0.04);
-        }
-
-        .toc-title {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 2.6rem;
-            color: #fff;
-            margin-bottom: 40px;
-        }
-
+        .toc-section { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.04); }
+        .toc-title { font-family: 'Fredoka', sans-serif; font-size: 2.6rem; color: #fff; margin-bottom: 40px; }
         .toc-title span { color: #f7d070; }
+        .toc-buttons { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 700px; margin: 0 auto; }
 
-        .toc-buttons {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        @media(min-width: 550px) {
-            .toc-buttons { grid-template-columns: 1fr 1fr; }
-        }
+        @media(min-width: 550px) { .toc-buttons { grid-template-columns: 1fr 1fr; } }
 
         .capsule-btn {
             display: block;
@@ -888,13 +786,7 @@
             box-shadow: 0 6px 0px rgba(0,0,0,0.25);
         }
 
-        .portfolio-footer {
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.4;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.03);
-        }
+        .portfolio-footer { text-align: center; font-size: 0.9rem; opacity: 0.4; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.03); }
     </style>
 </head>
 <body>
@@ -914,12 +806,10 @@
         
         <header class="hero-section">
             <div class="hero-bg-watermark">SHAN</div>
-            
             <div class="logo-area">
                 <h1 class="main-title">PORTFOLIO</h1>
                 <p class="tagline">Welcome to my portfolio!</p>
             </div>
-            
             <div class="tech-matrix-visual">
                 <div class="matrix-node"></div>
                 <div class="matrix-node node-glow-pink"></div>
@@ -1062,7 +952,7 @@
             <h2 class="section-title-center">Awards & Recognition</h2>
             <div class="awards-responsive-matrix">
                 
-                <div class="premium-award-box featured-award-hero award-slot-trophy" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
+                <div class="premium-award-box featured-award-hero award-slot-trophy" onclick="openCredential('trophy.jpg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
                     <div>
                         <span class="award-badge-ribbon ribbon-gold">Champion Trophy</span>
                         <h3>Bytesize Quiz Bee Plaque</h3>
@@ -1076,7 +966,7 @@
 
                 <div class="awards-secondary-stack">
                     
-                    <div class="premium-award-box award-slot-cert-1" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
+                    <div class="premium-award-box award-slot-cert-1" onclick="openCredential('cert1.jpg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
                         <div>
                             <span class="award-badge-ribbon ribbon-purple">Certificate</span>
                             <h3>Bytesize Quiz Bee Winner</h3>
@@ -1088,7 +978,7 @@
                         </div>
                     </div>
 
-                    <div class="premium-award-box award-slot-cert-2" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
+                    <div class="premium-award-box award-slot-cert-2" onclick="openCredential('cert2.jpg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
                         <div>
                             <span class="award-badge-ribbon ribbon-red">Media Production</span>
                             <h3>Best MTV Spoof: "What is Love"</h3>
@@ -1140,3 +1030,39 @@
         }
 
         function updateSliderPositionsLayout() {
+            const cards = document.querySelectorAll('.project-card-3d');
+            if(!cards.length) return;
+            cards.forEach((card, index) => {
+                card.className = 'project-card-3d'; 
+                if (index === sliderStateIndex) {
+                    card.classList.add('card-pos-active');
+                } else if (index === (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount) {
+                    card.classList.add('card-pos-left');
+                } else if (index === (sliderStateIndex + 1) % totalCardsCount) {
+                    card.classList.add('card-pos-right');
+                } else {
+                    card.classList.add('card-pos-hidden');
+                }
+            });
+        }
+        updateSliderPositionsLayout();
+
+        // View Mode Modal Mechanics
+        const modal = document.getElementById('credModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openCredential(imgSrc, title, description) {
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDesc.textContent = description;
+            modal.classList.add('modal-open');
+        }
+
+        function closeCredential() {
+            modal.classList.remove('modal-open');
+        }
+    </script>
+</body>
+</html>
