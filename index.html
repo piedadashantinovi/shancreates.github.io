@@ -761,29 +761,34 @@
         .modal-caption h4 { font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: #f7d070; margin-bottom: 8px; }
         .modal-caption p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; }
 
-        /* --- TABLE OF CONTENT --- */
-        .toc-section { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.04); }
-        .toc-title { font-family: 'Fredoka', sans-serif; font-size: 2.6rem; color: #fff; margin-bottom: 40px; }
-        .toc-title span { color: #f7d070; }
-        .toc-buttons { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 700px; margin: 0 auto; }
-
-        @media(min-width: 550px) { .toc-buttons { grid-template-columns: 1fr 1fr; } }
-
-        .capsule-btn {
-            display: block;
-            text-decoration: none;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: bold;
-            font-size: 1rem;
-            color: #fff;
-            background: #ec527b;
-            padding: 16px 28px;
-            border-radius: 40px;
-            border: 3px solid #fff;
-            box-shadow: 0 6px 0px rgba(0,0,0,0.25);
+        /* --- MATTE PORTFOLIO FOOTER BRAND SYSTEM --- */
+        .premium-site-footer {
+            margin-top: 40px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            text-align: center;
         }
 
-        .portfolio-footer { text-align: center; font-size: 0.9rem; opacity: 0.4; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.03); }
+        .footer-brand-signature {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #f7d070;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-copyright-notice {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(203, 213, 225, 0.45);
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
     </style>
 </head>
 <body>
@@ -1012,16 +1017,9 @@
             </div>
         </div>
 
-        <section class="toc-section">
-            <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
-            <div class="toc-buttons">
-                <a href="#" class="capsule-btn">1. BRAND IDENTITY</a>
-                <a href="#" class="capsule-btn">2. VIDEO REELS</a>
-            </div>
-        </section>
-
-        <footer class="portfolio-footer">
-            <p>Edc design 2026</p>
+        <footer class="premium-site-footer">
+            <div class="footer-brand-signature">SHANCREATES</div>
+            <div class="footer-copyright-notice">Edc design 2026 • Built with passion</div>
         </footer>
     </div>
 
