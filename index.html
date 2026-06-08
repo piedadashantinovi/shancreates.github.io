@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- GLOBAL SETUP --- */
+        /* --- GLOBAL BASIS (UNCHANGED) --- */
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +20,8 @@
             background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
             background-size: 30px 30px;
             color: #e6dfd3;
-            padding-top: 140px; /* Space for fixed navbar */
+            font-family: 'Quicksand', sans-serif;
+            padding-top: 140px; 
             padding-bottom: 60px;
             overflow-x: hidden;
             width: 100%;
@@ -122,7 +123,7 @@
             background: #ec527b;
         }
 
-        /* --- IMPROVED HERO SECTION --- */
+        /* --- IMPROVED LANDING / HERO SECTION (WITH SHAN REMOVED) --- */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, #2b1224 0%, #1e0918 100%); 
@@ -223,7 +224,7 @@
             50% { transform: scale(1.05); box-shadow: 0 0 28px rgba(247, 208, 112, 0.9); }
         }
 
-        /* --- ABOUT ME / INTRO --- */
+        /* --- ABOUT ME / PROFILE --- */
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -386,7 +387,7 @@
         .badge-canva { background: #e9c46a; }
         .badge-capcut { background: #f4a261; }
 
-        /* --- 3D SLIDER --- */
+        /* --- 3D SLIDER (STRICTLY PRESERVED DESKTOP VISUALS) --- */
         .experience-section {
             width: 100%;
             padding: 20px 0;
@@ -606,7 +607,7 @@
         .game-codm::after { content: 'RANKED MATCHES'; color: #ec527b; border: 1px solid rgba(236, 82, 123, 0.3); }
         .game-val::after { content: 'ACTIVE SESSION'; color: #a8dadc; border: 1px solid rgba(168, 218, 220, 0.3); }
 
-        /* --- FIXED CLEAN AWARDS PANEL MATRIX --- */
+        /* --- CLEAN AWARDS PANEL MATRIX --- */
         .awards-responsive-matrix {
             display: grid;
             grid-template-columns: 1fr;
@@ -808,6 +809,14 @@
 
         .modal-caption h4 { font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: #f7d070; margin-bottom: 8px; }
         .modal-caption p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; }
+
+        /* --- FIXED CLEAN TABLE OF CONTENT SECTION --- */
+        .toc-display-container {
+            width: 100%;
+            text-align: center;
+            padding: 40px 0;
+            display: none; /* Safely hidden as not present in reference image visuals */
+        }
 
         /* --- MATTE PORTFOLIO FOOTER BRAND SYSTEM --- */
         .premium-site-footer {
@@ -1046,9 +1055,224 @@
                     </div>
                 </div>
 
+                <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
+                    <div class="card-top-identity">
+                        <h4>Information System Technological Plan</h4>
+                        <span class="role-badge-text">1998 Cafe • Strategy</span>
+                    </div>
+                    <p class="card-desc-body">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized Cloud-Based ERP POS Inventory Management System to automate tracking operations.</p>
+                    <div class="card-footer-meta">
+                        <span class="tech-pill-tag">ERP Strategy</span>
+                        <span class="project-year-stamp">2026</span>
+                    </div>
+                </div>
+
+                <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
+                    <div class="card-top-identity">
+                        <h4>Digital Voting System Simulation</h4>
+                        <span class="role-badge-text">System Developer</span>
+                    </div>
+                    <p class="card-desc-body">A strategic software project built utilizing fundamental Java architecture structures to accurately simulate a decentralized electoral voting workspace, accommodating multi-tiered sorting ladders up to the executive level of Governor.</p>
+                    <div class="card-footer-meta">
+                        <span class="tech-pill-tag">Java CLI</span>
+                        <span class="project-year-stamp">2025</span>
+                    </div>
+                </div>
+                
             </div>
         </section>
 
+        <section class="interests-section" id="interests">
+            <h2 class="section-title-center">Hobbies & Interests</h2>
+            <div class="interests-canvas-grid">
+                <div class="tech-bento-subgrid">
+                    <div class="interest-scrap-card profile-design">
+                        <h4>Digital Content & Graphics</h4>
+                        <p>Designing assets, interfaces, and clean digital aesthetics across various design tools.</p>
+                    </div>
+                    <div class="interest-scrap-card profile-ai">
+                        <h4>Emerging Tech & AI Tools</h4>
+                        <p>Exploring new systems, capabilities, and integrating artificial intelligence frameworks into modern asset workflows.</p>
+                    </div>
+                    <div class="interest-scrap-card profile-web">
+                        <h4>Software & Web Architecture</h4>
+                        <p>Building software structures, responsive layout designs, and modern frontend web layers.</p>
+                    </div>
+                    <div class="interest-scrap-card profile-systems">
+                        <h4>Information Systems</h4>
+                        <p>Analyzing business technology intersections, optimizing manual computational steps, and learning enterprise architectures.</p>
+                    </div>
+                </div>
+                <div class="gaming-deluxe-panel">
+                    <div class="gaming-deluxe-header">
+                        <h3>Strategy & Gaming Focus</h3>
+                        <p>Engaging with competitive, tactical match systems that rely heavily on pacing, micro-positioning, and fast problem solving.</p>
+                    </div>
+                    <div class="gamer-tags-stack">
+                        <div class="gamer-tag-strip game-coc">Clash of Clans</div>
+                        <div class="gamer-tag-strip game-codm">Call of Duty: Mobile</div>
+                        <div class="gamer-tag-strip game-val">Valorant</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="awards-section" id="awards">
+            <h2 class="section-title-center">Awards & Recognition</h2>
+            <div class="awards-responsive-matrix">
+                
+                <div class="premium-award-box featured-award-hero" onclick="openCredential('trophy.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
+                    <img src="trophy.jpeg" alt="Trophy" class="card-bg-render-layer">
+                    <div class="award-content-foreground">
+                        <div>
+                            <span class="award-badge-ribbon ribbon-gold">Champion Trophy</span>
+                            <h3>Bytesize Quiz Bee Plaque</h3>
+                            <p>Awarded for emerging as the absolute Grand Champion in the intensive technical Quiz Bee arena at the ByteFest 3.0 event.</p>
+                        </div>
+                        <div class="award-card-footer">
+                            <span class="award-issuing-body">DNSC Local Student Government</span>
+                            <button class="award-view-action-btn">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="awards-secondary-stack">
+                    
+                    <div class="premium-award-box" onclick="openCredential('cert1.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition.')">
+                        <img src="cert1.jpeg" alt="Certificate" class="card-bg-render-layer">
+                        <div class="award-content-foreground">
+                            <div>
+                                <span class="award-badge-ribbon ribbon-purple">Certificate</span>
+                                <h3>Bytesize Quiz Bee Winner</h3>
+                                <p>Official Institutional recognition for securing the top honors during the flagship academic computation rally.</p>
+                            </div>
+                            <div class="award-card-footer">
+                                <span class="award-issuing-body">Institute of Computing</span>
+                                <button class="award-view-action-btn">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-award-box" onclick="openCredential('cert2.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category.')">
+                        <img src="cert2.jpeg" alt="MTV Certificate" class="card-bg-render-layer">
+                        <div class="award-content-foreground">
+                            <div>
+                                <span class="award-badge-ribbon ribbon-red">Media Production</span>
+                                <h3>Best MTV Spoof: "What is Love"</h3>
+                                <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
+                            </div>
+                            <div class="award-card-footer">
+                                <span class="award-issuing-body">Multimedia Festival</span>
+                                <button class="award-view-action-btn">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="toc-display-container">
+            </section>
+
+        <div class="credential-modal" id="credModal" onclick="closeCredential()">
+            <div class="modal-container" onclick="event.stopPropagation()">
+                <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
+                <img src="" id="modalImg" alt="Credential View" class="modal-image-view">
+                <div class="modal-caption">
+                    <h4 id="modalTitle"></h4>
+                    <p id="modalDesc"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="premium-site-footer">
+            <div class="footer-brand-signature">SHANCREATES</div>
+            <div class="footer-copyright-notice">Edc design 2026 • Built with passion</div>
+        </footer>
     </div>
+
+    <script>
+        // --- 3D SLIDER LOGIC ---
+        // State management
+        let sliderStateIndex = 1; // Start with center card (Card 2)
+        const totalCardsCount = 3;
+
+        // Interaction control
+        function stepSliderToCard(targetCardIndex) {
+            sliderStateIndex = targetCardIndex;
+            updateSliderPositionsLayout();
+        }
+
+        // Layout update engine
+        function updateSliderPositionsLayout() {
+            const cards = document.querySelectorAll('.project-card-3d');
+            if(!cards.length) return;
+            cards.forEach((card, index) => {
+                // Wipe clean previous position classes
+                card.className = 'project-card-3d'; 
+                
+                // Map logical position to specific class
+                if (index === sliderStateIndex) {
+                    card.classList.add('card-pos-active');
+                } else if (index === (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount) {
+                    card.classList.add('card-pos-left');
+                } else if (index === (sliderStateIndex + 1) % totalCardsCount) {
+                    card.classList.add('card-pos-right');
+                } else {
+                    card.classList.add('card-pos-hidden');
+                }
+            });
+        }
+        updateSliderPositionsLayout(); // Initial paint
+
+        // --- MOBILE SWIPE GESTURE SUPPORT ---
+        const sliderContainer = document.getElementById('sliderContainer');
+        let touchStartPosPointX = 0;
+        let touchEndPosPointX = 0;
+
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartPosPointX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndPosPointX = e.changedTouches[0].screenX;
+            evaluateSwipeActionGesture();
+        }, { passive: true });
+
+        function evaluateSwipeActionGesture() {
+            const swipeDistanceDelta = touchEndPosPointX - touchStartPosPointX;
+            const swipeDistanceMinimumThreshold = 50; // Required swipe distance in pixels
+
+            if (swipeDistanceDelta < -swipeDistanceMinimumThreshold) {
+                // Swiped Left -> Advance to next project card
+                sliderStateIndex = (sliderStateIndex + 1) % totalCardsCount;
+                updateSliderPositionsLayout();
+            } else if (swipeDistanceDelta > swipeDistanceMinimumThreshold) {
+                // Swiped Right -> Go back to previous project card
+                sliderStateIndex = (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount;
+                updateSliderPositionsLayout();
+            }
+        }
+
+        // --- VIEW MODE MODAL MECHANICS ---
+        // Container links
+        const modal = document.getElementById('credModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+
+        // Logic triggers
+        function openCredential(imgSrc, title, description) {
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDesc.textContent = description;
+            modal.classList.add('modal-open');
+        }
+
+        function closeCredential() {
+            modal.classList.remove('modal-open');
+        }
+    </script>
 </body>
 </html>
