@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAN | Creative Portfolio</title>
+    <!-- Clean geometric fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- GLOBAL CONFIGURATION --- */
+        /* --- GLOBAL SETUP --- */
         * {
             margin: 0;
             padding: 0;
@@ -16,24 +17,25 @@
         }
 
         body {
-            background-color: #1a0813; /* Elegant deep burgundy backdrop */
+            background-color: #1a0813;
             background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
             background-size: 30px 30px;
             color: #e6dfd3;
             font-family: 'Quicksand', sans-serif;
-            padding: 120px 0 40px 0; /* Top padding accommodates expansive fixed bar */
-            display: flex;
-            justify-content: center;
+            padding-top: 140px; /* Space for fixed navbar */
+            padding-bottom: 60px;
             overflow-x: hidden;
+            width: 100%;
         }
 
         .portfolio-wrapper {
             width: 100%;
             max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 80px;
-            padding: 0 30px;
+            padding: 0 24px;
         }
 
         /* --- EXPANDED TOP NAVIGATION TAB BAR --- */
@@ -42,44 +44,45 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 95%; /* Significantly expanded screen width usage */
-            max-width: 1200px; /* Aligns with global page grids */
-            background: rgba(26, 8, 19, 0.85);
+            width: 92%; 
+            max-width: 1200px; 
+            background: rgba(26, 8, 19, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 50px; /* Sweeping, expansive pill shape */
-            padding: 12px 40px; /* Generous breathing room inside the tab */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px; 
+            padding: 14px 40px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .nav-brand-logo {
             font-family: 'Fredoka', sans-serif;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: #f7d070;
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .nav-links-cluster {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .nav-tab-link {
             text-decoration: none;
             font-family: 'Fredoka', sans-serif;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #cbd5e1;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
         }
 
         .nav-tab-link:hover, .nav-tab-link.active-tab {
@@ -90,7 +93,7 @@
         /* --- PORSCHE-INSPIRED SPLIT LANDING HERO --- */
         .hero-section {
             position: relative;
-            background: linear-gradient(to right, #25101f 50%, #1a0813 50%); /* High-contrast clean split concept */
+            background: linear-gradient(to right, #240d1e 50%, #1a0813 50%); 
             border-radius: 24px;
             padding: 80px 50px;
             display: flex;
@@ -99,19 +102,19 @@
             flex-wrap: wrap;
             gap: 40px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            min-height: 320px;
         }
 
-        /* Massive Structural Watermark Typography */
         .hero-bg-watermark {
             position: absolute;
             font-family: 'Fredoka', sans-serif;
-            font-size: 11rem;
+            font-size: 12rem;
             font-weight: 700;
             color: rgba(255, 255, 255, 0.015);
             letter-spacing: 15px;
             line-height: 1;
-            bottom: -20px;
+            bottom: -30px;
             left: 5%;
             user-select: none;
             pointer-events: none;
@@ -120,31 +123,29 @@
 
         .logo-area {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
             position: relative;
             z-index: 2;
         }
 
         .main-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             line-height: 1;
             color: #ec527b; 
             font-weight: 700;
             text-shadow: 4px 4px 0px #fff;
             letter-spacing: -1px;
-            margin-bottom: 12px;
         }
 
         .tagline {
             font-size: 1.3rem;
             font-style: italic;
             color: #f7d070; 
-            margin-top: 8px;
+            margin-top: 14px;
             font-weight: 500;
         }
 
-        /* Tech Visual Right Alignment Block */
         .tech-matrix-visual {
             width: 180px;
             height: 120px;
@@ -160,7 +161,6 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 8px;
-            transition: all 0.3s ease;
         }
 
         .matrix-node.node-glow-pink {
@@ -175,18 +175,7 @@
             box-shadow: 0 0 20px rgba(247, 208, 112, 0.7);
         }
 
-        .matrix-vector-line {
-            position: absolute;
-            width: 2px;
-            background: linear-gradient(to bottom, #ec527b, #f7d070);
-            top: 15%;
-            bottom: 15%;
-            left: 37%;
-            z-index: -1;
-            opacity: 0.3;
-        }
-
-        /* --- INTRODUCTION SECTION ASYMMETRIC GRID --- */
+        /* --- INTRODUCTION SECTION GRID --- */
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -198,15 +187,14 @@
             .intro-grid { grid-template-columns: 320px 1fr; }
         }
 
-        /* Polaroid Frame with Asymmetric Placement */
         .photo-frame {
             background: #f7d070;
             padding: 20px;
-            border-radius: 4px; /* Shifting to premium angular geometry instead of heavy rounds */
+            border-radius: 4px; 
             position: relative;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transform: rotate(-3deg);
-            transition: transform 0.4s ease;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
         }
 
         .photo-frame:hover {
@@ -227,16 +215,13 @@
             font-weight: bold;
             padding: 6px 14px;
             border-radius: 30px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
             border: 2px solid #fff;
         }
         .tag-blue { background: #5bc0be; color: #fff; bottom: 45px; left: -15px; transform: rotate(-8deg); }
         .tag-pink { background: #ec527b; color: #fff; bottom: 12px; right: -10px; transform: rotate(10deg); }
 
-        /* --- UNBOXED SIDE PROFILE DETAILS PANEL --- */
         .connect-panel {
-            margin-top: 50px;
-            padding-left: 10px;
+            margin-top: 40px;
         }
 
         .connect-headline {
@@ -244,7 +229,6 @@
             font-size: 1.4rem;
             color: #f7d070;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
 
         .connect-subtext {
@@ -257,8 +241,8 @@
         .contact-details-list {
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            margin-bottom: 30px;
+            gap: 16px;
+            margin-bottom: 25px;
         }
 
         .contact-item-row {
@@ -293,9 +277,8 @@
             padding: 14px 20px;
             border-radius: 30px;
             text-decoration: none;
-            letter-spacing: 0.5px;
             box-shadow: 0 4px 0px #cbd5e1;
-            transition: all 0.15s ease;
+            transition: all 0.1s ease;
         }
 
         .connect-action-btn:hover {
@@ -304,7 +287,7 @@
             background: #f7d070;
         }
 
-        /* --- LUXURY UNBOXED BIO TYPOGRAPHY --- */
+        /* --- BIO TYPOGRAPHY --- */
         .greet-title {
             font-family: 'Fredoka', sans-serif;
             font-size: 5.5rem;
@@ -317,7 +300,6 @@
             font-size: 1.1rem;
             line-height: 1.75;
             color: #f1f5f9;
-            text-align: justify;
         }
         
         .bio-text p {
@@ -351,7 +333,6 @@
             padding: 8px 20px;
             border-radius: 30px;
             color: #1a0813;
-            box-shadow: 0 4px 0px rgba(0,0,0,0.1);
         }
         .badge-video { background: #f8a488; }
         .badge-design { background: #a8dadc; }
@@ -386,7 +367,7 @@
         /* --- 3D DECK CARDS INTERACTIVE SLIDER --- */
         .experience-section {
             width: 100%;
-            padding: 40px 0;
+            padding: 20px 0;
             perspective: 1200px;
         }
 
@@ -406,7 +387,6 @@
             position: relative;
             height: 400px;
             overflow: hidden;
-            touch-action: pan-y;
         }
 
         .project-card-3d {
@@ -423,7 +403,6 @@
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, border-color 0.3s ease;
             cursor: pointer;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            user-select: none;
         }
 
         .project-card-3d.card-pos-active {
@@ -466,14 +445,12 @@
             color: #ec527b;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
         }
 
         .card-desc-body {
             font-size: 0.9rem;
             line-height: 1.55;
             color: #cbd5e1;
-            text-align: justify;
             margin: 16px 0;
             flex-grow: 1;
         }
@@ -501,22 +478,15 @@
             color: #cbd5e1;
         }
 
-        /* --- HOBBIES & EDITORIAL INTERESTS --- */
-        .interests-section {
-            padding: 40px 0;
-        }
-
+        /* --- HOBBIES & INTERESTS --- */
         .interests-canvas-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 35px;
-            margin-top: 20px;
         }
 
         @media(min-width: 850px) {
-            .interests-canvas-grid {
-                grid-template-columns: 1.3fr 1fr;
-            }
+            .interests-canvas-grid { grid-template-columns: 1.3fr 1fr; }
         }
 
         .tech-bento-subgrid {
@@ -526,9 +496,7 @@
         }
 
         @media(min-width: 550px) {
-            .tech-bento-subgrid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .tech-bento-subgrid { grid-template-columns: 1fr 1fr; }
         }
 
         .interest-scrap-card {
@@ -536,13 +504,6 @@
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 16px;
             padding: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            transition: all 0.3s ease;
-        }
-
-        .interest-scrap-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(236, 82, 123, 0.4);
         }
 
         .profile-design { border-bottom: 4px solid #f8a488; }
@@ -561,10 +522,8 @@
             font-size: 0.9rem;
             color: #cbd5e1;
             line-height: 1.55;
-            text-align: justify;
         }
 
-        /* Gaming Premium Frame panel */
         .gaming-deluxe-panel {
             background: linear-gradient(145deg, #1e0916, #280d1e);
             border: 1px solid rgba(247, 208, 112, 0.2);
@@ -573,7 +532,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             position: relative;
         }
 
@@ -589,7 +547,6 @@
             font-weight: 900;
             padding: 4px 10px;
             border-radius: 4px;
-            letter-spacing: 1px;
         }
 
         .gaming-deluxe-header h3 {
@@ -620,11 +577,9 @@
             font-family: 'Fredoka', sans-serif;
             font-weight: 600;
             color: #fff;
-            font-size: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.25s ease;
         }
 
         .gamer-tag-strip::after {
@@ -635,35 +590,18 @@
             border: 1px solid rgba(236, 82, 123, 0.3);
             padding: 3px 8px;
             border-radius: 4px;
-            letter-spacing: 0.5px;
-        }
-
-        .gamer-tag-strip:hover {
-            background: rgba(236, 82, 123, 0.06);
-            border-color: rgba(236, 82, 123, 0.4);
-            transform: translateX(4px);
         }
 
         /* --- PREMIUM BENTO GALLERY AWARDS --- */
-        .awards-section {
-            padding: 40px 0;
-        }
-
         .bento-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
-            margin-top: 30px;
         }
 
         @media(min-width: 750px) {
-            .bento-grid {
-                grid-template-columns: 1.2fr 1fr;
-            }
-            .trophy-card {
-                grid-row: span 2;
-                height: 100%;
-            }
+            .bento-grid { grid-template-columns: 1.2fr 1fr; }
+            .trophy-card { grid-row: span 2; }
         }
 
         .bento-card {
@@ -676,34 +614,13 @@
             justify-content: space-between;
             min-height: 240px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             background-size: cover;
             background-position: center;
-        }
-
-        .bento-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(236, 82, 123, 0.2);
-            border-color: rgba(236, 82, 123, 0.5) !important;
+            background-color: #2b1424;
         }
 
         .trophy-card { border: 2px solid #f7d070; }
         .standard-bento { border: 1px solid rgba(255, 255, 255, 0.08); }
-        
-        .trophy-card::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(247, 208, 112, 0.08), transparent, rgba(236, 82, 123, 0.12), transparent);
-            animation: rotateAura 15s linear infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes rotateAura {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
 
         .bento-content-inner {
             position: relative;
@@ -719,7 +636,6 @@
             display: inline-block;
             margin-bottom: 14px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         .tag-gold { background: #f7d070; color: #1a0813; }
         .tag-purple { background: #8e44ad; color: #fff; }
@@ -729,16 +645,13 @@
             font-family: 'Fredoka', sans-serif;
             font-size: 1.5rem;
             color: #fff;
-            line-height: 1.3;
             margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .bento-card p {
             font-size: 0.92rem;
             color: #e2e8f0;
             line-height: 1.6;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         .bento-footer-row {
@@ -746,7 +659,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
             z-index: 2;
         }
 
@@ -755,7 +667,6 @@
             font-weight: 700;
             color: #ec527b;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
             background: rgba(26, 8, 19, 0.8);
             padding: 4px 10px;
             border-radius: 6px;
@@ -766,24 +677,16 @@
             background: rgba(255, 255, 255, 0.12);
             padding: 6px 14px;
             border-radius: 20px;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
             font-weight: bold;
             color: #e6dfd3;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .bento-card:hover .view-badge-btn {
-            background: #ec527b;
-            color: #fff;
         }
 
-        /* --- LIGHTBOX OVERLAY --- */
+        /* --- LIGHTBOX MODAL --- */
         .credential-modal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(15, 4, 11, 0.96);
-            z-index: 2000;
+            z-index: 99999;
             display: none;
             align-items: center;
             justify-content: center;
@@ -798,14 +701,10 @@
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.08);
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             position: relative;
-            transform: scale(0.95);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .credential-modal.modal-open { display: flex; }
-        .credential-modal.modal-open .modal-container { transform: scale(1); }
 
         .modal-close-btn {
             position: absolute;
@@ -819,38 +718,22 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 10;
-            transition: background 0.2s;
         }
-        .modal-close-btn:hover { background: #ba3559; }
 
         .modal-image-view {
             width: 100%;
             height: auto;
             max-height: 480px;
             object-fit: contain;
-            background: #11030c;
             display: block;
         }
 
         .modal-caption {
             padding: 25px;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        .modal-caption h4 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.4rem;
-            color: #f7d070;
-            margin-bottom: 6px;
-        }
-
-        .modal-caption p {
-            font-size: 0.95rem;
-            color: #cbd5e1;
-        }
-
-        /* --- STYLISH EDITORIAL TABLE OF CONTENT --- */
+        /* --- TABLE OF CONTENT --- */
         .toc-section {
             text-align: center;
             padding: 40px 0;
@@ -860,10 +743,8 @@
         .toc-title {
             font-family: 'Fredoka', sans-serif;
             font-size: 2.6rem;
-            line-height: 1.1;
             color: #fff;
             margin-bottom: 40px;
-            letter-spacing: 1px;
         }
 
         .toc-title span { color: #f7d070; }
@@ -892,13 +773,6 @@
             border-radius: 40px;
             border: 3px solid #fff;
             box-shadow: 0 6px 0px rgba(0,0,0,0.25);
-            transition: all 0.1s ease;
-        }
-
-        .capsule-btn:hover {
-            transform: translateY(2px);
-            box-shadow: 0 4px 0px rgba(0,0,0,0.25);
-            background: #ba3559;
         }
 
         .portfolio-footer {
@@ -912,7 +786,246 @@
 </head>
 <body>
 
+    <!-- NAV BAR -->
     <nav class="modern-nav-bar">
         <a href="#home-top" class="nav-brand-logo">SHAN (AY IS 1A)</a>
         <div class="nav-links-cluster">
-            <a href="#home-top" class="nav
+            <a href="#home-top" class="nav-tab-link active-tab" id="tab-home">Home</a>
+            <a href="#projects" class="nav-tab-link" id="tab-projects">Projects</a>
+            <a href="#interests" class="nav-tab-link" id="tab-interests">Interests</a>
+            <a href="#awards" class="nav-tab-link" id="tab-awards">Awards</a>
+            <a href="#contact" class="nav-tab-link" id="tab-contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="portfolio-wrapper" id="home-top">
+        
+        <!-- PORSCHE SPLIT HERO -->
+        <header class="hero-section">
+            <div class="hero-bg-watermark">SHAN</div>
+            
+            <div class="logo-area">
+                <h1 class="main-title">PORTFOLIO</h1>
+                <p class="tagline">Welcome to my portfolio!</p>
+            </div>
+            
+            <div class="tech-matrix-visual">
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-pink"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-gold"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-pink"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node"></div>
+                <div class="matrix-node node-glow-gold"></div>
+            </div>
+        </header>
+
+        <!-- MAIN BIO LAYER -->
+        <main class="intro-grid">
+            <div class="profile-sidebar">
+                <div class="photo-frame">
+                    <img src="https://piedadashantinovi.github.io/shancreates.github.io/profile.jpeg" alt="Piedad Ashanti Novi" class="profile-image">
+                    <span class="sticker tag-blue">Video Editor</span>
+                    <span class="sticker tag-pink">Designer</span>
+                </div>
+                
+                <div class="connect-panel" id="contact">
+                    <h3 class="connect-headline">Let's Connect</h3>
+                    <p class="connect-subtext">Interested in collaborating? Feel free to reach out.</p>
+                    <div class="contact-details-list">
+                        <div class="contact-item-row">
+                            <span class="contact-meta-label">Email</span>
+                            <span class="contact-meta-value">piedad.ashantinovi@dnsc.edu.ph</span>
+                        </div>
+                        <div class="contact-item-row">
+                            <span class="contact-meta-label">Location</span>
+                            <span class="contact-meta-value">Panabo City, Davao del Norte</span>
+                        </div>
+                    </div>
+                    <a href="https://www.facebook.com/share/17ZVvigAFg/" target="_blank" class="connect-action-btn">CONNECT WITH ME</a>
+                </div>
+            </div>
+
+            <div class="bio-content">
+                <h2 class="greet-title">Hello!</h2>
+                <div class="bio-text">
+                    <p>I'm <strong>Ashanti Novi C. Piedad</strong>, an Information Systems student who is passionate about technology, innovation, and continuous learning.</p>
+                    <p>This portfolio highlights my academic projects, technology-related certifications, technical skills, and personal interests. It reflects my journey as a student, showcasing the knowledge and experiences I have gained in software development, information systems, database management, and other areas of technology.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <h3 class="section-subtitle">Core Creative Skills</h3>
+                <div class="skills-row">
+                    <span class="tool-badge badge-video">Video Editing</span>
+                    <span class="tool-badge badge-design">Graphic Design</span>
+                    <span class="tool-badge badge-capcut">CapCut</span>
+                    <span class="tool-badge badge-canva">Canva</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- PROJECTS -->
+        <section class="experience-section" id="projects">
+            <h2 class="section-title-center">My Projects</h2>
+            <div class="cards-slider-container" id="sliderContainer">
+                <div class="project-card-3d card-pos-left" onclick="stepSliderToCard(0)">
+                    <div class="card-top-identity">
+                        <h4>POS System (1998 Cafe)</h4>
+                        <span class="role-badge-text">Primary Programmer</span>
+                    </div>
+                    <p class="card-desc-body">Managed visual design implementations, core system architecture, and custom MySQL database integration.</p>
+                    <div class="card-footer-meta">
+                        <span class="tech-pill-tag">Java Desktop</span>
+                        <span class="project-year-stamp">2026</span>
+                    </div>
+                </div>
+
+                <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
+                    <div class="card-top-identity">
+                        <h4>Technological Plan</h4>
+                        <span class="role-badge-text">Strategy</span>
+                    </div>
+                    <p class="card-desc-body">Formulated a strategic technical proposal designed to upgrade legacy inventory methods to Cloud ERP systems.</p>
+                    <div class="card-footer-meta">
+                        <span class="tech-pill-tag">ERP Strategy</span>
+                        <span class="project-year-stamp">2026</span>
+                    </div>
+                </div>
+
+                <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
+                    <div class="card-top-identity">
+                        <h4>Voting Simulation</h4>
+                        <span class="role-badge-text">Developer</span>
+                    </div>
+                    <p class="card-desc-body">A runtime terminal setup showcasing modern programmatic algorithm sorting systems.</p>
+                    <div class="card-footer-meta">
+                        <span class="tech-pill-tag">Java CLI</span>
+                        <span class="project-year-stamp">2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOBBIES -->
+        <section class="interests-section" id="interests">
+            <h2 class="section-title-center">Hobbies & Interests</h2>
+            <div class="interests-canvas-grid">
+                <div class="tech-bento-subgrid">
+                    <div class="interest-scrap-card profile-design">
+                        <h4>Digital Content & Graphics</h4>
+                        <p>Designing assets, interfaces, and clean digital aesthetics across software platforms.</p>
+                    </div>
+                    <div class="interest-scrap-card profile-ai">
+                        <h4>Emerging Tech & AI Tools</h4>
+                        <p>Exploring complex technical spaces and artificial intelligence frameworks.</p>
+                    </div>
+                </div>
+                <div class="gaming-deluxe-panel">
+                    <div class="gaming-deluxe-header">
+                        <h3>Strategy Focus</h3>
+                        <p>Engaging with competitive tactical environments.</p>
+                    </div>
+                    <div class="gamer-tags-stack">
+                        <div class="gamer-tag-strip">Clash of Clans</div>
+                        <div class="gamer-tag-strip">Call of Duty: Mobile</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AWARDS -->
+        <section class="awards-section" id="awards">
+            <h2 class="section-title-center">Awards & Recognition</h2>
+            <div class="bento-grid">
+                <div class="bento-card trophy-card" onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
+                    <div class="bento-content-inner">
+                        <span class="bento-tag tag-gold">Champion Trophy</span>
+                        <h3>Bytesize Quiz Bee Plaque</h3>
+                        <p>Awarded for emerging as the Grand Champion in the technical Quiz Bee arena at ByteFest 3.0.</p>
+                    </div>
+                    <div class="bento-footer-row">
+                        <span class="bento-institution">DNSC LSG</span>
+                        <div class="view-badge-btn">View</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL -->
+        <div class="credential-modal" id="credModal" onclick="closeCredential()">
+            <div class="modal-container" onclick="event.stopPropagation()">
+                <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
+                <img src="" id="modalImg" alt="Credential View" class="modal-image-view">
+                <div class="modal-caption">
+                    <h4 id="modalTitle"></h4>
+                    <p id="modalDesc"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLE OF CONTENT -->
+        <section class="toc-section">
+            <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
+            <div class="toc-buttons">
+                <a href="#" class="capsule-btn">1. BRAND IDENTITY</a>
+                <a href="#" class="capsule-btn">2. VIDEO REELS</a>
+            </div>
+        </section>
+
+        <footer class="portfolio-footer">
+            <p>Edc design 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Slider Mechanics
+        let sliderStateIndex = 1; 
+        const totalCardsCount = 3;
+
+        function stepSliderToCard(targetCardIndex) {
+            sliderStateIndex = targetCardIndex;
+            updateSliderPositionsLayout();
+        }
+
+        function updateSliderPositionsLayout() {
+            const cards = document.querySelectorAll('.project-card-3d');
+            cards.forEach((card, index) => {
+                card.className = 'project-card-3d'; 
+                if (index === sliderStateIndex) {
+                    card.classList.add('card-pos-active');
+                } else if (index === (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount) {
+                    card.classList.add('card-pos-left');
+                } else if (index === (sliderStateIndex + 1) % totalCardsCount) {
+                    card.classList.add('card-pos-right');
+                } else {
+                    card.classList.add('card-pos-hidden');
+                }
+            });
+        }
+        updateSliderPositionsLayout();
+
+        // Modal Mechanics
+        const modal = document.getElementById('credModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openCredential(imgSrc, title, description) {
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDesc.textContent = description;
+            modal.classList.add('modal-open');
+        }
+
+        function closeCredential() {
+            modal.classList.remove('modal-open');
+        }
+    </script>
+</body>
+</html>
