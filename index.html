@@ -44,8 +44,8 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 96%; /* Expanded width as requested */
-            max-width: 1400px; /* Wider boundary for a premium look */
+            width: 96%; 
+            max-width: 1400px; 
             background: rgba(26, 8, 19, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -93,7 +93,7 @@
         /* --- PORSCHE-INSPIRED SPLIT LANDING HERO --- */
         .hero-section {
             position: relative;
-            background: linear-gradient(to right, #240d1e 50%, #1a0813 50%); /* Split background effect */
+            background: linear-gradient(to right, #240d1e 50%, #1a0813 50%); 
             border-radius: 24px;
             padding: 80px 50px;
             display: flex;
@@ -454,7 +454,7 @@
             color: #cbd5e1;
         }
 
-        /* --- HOBBIES & INTERESTS --- */
+        /* --- RESTORED ORIGINAL TILTED HOBBIES STYLE --- */
         .interests-canvas-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -468,53 +468,79 @@
         .tech-bento-subgrid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 25px;
         }
 
         @media(min-width: 550px) {
             .tech-bento-subgrid { grid-template-columns: 1fr 1fr; }
         }
 
+        /* Original structural card rules with tilt angles */
         .interest-scrap-card {
             background: #23111e;
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 16px;
-            padding: 24px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
         }
 
-        .profile-design { border-left: 4px solid #f8a488; }
-        .profile-ai { border-left: 4px solid #a8dadc; }
-        .profile-web { border-left: 4px solid #e9c46a; }
-        .profile-systems { border-left: 4px solid #5bc0be; }
+        /* Alternating original micro-tilts */
+        .tech-bento-subgrid .interest-scrap-card:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+        .tech-bento-subgrid .interest-scrap-card:nth-child(even) {
+            transform: rotate(1.5deg);
+        }
+
+        /* Hover response brings them straight and forward */
+        .interest-scrap-card:hover {
+            transform: rotate(0deg) scale(1.03) !important;
+            border-color: #ec527b;
+            z-index: 10;
+        }
+
+        .profile-design { border-left: 5px solid #f8a488; }
+        .profile-ai { border-left: 5px solid #a8dadc; }
+        .profile-web { border-left: 5px solid #e9c46a; }
+        .profile-systems { border-left: 5px solid #5bc0be; }
 
         .interest-scrap-card h4 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #f7d070;
         }
 
         .interest-scrap-card p {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: #cbd5e1;
-            line-height: 1.55;
+            line-height: 1.6;
         }
 
+        /* Tilted Gaming Panel layout */
         .gaming-deluxe-panel {
             background: linear-gradient(145deg, #1e0916, #280d1e);
             border: 1px solid rgba(247, 208, 112, 0.15);
             border-radius: 20px;
-            padding: 30px;
+            padding: 32px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            transform: rotate(1deg);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .gaming-deluxe-panel:hover {
+            transform: rotate(0deg) scale(1.02);
         }
 
         .gaming-deluxe-panel::before {
-            content: 'TACTICAL MATRIX';
+            content: 'STRATEGY PROTOCOL';
             position: absolute;
             top: -12px;
             right: 25px;
@@ -535,7 +561,7 @@
         }
 
         .gaming-deluxe-header p {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: #cbd5e1;
             line-height: 1.6;
             margin-bottom: 25px;
@@ -560,14 +586,28 @@
             align-items: center;
         }
 
+        /* Cleaned, meaningful context statuses instead of 'LIVE' */
         .gamer-tag-strip::after {
-            content: 'LIVE';
             font-size: 0.65rem;
-            color: #ec527b;
             font-weight: 700;
-            border: 1px solid rgba(236, 82, 123, 0.3);
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .game-coc::after {
+            content: 'COMPETITIVE';
+            color: #e9c46a;
+            border: 1px solid rgba(233, 196, 106, 0.3);
+        }
+        .game-codm::after {
+            content: 'RANKED MATCHES';
+            color: #ec527b;
+            border: 1px solid rgba(236, 82, 123, 0.3);
+        }
+        .game-val::after {
+            content: 'ACTIVE SESSION';
+            color: #a8dadc;
+            border: 1px solid rgba(168, 218, 220, 0.3);
         }
 
         /* --- CERTIFICATES / AWARDS GRID --- */
@@ -942,7 +982,7 @@
             </div>
         </section>
 
-        <!-- HOBBIES -->
+        <!-- RESTORED TILTED HOBBIES & INTERESTS -->
         <section class="interests-section" id="interests">
             <h2 class="section-title-center">Hobbies & Interests</h2>
             <div class="interests-canvas-grid">
@@ -970,9 +1010,9 @@
                         <p>Engaging with competitive, tactical match systems that rely heavily on pacing, micro-positioning, and fast problem solving.</p>
                     </div>
                     <div class="gamer-tags-stack">
-                        <div class="gamer-tag-strip">Clash of Clans</div>
-                        <div class="gamer-tag-strip">Call of Duty: Mobile</div>
-                        <div class="gamer-tag-strip">Valorant</div>
+                        <div class="gamer-tag-strip game-coc">Clash of Clans</div>
+                        <div class="gamer-tag-strip game-codm">Call of Duty: Mobile</div>
+                        <div class="gamer-tag-strip game-val">Valorant</div>
                     </div>
                 </div>
             </div>
