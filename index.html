@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
+    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -246,215 +247,124 @@
             line-height: 1.5;
         }
 
-        /* --- 3D PROJECTS CAROUSEL --- */
+        /* --- DROPDOWN ACCORDION PROJECTS SECTION --- */
         .experience-section {
             width: 100%;
-            position: relative;
-            padding: 40px 0;
-            overflow: hidden;
+            padding: 20px 0;
         }
 
         .section-title-center {
             font-family: 'Fredoka', sans-serif;
             font-size: 2rem;
             color: #f7d070;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 100%;
-            max-width: 800px;
+        .accordion-container {
+            max-width: 750px;
             margin: 0 auto;
-            height: 410px;
-            perspective: 1000px;
-        }
-
-        .carousel-track {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .project-card {
-            position: absolute;
-            width: 340px;
-            height: 385px;
-            border-radius: 24px;
-            padding: 26px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0.5s ease;
-            cursor: pointer;
-            user-select: none;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
+            gap: 14px;
         }
 
-        .pink-card {
-            background: #ec527b;
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-top: 3px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .window-card {
+        .accordion-item {
             background: #2b1424;
+            border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-top: 3px solid #ec527b;
-            color: #e6dfd3;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
         }
 
-        .card-inner {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+        .accordion-item.active-item {
+            border-color: #ec527b;
         }
 
-        .card-header-row {
+        .accordion-header {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 6px;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            color: #fff;
+            outline: none;
         }
 
-        .card-inner h5 {
+        .header-title-group h5 {
             font-family: 'Fredoka', sans-serif;
             font-size: 1.15rem;
             line-height: 1.3;
             font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        .card-year-badge {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-        .pink-card .card-year-badge {
-            background: rgba(255, 255, 255, 0.25);
-            color: #fff;
-        }
-        .window-card .card-year-badge {
-            background: #ec527b;
-            color: #fff;
-        }
-
-        .card-role-line {
-            font-size: 0.78rem;
+        .header-subtitle-meta {
+            font-size: 0.82rem;
+            color: #ec527b;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 14px;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 15px;
         }
-        .card-role-line::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .pink-card .card-role-line { color: #f7d070; }
-        .pink-card .card-role-line::before { background: #f7d070; }
-        
-        .window-card .card-role-line { color: #ec527b; }
-        .window-card .card-role-line::before { background: #ec527b; }
 
-        .card-inner p.card-desc {
-            font-size: 0.86rem;
-            line-height: 1.55;
-            opacity: 0.95;
+        .meta-year {
+            color: #f7d070;
+        }
+
+        .accordion-icon {
+            font-size: 1rem;
+            color: #e6dfd3;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .accordion-item.active-item .accordion-icon {
+            transform: rotate(180deg);
+            color: #ec527b;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(26, 8, 19, 0.4);
+        }
+
+        .content-inner-body {
+            padding: 0 24px 24px 24px;
+        }
+
+        .content-inner-body p.card-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #cbd5e1;
             text-align: justify;
-            margin-bottom: auto;
+            margin-bottom: 16px;
         }
 
         .card-tech-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 15px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .pink-card .card-tech-wrapper { border-top-color: rgba(255, 255, 255, 0.2); }
 
         .tech-pill {
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
             letter-spacing: 0.3px;
-        }
-        .pink-card .tech-pill { background: rgba(0, 0, 0, 0.15); color: #fff; }
-        .window-card .tech-pill { background: rgba(236, 82, 123, 0.1); color: #ec527b; }
-
-        .card-motif {
-            position: absolute;
-            bottom: -10px;
-            right: -5px;
-            font-family: monospace;
-            font-size: 5.5rem;
-            font-weight: 900;
-            user-select: none;
-            pointer-events: none;
-            z-index: 1;
-            line-height: 1;
-        }
-        .pink-card .card-motif { color: rgba(255, 255, 255, 0.05); }
-        .window-card .card-motif { color: rgba(255, 255, 255, 0.02); }
-
-        .project-card.active {
-            transform: translateX(0) scale(1.05) translateZ(50px);
-            opacity: 1;
-            z-index: 5;
-            pointer-events: auto;
-            box-shadow: 0 15px 35px rgba(236, 82, 123, 0.25);
-        }
-
-        .project-card.left-aside { transform: translateX(-180px) scale(0.85) rotateY(15deg) translateZ(-50px); opacity: 0.35; z-index: 2; pointer-events: none; }
-        .project-card.right-aside { transform: translateX(180px) scale(0.85) rotateY(-15deg) translateZ(-50px); opacity: 0.35; z-index: 2; pointer-events: none; }
-        .project-card.hidden { transform: scale(0.5) translateZ(-200px); opacity: 0; z-index: 0; pointer-events: none; }
-        .project-card.active:hover { transform: translateX(0) scale(1.07) translateZ(60px); }
-
-        .carousel-nav {
-            background: #ec527b;
-            color: #fff;
-            border: 2px solid #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            box-shadow: 0 4px 0px rgba(0,0,0,0.2);
-            transition: background 0.2s;
-        }
-        .carousel-nav:hover { background: #ba3559; }
-
-        @media(max-width: 600px) {
-            .carousel-container { height: 430px; }
-            .project-card { width: 280px; height: 405px; padding: 20px; }
-            .project-card.left-aside { transform: translateX(-110px) scale(0.8) translateZ(-50px); }
-            .project-card.right-aside { transform: translateX(110px) scale(0.8) translateZ(-50px); }
+            background: rgba(236, 82, 123, 0.1);
+            color: #ec527b;
         }
 
         /* --- CREATIVE CERTIFICATES BENTO GALLERY --- */
@@ -576,16 +486,19 @@
         }
 
         .view-badge-btn {
-            font-size: 1.1rem;
+            font-size: 0.8rem;
             background: rgba(255, 255, 255, 0.15);
-            width: 36px;
-            height: 36px;
+            padding: 6px 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 20px;
             transition: background 0.2s, color 0.2s;
             backdrop-filter: blur(4px);
+            font-weight: bold;
+            color: #e6dfd3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .bento-card:hover .view-badge-btn {
             background: #ec527b;
@@ -722,6 +635,7 @@
 
     <div class="portfolio-wrapper">
         
+        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
@@ -737,6 +651,7 @@
             </div>
         </header>
 
+        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -793,22 +708,27 @@
             </div>
         </main>
 
+        <!-- ACCORDION DROPDOWN PROJECTS SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
-            <div class="carousel-container">
-                <button class="carousel-nav prev-btn" id="prevBtn">✦</button>
+            <div class="accordion-container">
                 
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="project-card pink-card" data-index="0">
-                        <div class="card-motif">&lt;/&gt;</div>
-                        <div class="card-inner">
-                            <div class="card-header-row">
-                                <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
-                                <span class="card-year-badge">2026</span>
+                <!-- Project Dropdown 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-title-group">
+                            <h5>POS & Sales Monitoring System (1998 Cafe)</h5>
+                            <div class="header-subtitle-meta">
+                                <span>Primary Programmer</span>
+                                <span class="meta-year">2026</span>
                             </div>
-                            <div class="card-role-line">Primary Programmer</div>
-                            <p class="card-desc">Managed the comprehensive visual design implementations, core system architecture, and custom MySQL database integration. Engineered an interactive, visual <strong>cashier's product showcase</strong> interface as a signature capability.</p>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner-body">
+                            <p class="card-desc">Managed the comprehensive visual design implementations, core system architecture, and custom MySQL database integration. Engineered an interactive, visual cashier's product showcase interface as a signature capability.</p>
                             <div class="card-tech-wrapper">
                                 <span class="tech-pill">Java Desktop</span>
                                 <span class="tech-pill">MySQL</span>
@@ -816,16 +736,23 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card window-card" data-index="1">
-                        <div class="card-motif">💡</div>
-                        <div class="card-inner">
-                            <div class="card-header-row">
-                                <h5>Information System Technological Plan</h5>
-                                <span class="card-year-badge">2026</span>
+                <!-- Project Dropdown 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-title-group">
+                            <h5>Information System Technological Plan</h5>
+                            <div class="header-subtitle-meta">
+                                <span>1998 Cafe • Strategy</span>
+                                <span class="meta-year">2026</span>
                             </div>
-                            <div class="card-role-line">1998 Cafe • Strategy</div>
-                            <p class="card-desc">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized <strong>Cloud-Based ERP POS Inventory Management System</strong> to automate tracking operations.</p>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner-body">
+                            <p class="card-desc">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized Cloud-Based ERP POS Inventory Management System to automate tracking operations.</p>
                             <div class="card-tech-wrapper">
                                 <span class="tech-pill">ERP Systems</span>
                                 <span class="tech-pill">Cloud Strategy</span>
@@ -833,15 +760,22 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card pink-card" data-index="2">
-                        <div class="card-motif">&amp;</div>
-                        <div class="card-inner">
-                            <div class="card-header-row">
-                                <h5>Digital Voting System Simulation</h5>
-                                <span class="card-year-badge">2025</span>
+                <!-- Project Dropdown 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-title-group">
+                            <h5>Digital Voting System Simulation</h5>
+                            <div class="header-subtitle-meta">
+                                <span>System Developer</span>
+                                <span class="meta-year">2025</span>
                             </div>
-                            <div class="card-role-line">System Developer</div>
+                        </div>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner-body">
                             <p class="card-desc">A focused software project built using clean, fundamental Java execution structures to accurately simulate localized electoral processes, accommodating complex voting ladders up to the executive scale of Governor.</p>
                             <div class="card-tech-wrapper">
                                 <span class="tech-pill">Java CLI</span>
@@ -852,60 +786,64 @@
                     </div>
                 </div>
 
-                <button class="carousel-nav next-btn" id="nextBtn">✦</button>
             </div>
         </section>
 
+        <!-- CREATIVE CERTIFICATES & AWARDS BENTO GALLERY (EMOJIS REMOVED) -->
         <section class="awards-section">
             <h2 class="section-title-center">Awards & Recognition</h2>
             
             <div class="bento-grid">
                 
+                <!-- Bento Block 1: Main Plaque Trophy -->
                 <div class="bento-card trophy-card" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
                     <div class="bento-content-inner">
-                        <span class="bento-tag tag-gold">🏆 Champion Trophy</span>
+                        <span class="bento-tag tag-gold">Champion Trophy</span>
                         <h3>Bytesize Quiz Bee Plaque</h3>
                         <p>Awarded for emerging as the absolute Grand Champion in the intensive technical Quiz Bee arena at the ByteFest 3.0 event.</p>
                     </div>
                     <div class="bento-footer-row">
                         <span class="bento-institution">DNSC Local Student Government</span>
-                        <div class="view-badge-btn">✨</div>
+                        <div class="view-badge-btn">View</div>
                     </div>
                 </div>
 
+                <!-- Bento Block 2: Quiz Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
                     <div class="bento-content-inner">
-                        <span class="bento-tag tag-purple">🎓 Certificate</span>
+                        <span class="bento-tag tag-purple">Certificate</span>
                         <h3>Bytesize Quiz Bee Winner</h3>
                         <p>Official Institutional recognition for securing the top honors during the flagship academic computation rally.</p>
                     </div>
                     <div class="bento-footer-row">
                         <span class="bento-institution">Institute of Computing</span>
-                        <div class="view-badge-btn">✦</div>
+                        <div class="view-badge-btn">View</div>
                     </div>
                 </div>
 
+                <!-- Bento Block 3: MTV Parody Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg', 'Best MTV Spoof Award', 'Parody version of Twice\'s What is Love—awarded at the DNSC Audio Visual Room.')">
                     <div class="bento-content-inner">
-                        <span class="bento-tag tag-red">🎬 Media Production</span>
+                        <span class="bento-tag tag-red">Media Production</span>
                         <h3>Best MTV Spoof: "What is Love"</h3>
                         <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
                     </div>
                     <div class="bento-footer-row">
                         <span class="bento-institution">Multimedia Festival</span>
-                        <div class="view-badge-btn">✦</div>
+                        <div class="view-badge-btn">View</div>
                     </div>
                 </div>
 
             </div>
         </section>
 
+        <!-- LIGHTBOX MODAL CONTAINER -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -917,6 +855,7 @@
             </div>
         </div>
 
+        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
@@ -933,57 +872,33 @@
 
     </div>
 
+    <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
-        // --- 3D PROJECT CAROUSEL SYSTEM ---
-        const cards = Array.from(document.querySelectorAll('.project-card'));
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const track = document.getElementById('carouselTrack');
-        
-        let currentIndex = 1;
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        function updateCarousel() {
-            cards.forEach((card, i) => {
-                card.classList.remove('active', 'left-aside', 'right-aside', 'hidden');
-                if (i === currentIndex) {
-                    card.classList.add('active');
-                } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
-                    card.classList.add('left-aside');
-                } else if (i === (currentIndex + 1) % cards.length) {
-                    card.classList.add('right-aside');
-                } else {
-                    card.classList.add('hidden');
+        // --- ACCORDION DROPDOWN ENGINE ---
+        function toggleAccordion(headerElement) {
+            const item = headerElement.parentElement;
+            const content = item.querySelector('.accordion-content');
+            
+            // Toggle active styling class
+            item.classList.toggle('active-item');
+            
+            if (item.classList.contains('active-item')) {
+                // Set height to scrollHeight dynamically to open
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                // Return height to zero to close
+                content.style.maxHeight = "0";
+            }
+            
+            // Optional layout collapse rule: close other dropdown blocks automatically
+            const allItems = document.querySelectorAll('.accordion-item');
+            allItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active-item')) {
+                    otherItem.classList.remove('active-item');
+                    otherItem.querySelector('.accordion-content').style.maxHeight = "0";
                 }
             });
         }
-
-        function moveNext() { currentIndex = (currentIndex + 1) % cards.length; updateCarousel(); }
-        function movePrev() { currentIndex = (currentIndex - 1 + cards.length) % cards.length; updateCarousel(); }
-
-        nextBtn.addEventListener('click', moveNext);
-        prevBtn.addEventListener('click', movePrev);
-
-        cards.forEach((card, index) => {
-            card.addEventListener('click', () => {
-                if (currentIndex !== index) {
-                    currentIndex = index;
-                    updateCarousel();
-                }
-            });
-        });
-
-        track.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-        track.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipeGesture(); }, { passive: true });
-
-        function handleSwipeGesture() {
-            const swipeThreshold = 50;
-            if (touchStartX - touchEndX > swipeThreshold) moveNext();
-            if (touchEndX - touchStartX > swipeThreshold) movePrev();
-        }
-
-        updateCarousel();
 
         // --- INTERACTIVE CREDENTIAL MODAL LIGHTBOX SYSTEM ---
         const modal = document.getElementById('credModal');
