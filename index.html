@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedad's Creative Portfolio</title>
-    <!-- Playful and clean fonts to mimic the sticker/scrapbook style -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -247,7 +246,7 @@
             line-height: 1.5;
         }
 
-        /* --- RESTORED ORIGINAL 3D SLIDER PROJECTS SECTION --- */
+        /* --- PREVENT OVERFLOW & ADD SWIPE CAPABILITIES --- */
         .experience-section {
             width: 100%;
             padding: 20px 0;
@@ -270,15 +269,16 @@
             position: relative;
             height: 380px;
             overflow: hidden;
+            touch-action: pan-y; /* Allows scroll layout vertically while hijacking swiping horizontally */
         }
 
         .project-card-3d {
             position: absolute;
             width: 290px;
-            height: 340px;
+            height: 350px; /* Increased height container strictly to avoid spacing breaks */
             background: #2b1424;
             border-radius: 24px;
-            padding: 24px;
+            padding: 20px; /* Snugger padding prevents element spillover */
             border: 2px solid rgba(255, 255, 255, 0.08);
             display: flex;
             flex-direction: column;
@@ -301,13 +301,13 @@
         .project-card-3d.card-pos-left {
             transform: translate3d(-160px, 0, -120px) scale(0.85) rotateY(25deg);
             z-index: 3;
-            opacity: 0.45;
+            opacity: 0.35;
         }
 
         .project-card-3d.card-pos-right {
             transform: translate3d(160px, 0, -120px) scale(0.85) rotateY(-25deg);
             z-index: 3;
-            opacity: 0.45;
+            opacity: 0.35;
         }
 
         .project-card-3d.card-pos-hidden {
@@ -335,11 +335,11 @@
         }
 
         .card-desc-body {
-            font-size: 0.88rem;
-            line-height: 1.5;
+            font-size: 0.85rem; /* Slight size shift down for immaculate alignment layout */
+            line-height: 1.45;
             color: #cbd5e1;
             text-align: justify;
-            margin: 15px 0;
+            margin: 12px 0;
             flex-grow: 1;
         }
 
@@ -349,6 +349,7 @@
             align-items: center;
             border-top: 1px solid rgba(255,255,255,0.08);
             padding-top: 12px;
+            margin-top: auto;
         }
 
         .tech-pill-tag {
@@ -634,7 +635,6 @@
 
     <div class="portfolio-wrapper">
         
-        <!-- HERO HEADER -->
         <header class="hero-section">
             <div class="logo-area">
                 <span class="sparkle-icon">✨</span>
@@ -650,7 +650,6 @@
             </div>
         </header>
 
-        <!-- INTRODUCTION Grid -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -707,13 +706,11 @@
             </div>
         </main>
 
-        <!-- RESTORED ORIGINAL 3D SLIDER PROJECTS SECTION -->
         <section class="experience-section">
             <h2 class="section-title-center">My Projects</h2>
             
             <div class="cards-slider-container" id="sliderContainer">
                 
-                <!-- Card 1 -->
                 <div class="project-card-3d card-pos-left" onclick="stepSliderToCard(0)">
                     <div class="card-top-identity">
                         <h4>POS & Sales Monitoring System (1998 Cafe)</h4>
@@ -726,20 +723,18 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
                     <div class="card-top-identity">
                         <h4>Information System Technological Plan</h4>
                         <span class="role-badge-text">1998 Cafe • Strategy</span>
                     </div>
-                    <p class="card-desc-body">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized Cloud-Based ERP POS Inventory Management System to automate tracking operations.</p>
+                    <p class="card-desc-body">Formulated a strategic technical proposal designed to upgrade manual legacy systems. Developed an architectural layout to deploy a modern, centralized Cloud-Based ERP POS Inventory Management System to fully automate tracking operations.</p>
                     <div class="card-footer-meta">
                         <span class="tech-pill-tag">ERP Strategy</span>
                         <span class="project-year-stamp">2026</span>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
                     <div class="card-top-identity">
                         <h4>Digital Voting System Simulation</h4>
@@ -755,13 +750,11 @@
             </div>
         </section>
 
-        <!-- CREATIVE CERTIFICATES & AWARDS BENTO GALLERY (EMOJIS REMOVED) -->
         <section class="awards-section">
             <h2 class="section-title-center">Awards & Recognition</h2>
             
             <div class="bento-grid">
                 
-                <!-- Bento Block 1: Main Plaque Trophy -->
                 <div class="bento-card trophy-card" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.88), rgba(43, 20, 36, 0.94)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1486822776514477.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during the ByteFest 3.0 competition.')">
@@ -776,7 +769,6 @@
                     </div>
                 </div>
 
-                <!-- Bento Block 2: Quiz Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/received_1511483030435458.jpeg', 'Certificate of Recognition', 'Official winner certificate awarded at the Davao del Norte State College Gymnasium.')">
@@ -791,7 +783,6 @@
                     </div>
                 </div>
 
-                <!-- Bento Block 3: MTV Parody Certificate -->
                 <div class="bento-card standard-bento" 
                      style="background-image: linear-gradient(rgba(43, 20, 36, 0.85), rgba(43, 20, 36, 0.95)), url('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg');"
                      onclick="openCredential('https://piedadashantinovi.github.io/shancreates.github.io/mtv-spoof-cert.jpeg', 'Best MTV Spoof Award', 'Parody version of Twice\'s What is Love—awarded at the DNSC Audio Visual Room.')">
@@ -809,7 +800,6 @@
             </div>
         </section>
 
-        <!-- LIGHTBOX MODAL CONTAINER -->
         <div class="credential-modal" id="credModal" onclick="closeCredential()">
             <div class="modal-container" onclick="event.stopPropagation()">
                 <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
@@ -821,7 +811,6 @@
             </div>
         </div>
 
-        <!-- TABLE OF CONTENTS -->
         <section class="toc-section">
             <h2 class="toc-title">TABLE OF <br><span>CONTENT</span></h2>
             <div class="toc-buttons">
@@ -838,11 +827,14 @@
 
     </div>
 
-    <!-- MAIN CORE SCRIPT CONTROLLER -->
     <script>
-        // --- RESTORED ORIGINAL 3D SLIDER ENGINE ---
+        // --- 3D SLIDER ENGINE WITH TOUCH SWIPE CAPABILITIES ---
         let sliderStateIndex = 1; // Center card active initially
         const totalCardsCount = 3;
+        
+        // Touch gesture tracking coordinates variables
+        let touchStartPosPointX = 0;
+        let touchEndPosPointX = 0;
 
         function stepSliderToCard(targetCardIndex) {
             sliderStateIndex = targetCardIndex;
@@ -864,6 +856,32 @@
                     card.classList.add('card-pos-hidden');
                 }
             });
+        }
+
+        // SWIPE GESTURE ATTACHMENTS
+        const sliderContainer = document.getElementById('sliderContainer');
+        
+        sliderContainer.addEventListener('touchstart', function(event) {
+            touchStartPosPointX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', function(event) {
+            touchEndPosPointX = event.changedTouches[0].screenX;
+            handleSwipeGestureDetection();
+        }, { passive: true });
+
+        function handleSwipeGestureDetection() {
+            const swipeThresholdDistance = 40; // minimum pixels moved to trigger slide switch
+            
+            if (touchStartPosPointX - touchEndPosPointX > swipeThresholdDistance) {
+                // Swiped Left -> Move to Next card on Right
+                sliderStateIndex = (sliderStateIndex + 1) % totalCardsCount;
+                updateSliderPositionsLayout();
+            } else if (touchEndPosPointX - touchStartPosPointX > swipeThresholdDistance) {
+                // Swiped Right -> Move to Previous card on Left
+                sliderStateIndex = (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount;
+                updateSliderPositionsLayout();
+            }
         }
 
         // Initialize original slider positions
