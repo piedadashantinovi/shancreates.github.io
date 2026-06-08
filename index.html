@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAN | Creative Portfolio</title>
-    <!-- Clean geometric fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -21,7 +20,6 @@
             background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
             background-size: 30px 30px;
             color: #e6dfd3;
-            font-family: 'Quicksand', sans-serif;
             padding-top: 140px; /* Space for fixed navbar */
             padding-bottom: 60px;
             overflow-x: hidden;
@@ -839,15 +837,121 @@
             font-weight: 500;
             letter-spacing: 0.2px;
         }
+
+        /* ==========================================================================
+           NEW RESPONSIVE MEDIA QUERIES FOR PORTRAIT SMARTPHONES
+           ========================================================================== */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px; /* Shorter top space on mobile layout */
+            }
+
+            .portfolio-wrapper {
+                gap: 50px; /* Tighter block distribution for better reading rhythm */
+                padding: 0 16px;
+            }
+
+            /* --- Fixed Navbar Layout Fix --- */
+            .modern-nav-bar {
+                top: 10px;
+                padding: 10px 18px;
+                border-radius: 25px;
+                flex-direction: column; /* Stack name and links gracefully */
+                gap: 8px;
+                width: 92%;
+            }
+
+            .nav-brand-logo {
+                font-size: 0.95rem;
+            }
+
+            .nav-links-cluster {
+                width: 100%;
+                justify-content: space-between;
+                overflow-x: auto; /* Lets navigation link bar scroll sideways smoothly if needed */
+                padding-bottom: 2px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-tab-link {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+                white-space: nowrap;
+            }
+
+            /* --- Hero Typography & Sizing Fix --- */
+            .hero-section {
+                padding: 40px 24px;
+                text-align: center;
+                justify-content: center;
+                min-height: auto;
+            }
+
+            .logo-area {
+                min-width: 100%;
+            }
+
+            .main-title {
+                font-size: 3.2rem; /* Scaled down perfectly so letters stay inside the container */
+                text-shadow: 2px 2px 0px #fff;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+                margin-top: 8px;
+            }
+
+            .tech-matrix-visual {
+                margin: 10px auto 0 auto; /* Center design matrix grid under content */
+            }
+
+            /* --- Bio Intro Structure Fix --- */
+            .greet-title {
+                font-size: 3.5rem; /* Prevents overflow clipping */
+                text-align: center;
+            }
+
+            .bio-text {
+                font-size: 1rem;
+                text-align: justify;
+            }
+
+            /* --- Interactive 3D Slider Container Adjustments --- */
+            .cards-slider-container {
+                height: 420px;
+            }
+
+            .project-card-3d {
+                width: 270px; /* Reduced width to easily fit portrait screen edges */
+                height: 380px;
+                padding: 20px;
+            }
+
+            /* Modify translation variables safely so left and right inactive cards remain visible offscreen */
+            .project-card-3d.card-pos-left {
+                transform: translate3d(-110px, 0, -120px) scale(0.8) rotateY(25deg);
+            }
+
+            .project-card-3d.card-pos-right {
+                transform: translate3d(110px, 0, -120px) scale(0.8) rotateY(-25deg);
+            }
+            
+            .card-top-identity h4 {
+                font-size: 1.1rem;
+            }
+
+            /* --- Awards layout safety block --- */
+            .featured-award-hero {
+                min-height: auto;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- SUBTLE BACKGROUND DESIGN ACCENTS -->
     <div class="bg-blur-accent bg-blur-accent-1"></div>
     <div class="bg-blur-accent bg-blur-accent-2"></div>
 
-    <!-- NAV BAR -->
     <nav class="modern-nav-bar">
         <a href="#home-top" class="nav-brand-logo">SHAN (AY IS 1A)</a>
         <div class="nav-links-cluster">
@@ -861,7 +965,6 @@
 
     <div class="portfolio-wrapper" id="home-top">
         
-        <!-- IMPROVED LANDING / HERO LAYER -->
         <header class="hero-section">
             <div class="logo-area">
                 <h1 class="main-title">PORTFOLIO</h1>
@@ -883,7 +986,6 @@
             </div>
         </header>
 
-        <!-- MAIN BIO LAYER -->
         <main class="intro-grid">
             <div class="profile-sidebar">
                 <div class="photo-frame">
@@ -928,7 +1030,6 @@
             </div>
         </main>
 
-        <!-- PROJECTS -->
         <section class="experience-section" id="projects">
             <h2 class="section-title-center">My Projects</h2>
             <div class="cards-slider-container" id="sliderContainer">
@@ -945,219 +1046,9 @@
                     </div>
                 </div>
 
-                <div class="project-card-3d card-pos-active" onclick="stepSliderToCard(1)">
-                    <div class="card-top-identity">
-                        <h4>Information System Technological Plan</h4>
-                        <span class="role-badge-text">1998 Cafe • Strategy</span>
-                    </div>
-                    <p class="card-desc-body">Formulated a strategic technical proposal designed to upgrade legacy systems slowed by manual calculations. Developed the architectural strategy to deploy a modern, centralized Cloud-Based ERP POS Inventory Management System to automate tracking operations.</p>
-                    <div class="card-footer-meta">
-                        <span class="tech-pill-tag">ERP Strategy</span>
-                        <span class="project-year-stamp">2026</span>
-                    </div>
-                </div>
-
-                <div class="project-card-3d card-pos-right" onclick="stepSliderToCard(2)">
-                    <div class="card-top-identity">
-                        <h4>Digital Voting System Simulation</h4>
-                        <span class="role-badge-text">System Developer</span>
-                    </div>
-                    <p class="card-desc-body">A strategic software project built utilizing fundamental Java architecture structures to accurately simulate a decentralized electoral voting workspace, accommodating multi-tiered sorting ladders up to the executive level of Governor.</p>
-                    <div class="card-footer-meta">
-                        <span class="tech-pill-tag">Java CLI</span>
-                        <span class="project-year-stamp">2025</span>
-                    </div>
-                </div>
-                
             </div>
         </section>
 
-        <!-- HOBBIES & INTERESTS -->
-        <section class="interests-section" id="interests">
-            <h2 class="section-title-center">Hobbies & Interests</h2>
-            <div class="interests-canvas-grid">
-                <div class="tech-bento-subgrid">
-                    <div class="interest-scrap-card profile-design">
-                        <h4>Digital Content & Graphics</h4>
-                        <p>Designing assets, interfaces, and clean digital aesthetics across various design tools.</p>
-                    </div>
-                    <div class="interest-scrap-card profile-ai">
-                        <h4>Emerging Tech & AI Tools</h4>
-                        <p>Exploring new systems, capabilities, and integrating artificial intelligence frameworks into modern asset workflows.</p>
-                    </div>
-                    <div class="interest-scrap-card profile-web">
-                        <h4>Software & Web Architecture</h4>
-                        <p>Building software structures, responsive layout designs, and modern frontend web layers.</p>
-                    </div>
-                    <div class="interest-scrap-card profile-systems">
-                        <h4>Information Systems</h4>
-                        <p>Analyzing business technology intersections, optimizing manual computational steps, and learning enterprise architectures.</p>
-                    </div>
-                </div>
-                <div class="gaming-deluxe-panel">
-                    <div class="gaming-deluxe-header">
-                        <h3>Strategy & Gaming Focus</h3>
-                        <p>Engaging with competitive, tactical match systems that rely heavily on pacing, micro-positioning, and fast problem solving.</p>
-                    </div>
-                    <div class="gamer-tags-stack">
-                        <div class="gamer-tag-strip game-coc">Clash of Clans</div>
-                        <div class="gamer-tag-strip game-codm">Call of Duty: Mobile</div>
-                        <div class="gamer-tag-strip game-val">Valorant</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AWARDS PANEL GRID -->
-        <section class="awards-section" id="awards">
-            <h2 class="section-title-center">Awards & Recognition</h2>
-            <div class="awards-responsive-matrix">
-                
-                <!-- Award 1 -->
-                <div class="premium-award-box featured-award-hero" onclick="openCredential('trophy.jpeg', 'Bytesize Quiz Bee Trophy', 'Grand Champion title won during ByteFest 3.0.')">
-                    <img src="trophy.jpeg" alt="Trophy Backing" class="card-bg-render-layer">
-                    <div class="award-content-foreground">
-                        <div>
-                            <span class="award-badge-ribbon ribbon-gold">Champion Trophy</span>
-                            <h3>Bytesize Quiz Bee Plaque</h3>
-                            <p>Awarded for emerging as the absolute Grand Champion in the intensive technical Quiz Bee arena at the ByteFest 3.0 event.</p>
-                        </div>
-                        <div class="award-card-footer">
-                            <span class="award-issuing-body">DNSC Local Student Government</span>
-                            <button class="award-view-action-btn">View</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="awards-secondary-stack">
-                    
-                    <!-- Award 2 -->
-                    <div class="premium-award-box" onclick="openCredential('cert1.jpeg', 'Bytesize Quiz Bee Winner Certificate', 'Official Institutional recognition for securing the top honors during the flagship academic computation rally.')">
-                        <img src="cert1.jpeg" alt="Certificate Backing" class="card-bg-render-layer">
-                        <div class="award-content-foreground">
-                            <div>
-                                <span class="award-badge-ribbon ribbon-purple">Certificate</span>
-                                <h3>Bytesize Quiz Bee Winner</h3>
-                                <p>Official Institutional recognition for securing the top honors during the flagship academic computation rally.</p>
-                            </div>
-                            <div class="award-card-footer">
-                                <span class="award-issuing-body">Institute of Computing</span>
-                                <button class="award-view-action-btn">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Award 3 -->
-                    <div class="premium-award-box" onclick="openCredential('cert2.jpeg', 'Best MTV Spoof Award', 'Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.')">
-                        <img src="cert2.jpeg" alt="MTV Certificate Backing" class="card-bg-render-layer">
-                        <div class="award-content-foreground">
-                            <div>
-                                <span class="award-badge-ribbon ribbon-red">Media Production</span>
-                                <h3>Best MTV Spoof: "What is Love"</h3>
-                                <p>Awarded in the premium K-Pop Category for exceptional performance, video design sequencing, and engagement pacing.</p>
-                            </div>
-                            <div class="award-card-footer">
-                                <span class="award-issuing-body">Multimedia Festival</span>
-                                <button class="award-view-action-btn">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- VIEW MODE / LIGHTBOX MODAL -->
-        <div class="credential-modal" id="credModal" onclick="closeCredential()">
-            <div class="modal-container" onclick="event.stopPropagation()">
-                <button class="modal-close-btn" onclick="closeCredential()">&times;</button>
-                <img src="" id="modalImg" alt="Credential View" class="modal-image-view">
-                <div class="modal-caption">
-                    <h4 id="modalTitle"></h4>
-                    <p id="modalDesc"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SITE FOOTER -->
-        <footer class="premium-site-footer">
-            <div class="footer-brand-signature">SHANCREATES</div>
-            <div class="footer-copyright-notice">Edc design 2026 • Built with passion</div>
-        </footer>
     </div>
-
-    <script>
-        // Slider Mechanics
-        let sliderStateIndex = 1; 
-        const totalCardsCount = 3;
-
-        function stepSliderToCard(targetCardIndex) {
-            sliderStateIndex = targetCardIndex;
-            updateSliderPositionsLayout();
-        }
-
-        function updateSliderPositionsLayout() {
-            const cards = document.querySelectorAll('.project-card-3d');
-            if(!cards.length) return;
-            cards.forEach((card, index) => {
-                card.className = 'project-card-3d'; 
-                if (index === sliderStateIndex) {
-                    card.classList.add('card-pos-active');
-                } else if (index === (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount) {
-                    card.classList.add('card-pos-left');
-                } else if (index === (sliderStateIndex + 1) % totalCardsCount) {
-                    card.classList.add('card-pos-right');
-                } else {
-                    card.classList.add('card-pos-hidden');
-                }
-            });
-        }
-        updateSliderPositionsLayout();
-
-        // TOUCH SWIPE LOGIC FOR THE 3D SLIDER
-        const sliderContainer = document.getElementById('sliderContainer');
-        let touchStartPosPointX = 0;
-        let touchEndPosPointX = 0;
-
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartPosPointX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        sliderContainer.addEventListener('touchend', (e) => {
-            touchEndPosPointX = e.changedTouches[0].screenX;
-            evaluateSwipeActionGesture();
-        }, { passive: true });
-
-        function evaluateSwipeActionGesture() {
-            const swipeDistanceDelta = touchEndPosPointX - touchStartPosPointX;
-            const swipeDistanceMinimumThreshold = 50;
-
-            if (swipeDistanceDelta < -swipeDistanceMinimumThreshold) {
-                sliderStateIndex = (sliderStateIndex + 1) % totalCardsCount;
-                updateSliderPositionsLayout();
-            } else if (swipeDistanceDelta > swipeDistanceMinimumThreshold) {
-                sliderStateIndex = (sliderStateIndex - 1 + totalCardsCount) % totalCardsCount;
-                updateSliderPositionsLayout();
-            }
-        }
-
-        // View Mode Modal Mechanics
-        const modal = document.getElementById('credModal');
-        const modalImg = document.getElementById('modalImg');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-
-        function openCredential(imgSrc, title, description) {
-            modalImg.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDesc.textContent = description;
-            modal.classList.add('modal-open');
-        }
-
-        function closeCredential() {
-            modal.classList.remove('modal-open');
-        }
-    </script>
 </body>
 </html>
